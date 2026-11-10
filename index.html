@@ -151,6 +151,44 @@ mark{background:var(--goldbg);color:inherit}
 .tmin{font-size:13px;font-weight:700;color:var(--gold);white-space:nowrap}
 .card.mini{padding:9px 12px}.card.mini b{display:block;font:600 15.5px var(--ui)}.card.mini .meta{font-size:13.5px}
 .toast{position:fixed;left:50%;bottom:86px;transform:translateX(-50%);background:var(--pine);color:#f6efdc;padding:11px 18px;border-radius:99px;font:600 15px var(--ui);z-index:60;box-shadow:0 4px 18px #0005;max-width:90%;text-align:center}
+
+/* ---------- Pantallas anchas: barra lateral y aprovechar el espacio ---------- */
+.nbrand{display:none;align-items:center;gap:10px;padding:4px 14px 16px;font:400 20px var(--disp);color:var(--ink)}
+.nbrand img{height:27px;width:auto}
+@media (min-width:760px){
+ .chips{flex-wrap:wrap;overflow:visible;margin:0;padding:2px 0 4px}
+ .chip{max-width:none;white-space:normal}
+}
+@media (min-width:900px){
+ body{padding-left:244px}
+ #app{max-width:880px;margin:0 auto;padding-bottom:56px}
+ .nav{top:0;bottom:0;right:auto;width:244px;border-top:0;border-right:1px solid var(--line);align-items:flex-start}
+ .nav div{flex-direction:column;width:100%;max-width:none;padding:18px 12px;gap:3px}
+ .nav button{flex:0 0 auto;flex-direction:row;justify-content:flex-start;gap:12px;padding:12px 14px;border-radius:12px;font-size:15.5px;font-weight:600}
+ .nav button.on{background:var(--sage)}
+ .nav svg{width:21px;height:21px}
+ .nbrand{display:flex}
+ .pad{padding:0 26px}
+ .top{padding:13px 22px;min-height:60px}
+ .top h2{font-size:21px}
+ .hero .scene{height:200px}
+ .hero h1{font-size:40px}
+ .hero p{font-size:17px;max-width:46ch}
+ .herot{padding:26px 26px 8px}
+ .banner .scene{height:230px}
+ .bt{padding:16px 26px 22px}
+ .bt h1{font-size:32px}
+ .chead h1{font-size:34px}
+ .stat b{font-size:28px}
+ .grid2{gap:12px}
+ .pager button{min-height:78px}
+ .art h1{font-size:36px}
+ .sec>h3{font-size:25px}
+ .toast{left:calc(50% + 122px);bottom:34px}
+ .diag svg{max-width:520px}
+ .quote blockquote{font-size:calc(20px*var(--fs))}
+}
+@media (min-width:1240px){ #app{max-width:1000px} .reader,.ev,.moment p{font-size:calc(19.5px*var(--fs))} }
 </style></head><body><main id="app"></main><nav class="nav" id="nav" aria-label="Principal"></nav><script>const CAPS=[];
 function C(o){CAPS.push(o)}
 C({n:1,t:"El plan maestro de Dios: el amor",r:"1–21",s:"De dónde viene todo esto: un Dios que ama y un mundo que quiere ver transformado.",
@@ -896,7 +934,7 @@ const NAV=[['inicio','home','Inicio'],['temas','book','Temas'],['preguntar','cha
 function tabOf(v){if(/^(cap|f|sesion)-/.test(v)||v==='temas')return 'temas';if(/^(tarjetas|quiz|repaso)/.test(v))return 'repaso';if(v==='preguntar')return v;if(v==='inicio')return v;if(v==='buscar')return '';return 'mas'}
 function render(){const v=view();let h,m;
  if(R[v])h=R[v]();else if(m=v.match(/^cap-(\d+)$/))h=capView(+m[1]);else if(byId[v])h=fichaView(v);else if(m=v.match(/^sesion-(\d+)$/))h=sesion(+m[1]);else if(m=v.match(/^era-(\d+)$/))h=eraView(+m[1]);else if(m=v.match(/^quiz-(\d+)$/))h=quizView(+m[1]);else h=R.inicio();
- app.innerHTML=h;const t=tabOf(v);$('#nav').innerHTML='<div>'+NAV.map(n=>`<button class="${n[0]===t?'on':''}" data-go="${n[0]}" aria-label="${n[2]}">${ic(n[1])}${n[2]}</button>`).join('')+'</div>';
+ app.innerHTML=h;const t=tabOf(v);$('#nav').innerHTML=`<div><span class="nbrand"><img src="${LOGO_C}" alt=""><b>Estudio DSI</b></span>`+NAV.map(n=>`<button class="${n[0]===t?'on':''}" data-go="${n[0]}" aria-label="${n[2]}">${ic(n[1])}${n[2]}</button>`).join('')+'</div>';
  const s=$('#s');if(s){s.addEventListener('input',()=>{term=s.value;$('#res').innerHTML=results()});if(!term)s.focus()}
  const nt=$('#note');if(nt)nt.addEventListener('input',()=>{S.notes[v]=nt.value;save()});
  const di=$('#dq');if(di)di.addEventListener('input',()=>{dq=di.value;$('#dres').innerHTML=dudaRes()});
