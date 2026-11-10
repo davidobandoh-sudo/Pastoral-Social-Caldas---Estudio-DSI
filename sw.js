@@ -1,4 +1,4 @@
-const C="estudio-dsi-v3";const A=["./", "index.html", "manifest.webmanifest", "icon-192.png", "icon-512.png", "fonts/dm.woff2", "fonts/sans400.woff2", "fonts/sans600.woff2", "fonts/sans700.woff2", "fonts/serif400-i.woff2", "fonts/serif400.woff2", "fonts/serif500-i.woff2", "fonts/serif500.woff2", "fonts/serif600.woff2"];
+const C="estudio-dsi-v4";const A=["./", "index.html", "manifest.webmanifest", "icon-192.png", "icon-512.png", "fonts/dm.woff2", "fonts/sans400.woff2", "fonts/sans600.woff2", "fonts/sans700.woff2", "fonts/serif400-i.woff2", "fonts/serif400.woff2", "fonts/serif500-i.woff2", "fonts/serif500.woff2", "fonts/serif600.woff2"];
 self.addEventListener("install",e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(A)).then(()=>self.skipWaiting()))});
 self.addEventListener("activate",e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==C).map(x=>caches.delete(x)))).then(()=>self.clients.claim()))});
 self.addEventListener("fetch",e=>{if(e.request.method!=="GET")return;e.respondWith(caches.match(e.request,{ignoreSearch:true}).then(r=>r||fetch(e.request)))});
