@@ -324,6 +324,13 @@ button.card.avance{display:block;width:100%;text-align:left;padding:15px 15px 13
 .card.mini b{font:600 23px var(--disp);color:var(--pine);line-height:1.05;display:block}
 .card.mini b small{font:600 13px var(--ui);color:var(--ink2)}
 @media (max-width:359px){.afila b{flex-basis:76px;font-size:13px}}
+/* Enlaces a fuentes bíblicas */
+.card.biblia{border-left:3px solid var(--gold)}
+.fuentes{display:flex;flex-direction:column;gap:8px}
+.fuentes .btn{display:flex;flex-direction:column;align-items:flex-start;gap:2px;width:100%;text-align:left;
+  text-decoration:none;padding:11px 14px;line-height:1.25}
+.fuentes .btn small{font:400 13.5px var(--ui);opacity:.78}
+.fuentes .btn.alt small{opacity:.7}
 </style></head><body><main id="app"></main><nav class="nav" id="nav" aria-label="Principal"></nav><script>const CAPS=[];
 function C(o){CAPS.push(o)}
 C({n:1,t:"El plan maestro de Dios: el amor",r:"1–21",s:"De dónde viene todo esto: un Dios que ama y un mundo que quiere ver transformado.",
@@ -2269,7 +2276,7 @@ R.inicio=()=>{
  <div class="sec">${qc(FR[today()%FR.length])}</div><div class="sec"><button class="card hb" data-go="coppas">${scene(31,104,'people')}<span class="hbt"><span class="eyebrow">Para el comité</span><h3>COPPAS · Servir juntos</h3><span class="s2">Ocho pasos, cinco fichas y casos para practicar</span></span></button></div><div class="sec"><h3>¿Tienes una duda?</h3><div class="chips">${QUICK.map(q=>`<button class="chip" data-q="${esc(q[1])}">${esc(q[0])}</button>`).join('')}</div></div>
  <div class="sec"><h3>Los cuatro principios</h3>${mapaP()}</div>
  <div class="sec"><div class="row"><h3>Doctrina Social</h3><button class="lnk" data-go="dsi">Ver todo</button></div><div class="stack">${CAPS.slice(0,3).map(capCard).join('')}</div></div>${sello()}</div>`};
-const VER='2.4';
+const VER='2.5';
 function fichaLlena(n){const f=COPFICHAS[+n-1];if(!f)return false;const v=(S.fich&&S.fich[f[0]])||{};return Object.keys(v).length>0}
 function stats(){
  const totF=FL.length, leidas=FL.filter(f=>S.read[`f-${f.c}-${f.i}`]).length;
@@ -2458,7 +2465,14 @@ R.lectio=()=>{const L=LIT.hoy(),c=lecturasCache()[L.fecha]||null;
  <h1 style="font-size:27px;margin:4px 0 8px">${esc(L.titulo)}</h1>
  <div id="lect" class="card litcard"><span class="cdot ${L.color}"></span><div>${c?`<div class="meta">Evangelio de hoy</div><div style="font:600 calc(19px*var(--fs))/1.4 var(--ui);color:var(--pine)">${esc(c.ev)}</div><div class="meta" style="margin-top:4px">1.ª lectura: ${esc(c.p)}${c.p2?' · 2.ª: '+esc(c.p2):''} · ${esc(c.s)}</div>`:'<div class="meta">Buscando las lecturas de hoy…</div>'}</div></div>
  <p class="meta" style="margin-top:8px">La referencia sigue el leccionario romano. En Colombia algunas solemnidades se trasladan al domingo, así que conviene confirmarlo con el calendario de la Diócesis.</p>
- <div class="card" style="margin-top:10px"><span class="tag">Sobre el texto bíblico</span><div style="font:calc(16px*var(--fs))/1.5 var(--read);margin-top:4px">La aplicación te da el pasaje que corresponde a hoy, pero no incluye el texto de la Biblia: todas las traducciones al español que se usan hoy tienen derechos de autor y no se pueden copiar. Abre tu Biblia en esa cita, o la de la parroquia, y lee desde ahí.</div></div>
+ <div class="card biblia" style="margin-top:12px"><span class="tag">Leer el texto bíblico</span>
+  <div style="font:calc(16px*var(--fs))/1.5 var(--read);margin:5px 0 10px">Las traducciones católicas al español tienen derechos de autor y no se pueden copiar dentro de la aplicación, así que estos enlaces abren fuentes católicas donde sí está el texto. Si no tienes datos, abre tu Biblia en la cita de arriba.</div>
+  <div class="fuentes">
+   <a class="btn" href="https://www.vaticannews.va/es/evangelio-de-hoy.html" target="_blank" rel="noopener">Evangelio de hoy<small>Vatican News · Santa Sede</small></a>
+   <a class="btn alt" href="https://www.vatican.va/archive/ESL0506/_INDEX.HTM" target="_blank" rel="noopener">Biblia completa<small>«El libro del Pueblo de Dios» · Santa Sede</small></a>
+   <a class="btn alt" href="https://evangeli.net/evangelio" target="_blank" rel="noopener">Evangelio con comentario<small>evangeli.net</small></a>
+  </div>
+  <div class="meta" style="margin-top:9px">Ninguna de estas páginas es de la Diócesis: se abren en el navegador y pueden cambiar.</div></div>
  <div class="sec"><h3>Antes de empezar</h3><div class="card"><div style="font:calc(16.5px*var(--fs))/1.55 var(--read)">Busca un lugar donde no te interrumpan y apaga lo que suene. Haz la señal de la cruz y pide al Espíritu Santo que te ayude a entender. No tengas prisa: veinte minutos bien hechos valen más que una hora distraída.</div></div></div>
  ${LECTIO5.map((l,i)=>`<div class="sec"><div class="mhead"><span class="pn">${i+1}</span><div><h3 style="margin:0">${esc(l[0])}</h3><div class="meta">${esc(l[1])}</div></div></div>
   <div class="card"><div style="font:calc(16.5px*var(--fs))/1.55 var(--read)">${esc(l[3])}</div>
@@ -2670,6 +2684,7 @@ document.addEventListener('change',e=>{const c=e.target.closest('[data-mat]');if
  const q=e.target.closest('[data-evid]');if(q){S.evid=S.evid||{};q.checked?S.evid[q.dataset.evid]=1:delete S.evid[q.dataset.evid];save()}});
 document.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.classList&&e.target.classList.contains('node')){e.preventDefault();go(e.target.dataset.go)}});
 document.addEventListener('click',e=>{const b=e.target.closest('button,a,[data-go]');if(!b)return;const v=view();
+ if(b.tagName==='A'&&b.target==='_blank')return;   // enlaces externos: que los maneje el navegador
  if(b.dataset.orac!==undefined){copiar(ORAC[+b.dataset.orac][0]+'\n\n'+ORAC[+b.dataset.orac][2]);return}
  if(b.dataset.orsit!==undefined){copiar(ORSIT[+b.dataset.orsit][0]+'\n\n'+ORSIT[+b.dataset.orsit][2]);return}
  if(b.dataset.back){const d=b.dataset.dest;if(d)go(d);else irAtras();return}
