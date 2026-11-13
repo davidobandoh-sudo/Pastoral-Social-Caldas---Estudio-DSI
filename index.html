@@ -151,7 +151,7 @@ mark{background:var(--goldbg);color:inherit}
 .chk{display:flex;gap:10px;align-items:flex-start;font:16.5px/1.4 var(--ui)}
 .chk input{width:21px;height:21px;accent-color:var(--pine2);margin-top:1px;flex:none}
 .tmin{font-size:13px;font-weight:700;color:var(--gold);white-space:nowrap}
-.card.mini{padding:9px 12px}.card.mini b{display:block;font:600 15.5px var(--ui)}.card.mini .meta{font-size:13.5px}
+.card.mini{padding:9px 12px}.card.mini .meta{font-size:13.5px}
 .toast{position:fixed;left:50%;bottom:86px;transform:translateX(-50%);background:var(--pine);color:#f6efdc;padding:11px 18px;border-radius:99px;font:600 15px var(--ui);z-index:60;box-shadow:0 4px 18px #0005;max-width:90%;text-align:center}
 
 /* ---------- Pantallas anchas: barra lateral y aprovechar el espacio ---------- */
@@ -298,12 +298,32 @@ mark{background:var(--goldbg);color:inherit}
 .det>div[style*="pre-line"]{margin-top:8px;font:calc(17px*var(--fs))/1.65 var(--read)}
 .agrid3{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
 .card.mini{padding:11px 10px;text-align:center;display:flex;flex-direction:column;gap:2px}
-.card.mini b{font:600 24px var(--disp);color:var(--pine);line-height:1}
+
 .card.mini b small{font:600 14px var(--ui);color:var(--ink2)}
 .card.mini span{font:13.5px var(--ui);color:var(--ink2);line-height:1.25}
-button.card.avance{display:block;width:100%;text-align:left}
+
 .lnk{color:var(--pine);font-weight:600}
 @media (max-width:359px){.agrid3{grid-template-columns:repeat(2,1fr)}}
+
+/* Avance · rediseño */
+button.card.avance{display:block;width:100%;text-align:left;padding:15px 15px 13px}
+.ahead{display:flex;gap:14px;align-items:center}
+.aring{flex:0 0 72px;width:72px;height:72px;display:block}
+.ring{width:72px;height:72px;display:block}
+.ring .rtx{font:600 18px var(--ui);fill:var(--pine)}
+.atxt{flex:1;min-width:0;display:block}
+.atxt .tag{display:block;margin-bottom:7px}
+.afila{display:flex;align-items:center;gap:8px;margin-top:5px}
+.afila b{flex:0 0 94px;font:500 14px var(--ui);color:var(--ink2)}
+.afila i{flex:1;min-width:0;height:6px;border-radius:99px;background:var(--sage);overflow:hidden}
+.afila i s{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--pine),var(--gold));text-decoration:none}
+.afila em{flex:0 0 auto;font:600 13.5px var(--ui);font-style:normal;color:var(--ink2);min-width:42px;text-align:right}
+.asig{display:flex;gap:8px;align-items:baseline;margin-top:13px;padding-top:11px;border-top:1px solid var(--line);
+  font:600 15.5px/1.4 var(--ui);color:var(--pine)}
+.asig i{font-style:normal;margin-left:auto;opacity:.6}
+.card.mini b{font:600 23px var(--disp);color:var(--pine);line-height:1.05;display:block}
+.card.mini b small{font:600 13px var(--ui);color:var(--ink2)}
+@media (max-width:359px){.afila b{flex-basis:76px;font-size:13px}}
 </style></head><body><main id="app"></main><nav class="nav" id="nav" aria-label="Principal"></nav><script>const CAPS=[];
 function C(o){CAPS.push(o)}
 C({n:1,t:"El plan maestro de Dios: el amor",r:"1–21",s:"De dónde viene todo esto: un Dios que ama y un mundo que quiere ver transformado.",
@@ -1902,6 +1922,119 @@ bloques:[
 ["Conmigo",["¿Me estoy cuidando el cuerpo y el descanso, o me estoy gastando por vanidad?","¿Estoy siendo honesto en mi estudio y mi trabajo?","¿Me estoy tratando con la misma dureza con la que no trataría a nadie?"]],
 ["Con la creación",["¿Cuido el agua, la basura, el lugar donde vivo?","¿Consumo sin pensar en quién pagó el precio?"]]
 ]};
+/* Más oración: situaciones concretas, novena, vía lucis, adoración y esquemas para reuniones */
+const ORSIT=[
+["Por un enfermo","visita","Señor Jesús, que pasaste por los caminos curando:\nmira a quien hoy está en esa cama.\n\nDale alivio donde más le duele,\npaciencia para las horas largas,\ny gente que no se canse de volver.\n\nA quien lo cuida, dale descanso;\na quien lo atiende, manos suaves.\nY si llega la hora, que no esté solo. Amén."],
+["Antes de una visita a una familia","visita","Señor, voy a entrar en una casa que no es la mía.\n\nQue llegue sin juzgar lo que vea,\nque pregunte antes de aconsejar,\nque escuche más de lo que hable,\ny que no prometa lo que no puedo cumplir.\n\nQue salga de allí sabiendo un nombre más\ny cargando un poco de lo que allí pesa. Amén."],
+["Por una familia en conflicto","casa","Padre, en esa casa hay portazos y silencios largos.\n\nNo te pido que todos tengan razón:\nte pido que alguno dé el primer paso.\nAblanda al más duro, da voz al que calla,\nprotege a los niños que están oyendo.\n\nY si ya no se puede vivir juntos,\nque al menos se separen sin destruirse. Amén."],
+["Por los que migran","camino","Dios de Abraham, que llamaste a salir de la propia tierra:\n\ncuida a los que van por la carretera con lo puesto,\na los que duermen en un terminal,\na los que mandan plata a una casa que no verán este año.\n\nY a nosotros, que ya estábamos aquí,\nquítanos el miedo al que llega\ny dale a nuestra parroquia una puerta ancha. Amén."],
+["Por un joven que busca trabajo","trabajo","Señor, él ha mandado hojas de vida que nadie responde.\n\nCuida que no se le apague la dignidad en la espera,\nni se le vuelva costumbre quedarse en la cama.\n\nPon en su camino a quien le dé una oportunidad,\ny si hay que empezar por abajo, dale la paciencia.\nQue no acepte lo que lo humille,\nni rechace lo que lo haga crecer. Amén."],
+["Por un difunto","duelo","Señor, recibe a quien hoy se nos fue.\n\nTú conoces lo bueno que hizo y lo que no alcanzó a arreglar.\nMíralo con la misericordia con que lo miró su madre.\n\nY a los que quedamos aquí llorando,\ndanos consuelo que no sea mentira,\nmemoria agradecida\ny la esperanza de volver a vernos. Amén."],
+["Al acompañar a quien está de duelo","duelo","Señor, no me des palabras bonitas:\ndame la boca cerrada y el cuerpo presente.\n\nQue no diga que ya pasará,\nque no busque explicaciones que no tengo,\nque no apure a nadie a estar bien.\n\nQue sepa quedarme el tiempo que haga falta\ny volver cuando ya nadie vuelve. Amén."],
+["Por las víctimas de la violencia","paz","Dios de la vida, en nuestra tierra han matado mucho.\n\nAcoge a los que no volvieron,\nsostén a las madres que todavía buscan,\nhonra a los que no se callaron.\n\nNo nos dejes acostumbrarnos.\nY haz que la paz que pedimos\nempiece por lo que yo pueda dejar de hacer. Amén."],
+["Por la paz en nuestro territorio","paz","Señor, danos la paz que no es solo ausencia de tiros.\n\nLa paz que es tierra que da fruto,\nvecinos que se saludan,\njóvenes que no tienen que irse,\nheridas que por fin se nombran.\n\nHaznos constructores, no espectadores.\nY si nos toca perdonar, danos con qué. Amén."],
+["Por la casa común","tierra","Señor del agua y de la montaña,\n\nperdónanos la quebrada que volvimos basurero,\nel árbol que tumbamos sin pensar,\nel plástico que dejamos en el camino.\n\nQue cuidemos este pedazo de tierra\ncomo quien cuida la casa de su madre,\nporque los que más sufren el daño\nson siempre los que menos lo causaron. Amén."],
+["Al empezar una reunión","reunion","Espíritu Santo, estamos aquí unos cuantos,\ncon ganas y con cansancio.\n\nQue esta reunión no sea perder la tarde.\nDanos oídos para el que piensa distinto,\nvalor para decir lo que incomoda,\ny humildad para cambiar de opinión.\n\nQue salgamos de aquí con algo concreto\ny con ganas de volver. Amén."],
+["Al terminar una jornada de servicio","reunion","Gracias, Señor, por este día.\n\nPor los nombres que aprendimos,\npor las puertas que se abrieron,\npor lo que no salió como pensábamos.\n\nPerdona lo que hicimos por quedar bien\ny lo que dejamos de hacer por pereza.\n\nQue mañana volvamos. Amén."],
+["Por quien está desanimado en el servicio","animo","Señor, ya lleva tiempo y se le nota el cansancio.\n\nNo le des más trabajo: dale sentido.\nRecuérdale por qué empezó.\nMándale a alguien que le diga gracias.\n\nY si tiene que parar un tiempo,\nque lo haga sin sentirse culpable. Amén."],
+["En una emergencia","urgencia","Señor, esto nos pasó encima.\n\nDanos cabeza fría para no improvisar,\nmanos rápidas para lo urgente,\ny prudencia para no exponer a nadie.\n\nQue nos acordemos de los que siempre quedan de últimos:\nlos ancianos, los enfermos, los que no tienen con quién.\n\nCuida a los que están entrando donde nadie quiere entrar. Amén."],
+["Por los que gobiernan","bien","Señor, danos gobernantes que sirvan y no se sirvan.\n\nQue lo que decidan en un escritorio\nlo piensen mirando la cara de una familia.\n\nY a nosotros, que no los elegimos y después nos lavamos las manos,\ndanos memoria, exigencia y ganas de participar. Amén."],
+["Antes de dar una ayuda","dar","Señor, voy a entregar algo que no es mío,\nporque todo lo que tengo me fue dado.\n\nQue no lo haga sentir en deuda,\nque no le pida nada a cambio,\nque no lo cuente después para quedar bien.\n\nY que esta ayuda de hoy\nno me sirva de excusa para no cambiar\nlo que hace falta cambiar. Amén."]
+];
+
+/* Novena del Buen Samaritano: nueve días, uno por principio de la DSI */
+const NOVENA={
+intro:"Nueve días para preparar un encuentro, una fiesta parroquial o el inicio de un proceso de COPPAS. Cada día tiene el mismo esquema: se enciende una luz, se lee la Palabra, se medita, se pide y se deja un gesto. Dura unos veinte minutos y se puede rezar en casa o en grupo.",
+oracion:"Señor Jesús, Buen Samaritano,\nque viste al herido del camino cuando otros ya habían pasado:\nenséñanos a ver, a acercarnos y a quedarnos.\nQue nuestra fe no se quede en el templo\ny que nuestra caridad no se quede en el gesto.\nHaznos Iglesia que cuida, sirve y transforma. Amén.",
+dias:[
+[1,"Ver","Lucas 10,29-33","El sacerdote y el levita también vieron al herido: la diferencia no estuvo en los ojos sino en lo que hicieron después de ver. Mirar de verdad siempre cuesta algo, porque obliga a cambiar de camino.","Que no aprendamos a mirar sin que nos importe.","Hoy miro a alguien que suelo pasar por alto y le pregunto cómo está."],
+[2,"La dignidad de la persona","Génesis 1,26-27","El herido del camino no tiene nombre, ni oficio, ni religión en el relato. Es solo un hombre. Y eso basta. La dignidad no se gana con méritos ni se pierde con fracasos.","Que tratemos a cada persona por lo que es y no por lo que nos sirve.","Hoy evito hablar de alguien como «un caso» o «una ayuda» y lo llamo por su nombre."],
+[3,"Acercarse","Lucas 10,34","El samaritano se acercó. No mandó a alguien, no hizo una colecta a distancia: bajó del animal y se agachó. En la Doctrina Social esto tiene un nombre: solidaridad, que no es lástima sino decisión.","Que no sirvamos desde lejos.","Hoy visito a alguien en su casa, en vez de mandarle un mensaje."],
+[4,"El bien común","Hechos 4,32-35","La primera comunidad no repartía lo que sobraba: ponía en común lo que tenía, y no había necesitados entre ellos. El bien común no es la suma de lo nuestro, son las condiciones para que todos puedan vivir.","Que lo que decidamos sirva también a los que no están en la reunión.","Hoy pregunto, antes de decidir algo, a quién deja por fuera."],
+[5,"El destino universal de los bienes","Santiago 5,1-4","El jornal retenido al trabajador grita, dice Santiago. Lo que tenemos de más no es un regalo que hacemos: es algo que ya le pertenecía a quien lo necesita.","Que no llamemos generosidad a lo que es justicia.","Hoy reviso qué tengo guardado sin usar y busco a quién le sirve."],
+[6,"Subsidiariedad","Éxodo 18,13-23","El suegro de Moisés le dice que no puede con todo y que reparta. Lo que puede hacer el más cercano, que no lo haga el de arriba; y lo que nos queda grande, hay que pedirlo.","Que apoyemos lo que la gente ya hace y pidamos ayuda sin vergüenza.","Hoy reconozco algo que la comunidad hace mejor que nosotros y me pongo a su servicio."],
+[7,"Participación","1 Corintios 12,12-26","Los miembros que parecen más débiles son los más necesarios, dice Pablo. Una comunidad donde unos pocos deciden por todos está enferma, aunque funcione.","Que decidamos con la gente y no sobre la gente.","Hoy le pido la opinión a alguien a quien normalmente no se la piden."],
+[8,"Opción por los pobres","Mateo 25,31-40","Lo que hicieron con uno de estos, conmigo lo hicieron. No es una metáfora piadosa: es el criterio del juicio final, y es el único que Jesús dejó escrito.","Que donde haya más necesidad, allí estemos primero.","Hoy doy mi tiempo, no solo mi dinero, a quien no me lo puede devolver."],
+[9,"Cuidar la casa común","Salmo 24,1","Del Señor es la tierra y cuanto la llena. No somos dueños, somos cuidadores, y el que daña la tierra termina dañando a los más pobres, que son los que no tienen cómo protegerse.","Que cuidemos la tierra como se cuida lo prestado.","Hoy hago un gesto concreto por el agua, la basura o el campo de mi vereda o barrio."]
+]};
+
+/* Vía Lucis: el camino de la luz, catorce estaciones de la Pascua */
+const VIALUCIS={
+intro:"El Vía Lucis es el camino de la luz: catorce estaciones desde la Resurrección hasta Pentecostés. Se reza sobre todo en tiempo de Pascua, igual que el Vía Crucis en Cuaresma. En cada estación se dice: «Te alabamos, Cristo resucitado, porque con tu victoria nos diste la vida».",
+e:[
+["Jesús resucita","El sepulcro vacío no demuestra nada por sí solo: hay que creerle a quien lo vio. La fe empieza fiándose de un testimonio.","¿De quién me fío yo para creer?"],
+["Las mujeres encuentran el sepulcro vacío","Fueron ellas, de madrugada, cuando todavía estaba oscuro. El amor madruga más que el miedo.","¿Qué me hace madrugar a mí?"],
+["El Resucitado se aparece a María Magdalena","La llamó por su nombre y ahí lo reconoció. A veces basta con que alguien nos nombre bien.","¿A quién puedo llamar hoy por su nombre?"],
+["Los discípulos de Emaús","Iban de espaldas a Jerusalén, hablando de una derrota. Él caminó con ellos sin corregirlos de entrada: primero preguntó.","¿Sé caminar un rato con alguien antes de darle mi opinión?"],
+["Lo reconocen al partir el pan","No lo reconocieron por la explicación, sino por el gesto. Hay verdades que solo se entienden compartiendo mesa.","¿Con quién comparto mi mesa?"],
+["Jesús se aparece a los discípulos","Entró a pesar de las puertas cerradas y lo primero que dijo fue «paz a ustedes», sin reclamarles el abandono.","¿Qué puerta tengo cerrada por miedo?"],
+["Jesús da el poder de perdonar","A quienes lo habían dejado solo les confía el perdón. Dios no espera gente perfecta para confiarle lo importante.","¿A quién me cuesta perdonar?"],
+["Jesús confirma la fe de Tomás","No lo regañó por dudar: le ofreció sus heridas. La duda que busca no es enemiga de la fe.","¿Qué dudas no me atrevo a decir en voz alta?"],
+["Jesús en el lago de Tiberíades","Habían vuelto a pescar, a lo de siempre, y no pescaron nada. Él los esperaba en la orilla con el desayuno hecho.","¿Dónde me está esperando, sin reclamos?"],
+["Jesús confía la Iglesia a Pedro","Tres veces le preguntó si lo quería, una por cada negación. Y no le pidió explicaciones: le pidió que cuidara a los demás.","¿Reparo lo que rompí cuidando, o solo pidiendo perdón?"],
+["Jesús envía a los discípulos","Vayan y hagan discípulos de todos los pueblos. No a los que ya vienen: a todos.","¿A quién no he ido a buscar nunca?"],
+["Jesús sube al Padre","Les dijo que no se quedaran mirando al cielo. Lo que sigue queda en nuestras manos.","¿Qué estoy esperando que alguien venga a resolver?"],
+["Esperan con María","Diez días encerrados, rezando con la Madre. También la espera es parte del camino.","¿Sé esperar sin desesperarme?"],
+["El Espíritu Santo desciende","Salieron a la calle y cada uno los entendió en su lengua. El Espíritu no les quitó las diferencias: las volvió entendibles.","¿Hablo la lengua de la gente a la que sirvo?"]
+]};
+
+const ADORACION={
+intro:"Media hora delante del Santísimo, sin cargo de conciencia por distraerse. Si solo tienes quince minutos, haz los tres primeros pasos.",
+pasos:[
+[5,"Llegar","Siéntate. Respira despacio seis veces. No hagas nada todavía. Deja que el cuerpo se dé cuenta de dónde está."],
+[5,"Mirar","Mira la custodia o el sagrario sin pensar frases. Si te distraes, vuelve a mirar. Mirar también es rezar."],
+[5,"Agradecer","Repasa el día o la semana y nombra tres cosas buenas, por pequeñas que sean. Dilas en voz baja."],
+[5,"Entregar","Pon delante lo que te pesa: un nombre, una decisión, un miedo. No busques solución: déjalo ahí."],
+[5,"Pedir","Por las personas que acompañas, una por una. Por los que nadie nombra."],
+[5,"Salir","Pregunta: ¿qué me llevo de aquí para hoy? Una sola cosa. Haz la señal de la cruz y sal."]]};
+
+/* Esquemas breves de oración para abrir o cerrar una reunión */
+const ESQ=[
+["Para empezar un proceso","dawn","10 minutos",
+["Se enciende una vela en el centro y cada uno dice su nombre y el barrio o vereda de donde viene.",
+"Lectura: Éxodo 3,7-10. Dios ve, oye y conoce antes de enviar.",
+"Silencio de un minuto.",
+"Cada uno dice en una frase qué espera de este proceso.",
+"Oración del joven líder social, todos juntos."]],
+["Antes de salir a visitar","camino","8 minutos",
+["Lectura: Lucas 10,1-9. Los envía de dos en dos y les dice que saluden deseando la paz.",
+"Se hacen las parejas en voz alta y se dice a dónde va cada una.",
+"Oración «Antes de una visita a una familia».",
+"Se bendicen las manos unos a otros."]],
+["Cuando algo salió mal","heart","10 minutos",
+["Se lee Marcos 4,35-41. La barca con agua y Jesús dormido.",
+"Cada uno dice, sin que nadie responda, qué le dolió de lo que pasó.",
+"Silencio.",
+"Se lee otra vez el final: «¿por qué están así? ¿todavía no tienen fe?».",
+"Padrenuestro tomados de la mano."]],
+["Para revisar lo hecho","compass","12 minutos",
+["Lectura: Lucas 10,17-20. Los discípulos vuelven contentos y Jesús les corrige la alegría.",
+"Ronda: qué funcionó, qué no, qué aprendí.",
+"Se agradece por nombre a quienes sostuvieron el trabajo.",
+"Gloria al Padre."]],
+["Por alguien del grupo que está mal","dove","6 minutos",
+["Se dice solo lo que esa persona haya permitido contar.",
+"Silencio de dos minutos por ella.",
+"Oración «Por quien está desanimado en el servicio» o «Por un enfermo».",
+"Se acuerda quién la llama esta semana."]],
+["Para cerrar el año","crown","15 minutos",
+["Se pone en el centro algo que represente el trabajo del año.",
+"Se lee el Magníficat, Lucas 1,46-55.",
+"Cada uno dice una cosa por la que da gracias y una que quiere dejar atrás.",
+"Se nombra a quienes ya no están en el grupo y se agradece por ellos.",
+"Salve."]],
+["Oración de la mañana en un encuentro","sun","7 minutos",
+["Se sale al patio o a la ventana, de pie.",
+"Lectura breve: Lamentaciones 3,22-23. Cada mañana se renuevan sus misericordias.",
+"Cada uno dice en voz alta una palabra con la que llega al día.",
+"Oración de la mañana, todos juntos."]],
+["Oración de la noche en un encuentro","star","7 minutos",
+["Se apagan las luces y queda una vela.",
+"Un minuto de silencio para repasar el día.",
+"Ronda rápida: lo mejor del día, en tres palabras.",
+"Oración de la noche.",
+"Se da la paz sin hablar."]]
+];
 const LOGO_D='data:image/webp;base64,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';const LOGO_P='data:image/webp;base64,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';const LOGO_C='data:image/webp;base64,UklGRr4GAABXRUJQVlA4WAoAAAAQAAAAPwAAPwAAQUxQSJUCAAABoLvtn2Hv+cx8N7adg5jnl9a2nSrX+0fEtp10diqjMjvbtq2d+X4/xZ7d2Zl900fEBKDXCjji3u9N+e1ycAAgwD53fGXKegSP/B67v0CS1ibY9CGStEIEZ5Cq1qHCAX/Q1EoRXMIYSbYJ9q8ZSBYiOIy1sYt3m/1JZTHOrfiNKTsJnmBgORWOZ2CnCrswsiAnr1tMuYuhII9poHVz1QfUggT7WmQ3rPcH28vYn0nb0Qa27eBmizufuIQ/INfYV77p2tL3yrU2WkXmjRKno0WZwvajyWg0Gm0ggPONOjmwYw8kQz333/du2RsQAMzZT+fHtoYAlpzNWjVE/nYEBMaM/XQO5EEQDoiqv23iPjAdDgMfximMA6Lqjit/ajqgyFuxH4MNR/mx4ARqHAxpEBxPxqg2EAIVdn6Rcy1VbY6pZQUg8Ifd8d7v7PObZR0WmBkAPABZd9bnJnBYZpbZN2XJJR3+Z/2SS4hvzvJuAodlZr2uBsB7AGDeb5Z1WGCvP7167U6AALCcat8uB8xMLZ3NhyaoAOY0zqGxR9Og/H5/VINpBtb7QobEyJ8n/iPT4TDwbhzPOCDqfwvLfkwdUOT1OJC1DUf5seBCRh0MSQjOIWNUm5/N0gHBfq+x3356BCCQY+//9L96bsgV6mQAEABLj5rT0SLGDMaw/WgySmzAiUfrXpnqtdG7880l/AG5xr7yiW3zBfvnGsEj62Ln+8F9soxLCeOiIp/BEil/rlNUsHuwZDflm8idEHlcSrBrUBWk+vOKkG6R20MKCjwFle8U+Sg8ygl8aSnvOkX9eUNXUM0vN4JHl0DuA0EhGsm3NoOgzaLx10MgKIX8+8oVIehA6gObQ1CIhZcu3QbwaDP7/IZdAUGvAFZQOCACBAAAsBUAnQEqQABAAD5VIItFI6IhHPzsADgFRLYAVUrA/wDoRKf9l4sbijuh+03J8m567P0Xnp/zvsA8Q3pM+YD+H/3H/ef4D3af8B6j/QA/XbrQ/QA/Wn0yf2q+Ej9s/299nP//3qEC9dx3HZ/6b1Bs+D096LO+W/q4sl/T9/qVhQdcmmVKxwl0rYoGoDTu0paGEBbBtXeZDuXampQS6IaKKoSxhFN7x5pHSHdJW+EZSlB+kDF+bAAA/vCtn/+7w//3cX//9yICYH3fyIUzRhdPJSjPwY6O3geyf4uebWJQruMqn/GjKvjG/nJJMpQNOzw+T22+xRuH6+3KXkPdUXNHydfFghdp3irKvdYf/5QbN6VzUgn//KDZvStWlJmZ+cjjtrJEP86B8i3yqtJGTicD+2r+9l3hjgS7QSsUPANzkBf8WYHvPasJnhWQtXmItryN/zg7X/9URXS2RWHNif4BxL9HVmhwJeUpf+TE5UAfplWbVbmk/irG/s7CAMuZ81QEsrpTQjtZOmrBVyq8v45+rV/T946hIMBx9Nd7uvWznGfeN3mSNspnmh4eF0wSnfqJvaAytIozx8DWTTl3TA8q/y7H4mp5vxQ+jShc79YUOvDgK18ynDhSmVcTEg59JSrDI0l7wjh3GfV8iw1UnXxIHTkz44pTZzkKTzmwb4RB90dBAfjSR9XSq/67D/y5C7QLB33K7Tfh2eWdacJR7rjZnZlsw/PeyZh0qaNnrmqPwyC5TUaFVhocWoWTWElzEkiPCIOQYZgP+2Hf6z18EVyoBdLOeb2LyEiV75K2N+7vKXUHR4bxsueha579fOW3qMAUa4jpst8HRcNfqlGD9xiC62/wdF6cfqMXqMdYW43/FjohkCSfFP/ul0tJtFr5r+X1LtFv6OU/3YlFBE4w/f++++cdn1VK6vrGesifkQKcwezg5fVuadF7YbL8B56k8L2zGiYvSAdWcBUjHxtG+fGhmw9UiDIljqZ0IFvLoLarRNk4d//zaCrs0HBInzQ2N35CC/7IAD43frs3QqmYoJf0XgUgNlccLa+99Mf9q5//th//5Ab//zFe/AX3J/fGWJL/E7hN+M0rb8m5jmQG/Fp0033L8jZN5AdBNDriR4KX+XhXCVnaOrDDDPtsGiLrbtDRVHV3ZxV96+YcjuP8Xht1H9P02o0bSr7zv+/25O6qi03dIzZV2BkLvqpId2b0HY8EkKgZ8ESy/7h2LOSkb2p8yfGDt3UY9xc5u10rCXQ5EbtOgw8rZ9KlI/dPUGy7HTG6dObn4kDMS82Hxv8n2DZ2rbH9cP8lJCRw3mQM+0MTpSrc/ofeu8mtDaC0czCcyjXrBMiVWiCzs9OunUKObQ7SAAAA';
 </script><script>const $=(s,r=document)=>r.querySelector(s);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -1975,6 +2108,7 @@ function parentOf(v){let m;
  if(m=v.match(/^f-(\d+)-/))return 'cap-'+m[1];
  if(/^era-/.test(v))return 'historia';
  if(/^ros-/.test(v))return 'rosario';
+ if(/^nov-/.test(v))return 'novena';
  if(/^quiz-/.test(v))return 'repaso';
  if(/^santo-/.test(v))return 'santoral';
  if(/^copf-/.test(v))return 'copruta';
@@ -1991,7 +2125,7 @@ const hdr=(t,back,extra='')=>{const v=view();const b=back!==undefined?back:backH
  return `<div class="top">${b?`<button class="ic" data-back="1" data-dest="${b}" aria-label="Volver atrás" title="Volver">${ic('back')}</button>`:''}<h2>${esc(t)}</h2>${extra}<button class="ic" data-go="buscar" aria-label="Buscar">${ic('find')}</button></div>`};
 const R={};R.avance=vistaAvance;
 
-const EMB={chat:'<path d="M21 11.5a8 8 0 0 1-11.6 7.1L4 20l1.5-4.6A8 8 0 1 1 21 11.5z"/><path d="M12 8.2a1.9 1.9 0 0 1 1.9 1.9c0 1.4-1.9 1.3-1.9 3"/><path d="M12 15.4v.3"/>',cards:'<rect x="3.5" y="7.5" width="12" height="13" rx="2"/><path d="M7.5 4.5h9a2 2 0 0 1 2 2v10"/><path d="M6.5 11.5h6M6.5 15h4"/>',sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/>',heart:'<path d="M12 20s-8-5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 9c0 6-8 11-8 11z"/>',church:'<path d="M12 2v5M10 4h4M5 21v-9l7-5 7 5v9zM10 21v-5h4v5"/>',person:'<circle cx="12" cy="7" r="4"/><path d="M4 21c0-5 3.6-8 8-8s8 3 8 8"/>',compass:'<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>',house:'<path d="M3 11l9-7 9 7M5 10v10h14V10M12 20v-6"/><path d="M9.5 12.5a1.6 1.6 0 0 1 2.5-.3 1.6 1.6 0 0 1 2.5.3c.5 1-2.5 3-2.5 3s-3-2-2.5-3z"/>',tools:'<path d="M12 21V8M12 8c-3 0-5-2-5-5 3 0 5 2 5 5zM12 8c3 0 5-2 5-5-3 0-5 2-5 5zM12 15c-3 0-5-2-5-5 3 0 5 2 5 5zM12 15c3 0 5-2 5-5-3 0-5 2-5 5z"/>',scale:'<path d="M12 3v18M7 21h10M4 7h16M4 7l-2.5 7h5zM20 7l-2.5 7h5z"/>',column:'<path d="M3 21h18M5 18h14M4 9h16L12 3zM7 9v9M12 9v9M17 9v9"/>',globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/>',leaf:'<path d="M5 19c0-9 6-14 15-15 0 9-5 15-13 15M5 21c2-5 5-8 10-11"/>',dove:'<path d="M3 13c5 0 7-2 9-6 1-2 3-3 5-2l3 1-2 2c0 7-4 11-10 11l-3 3 1-5c-2-1-3-2-3-4z"/>',boat:'<path d="M3 15h18l-3 5H6zM12 15V3l7 9h-7M2 22c2-1 4-1 5 0s3 1 5 0 4-1 5 0 3 1 5 0"/>',book:'<path d="M12 6c-2-2-5-2-8-2v15c3 0 6 0 8 2 2-2 5-2 8-2V4c-3 0-6 0-8 2zM12 6v15"/>',star:'<path d="M12 3l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.3 6.3 20.5l1.2-6.4L2.8 9.7l6.4-.8z"/>',gear:'<circle cx="12" cy="12" r="3.5"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.2 2.2M16.2 16.2l2.2 2.2M18.4 5.6l-2.2 2.2M7.8 16.2l-2.2 2.2"/>',alert:'<path d="M12 3l10 18H2zM12 10v5M12 18v.5"/>',map:'<path d="M12 22s7-7 7-12a7 7 0 0 0-14 0c0 5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/>',people:'<circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M2 20c0-4 3-6 6-6s6 2 6 6M14 14c3-.5 8 1 8 6"/>',time:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/>',quote:'<path d="M9 7c-3 1-5 3-5 7v3h6v-6H7c0-2 1-3 3-3zM19 7c-3 1-5 3-5 7v3h6v-6h-3c0-2 1-3 3-3z"/>'};
+const EMB={crown:'<path d="M4 17.5 5.6 8l4.1 3.6L12 5.5l2.3 6.1L18.4 8 20 17.5z"/><path d="M4.6 20.5h14.8"/><circle cx="12" cy="3.4" r="1"/>',cross:'<path d="M12 3.5v17M6.5 9h11"/><circle cx="12" cy="9" r="6.4" opacity=".35"/>',light:'<circle cx="12" cy="12" r="4"/><path d="M12 2.6v2.8M12 18.6v2.8M2.6 12h2.8M18.6 12h2.8M5.4 5.4l2 2M16.6 16.6l2 2M18.6 5.4l-2 2M7.4 16.6l-2 2"/>',dawn:'<path d="M2.5 18.5h19"/><path d="M6.5 18.5a5.5 5.5 0 0 1 11 0"/><path d="M12 4.5v3M4.8 7.3l2 2M19.2 7.3l-2 2M2.5 15h3M18.5 15h3"/>',chat:'<path d="M21 11.5a8 8 0 0 1-11.6 7.1L4 20l1.5-4.6A8 8 0 1 1 21 11.5z"/><path d="M12 8.2a1.9 1.9 0 0 1 1.9 1.9c0 1.4-1.9 1.3-1.9 3"/><path d="M12 15.4v.3"/>',cards:'<rect x="3.5" y="7.5" width="12" height="13" rx="2"/><path d="M7.5 4.5h9a2 2 0 0 1 2 2v10"/><path d="M6.5 11.5h6M6.5 15h4"/>',sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/>',heart:'<path d="M12 20s-8-5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 9c0 6-8 11-8 11z"/>',church:'<path d="M12 2v5M10 4h4M5 21v-9l7-5 7 5v9zM10 21v-5h4v5"/>',person:'<circle cx="12" cy="7" r="4"/><path d="M4 21c0-5 3.6-8 8-8s8 3 8 8"/>',compass:'<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>',house:'<path d="M3 11l9-7 9 7M5 10v10h14V10M12 20v-6"/><path d="M9.5 12.5a1.6 1.6 0 0 1 2.5-.3 1.6 1.6 0 0 1 2.5.3c.5 1-2.5 3-2.5 3s-3-2-2.5-3z"/>',tools:'<path d="M12 21V8M12 8c-3 0-5-2-5-5 3 0 5 2 5 5zM12 8c3 0 5-2 5-5-3 0-5 2-5 5zM12 15c-3 0-5-2-5-5 3 0 5 2 5 5zM12 15c3 0 5-2 5-5-3 0-5 2-5 5z"/>',scale:'<path d="M12 3v18M7 21h10M4 7h16M4 7l-2.5 7h5zM20 7l-2.5 7h5z"/>',column:'<path d="M3 21h18M5 18h14M4 9h16L12 3zM7 9v9M12 9v9M17 9v9"/>',globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/>',leaf:'<path d="M5 19c0-9 6-14 15-15 0 9-5 15-13 15M5 21c2-5 5-8 10-11"/>',dove:'<path d="M3 13c5 0 7-2 9-6 1-2 3-3 5-2l3 1-2 2c0 7-4 11-10 11l-3 3 1-5c-2-1-3-2-3-4z"/>',boat:'<path d="M3 15h18l-3 5H6zM12 15V3l7 9h-7M2 22c2-1 4-1 5 0s3 1 5 0 4-1 5 0 3 1 5 0"/>',book:'<path d="M12 6c-2-2-5-2-8-2v15c3 0 6 0 8 2 2-2 5-2 8-2V4c-3 0-6 0-8 2zM12 6v15"/>',star:'<path d="M12 3l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.3 6.3 20.5l1.2-6.4L2.8 9.7l6.4-.8z"/>',gear:'<circle cx="12" cy="12" r="3.5"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.2 2.2M16.2 16.2l2.2 2.2M18.4 5.6l-2.2 2.2M7.8 16.2l-2.2 2.2"/>',alert:'<path d="M12 3l10 18H2zM12 10v5M12 18v.5"/>',map:'<path d="M12 22s7-7 7-12a7 7 0 0 0-14 0c0 5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/>',people:'<circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M2 20c0-4 3-6 6-6s6 2 6 6M14 14c3-.5 8 1 8 6"/>',time:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/>',quote:'<path d="M9 7c-3 1-5 3-5 7v3h6v-6H7c0-2 1-3 3-3zM19 7c-3 1-5 3-5 7v3h6v-6h-3c0-2 1-3 3-3z"/>'};
 const CEMB=['','heart','church','person','compass','house','tools','scale','column','globe','leaf','dove','boat'];
 const EMBX={libro:'<path d="M12 6c-2-2-5-2-8-2v15c3 0 6 0 8 2 2-2 5-2 8-2V4c-3 0-6 0-8 2zM12 6v15"/>',quote:'<path d="M9 7c-3 1-5 3-5 7v3h6v-6H7c0-2 1-3 3-3zM19 7c-3 1-5 3-5 7v3h6v-6h-3c0-2 1-3 3-3z"/>'};
 const emb=(n,cls='')=>`<svg class="emb ${cls}" viewBox="0 0 24 24" aria-hidden="true">${EMB[n]||EMBX[n]||''}</svg>`;
@@ -2094,7 +2228,13 @@ const palabraHoy=()=>PALABRA[diaDelAno()%PALABRA.length];
 const reflexHoy=()=>REFLEX[diaDelAno()%REFLEX.length];
 function santoCard(full){const[s,hoy]=santoHoy();
  return `<button class="card santo" data-go="santo-${s[0]}-${s[1]}"><div class="sa">${santoArt(s)}</div><div class="sb"><span class="tag">${hoy?'Santo de hoy':'Próxima fiesta · '+s[1]+' de '+MES[s[0]-1]}</span><h3>${esc(s[2])}</h3><div class="meta">${esc(s[3])}</div>${full?`<p>${esc(s[4])}</p>`:''}<span class="lnk">Leer su vida</span></div></button>`}
-function ring(p,txt,lab){const c=2*Math.PI*30;return `<svg class="ring" viewBox="0 0 76 76" role="img" aria-label="${lab}"><circle cx="38" cy="38" r="30" fill="none" stroke="var(--sage)" stroke-width="7"/><circle cx="38" cy="38" r="30" fill="none" stroke="var(--gold)" stroke-width="7" stroke-linecap="round" stroke-dasharray="${c*p} ${c}" transform="rotate(-90 38 38)"/><text x="38" y="43" text-anchor="middle" font-size="16" fill="var(--ink)" font-family="DM Serif Display,Georgia,serif">${txt}</text></svg>`}
+function ring(p,txt,lab){const R=27,C=2*Math.PI*R,f=Math.max(0,Math.min(1,p||0));
+ return `<svg class="ring" viewBox="0 0 72 72" role="img" aria-label="${esc(lab||'')}">
+ <defs><linearGradient id="rg${++SID}" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="var(--pine)"/><stop offset="1" stop-color="var(--gold)"/></linearGradient></defs>
+ <circle cx="36" cy="36" r="${R}" fill="none" stroke="var(--sage)" stroke-width="8"/>
+ <circle cx="36" cy="36" r="${R}" fill="none" stroke="url(#rg${SID})" stroke-width="8" stroke-linecap="round"
+  stroke-dasharray="${(C*f).toFixed(1)} ${C.toFixed(1)}" transform="rotate(-90 36 36)"/>
+ <text x="36" y="36" text-anchor="middle" dominant-baseline="central" class="rtx">${esc(txt||'')}</text></svg>`}
 function qc(q){const ini=q[1].replace(/^(San|Santa|Santo|Beato|Fray|Concilio)\s+/,'')[0];return `<figure class="quote"><span class="qm">${emb('quote')}</span><blockquote>${esc(q[3])}</blockquote><figcaption><span class="med">${esc(ini)}</span><span><b>${esc(q[1])}</b><br>${esc(q[2])}</span></figcaption></figure>`}
 const frCap=n=>FR.filter(q=>q[0]===n);
 function mapaP(){const N=[[210,62,'f-4-1','Bien común','compass'],[92,262,'f-4-4','Subsidiaridad','people'],[328,262,'f-4-6','Solidaridad','heart']];const V=['Verdad','Libertad','Justicia','Caridad'];
@@ -2129,7 +2269,7 @@ R.inicio=()=>{
  <div class="sec">${qc(FR[today()%FR.length])}</div><div class="sec"><button class="card hb" data-go="coppas">${scene(31,104,'people')}<span class="hbt"><span class="eyebrow">Para el comité</span><h3>COPPAS · Servir juntos</h3><span class="s2">Ocho pasos, cinco fichas y casos para practicar</span></span></button></div><div class="sec"><h3>¿Tienes una duda?</h3><div class="chips">${QUICK.map(q=>`<button class="chip" data-q="${esc(q[1])}">${esc(q[0])}</button>`).join('')}</div></div>
  <div class="sec"><h3>Los cuatro principios</h3>${mapaP()}</div>
  <div class="sec"><div class="row"><h3>Doctrina Social</h3><button class="lnk" data-go="dsi">Ver todo</button></div><div class="stack">${CAPS.slice(0,3).map(capCard).join('')}</div></div>${sello()}</div>`};
-const VER='2.3';
+const VER='2.4';
 function fichaLlena(n){const f=COPFICHAS[+n-1];if(!f)return false;const v=(S.fich&&S.fich[f[0]])||{};return Object.keys(v).length>0}
 function stats(){
  const totF=FL.length, leidas=FL.filter(f=>S.read[`f-${f.c}-${f.i}`]).length;
@@ -2144,45 +2284,16 @@ function stats(){
 }
 function avanceDSI(){const T=stats();
  const sig=CAPS.find(c=>readN(c.n)<c.f.length);
+ const fil=[['Fichas',T.leidas,T.totF],['Evaluaciones',T.ev,12],['COPPAS',T.pasos,8]];
  return `<button class="card avance" data-go="avance">
-  <div class="arow"><div><span class="tag">Mi avance general</span><div class="abig">${T.gen}<small>%</small></div>
-   <div class="meta">${T.leidas} de ${T.totF} fichas · ${T.ev} de 12 evaluaciones · ${T.pasos} de 8 pasos COPPAS</div></div>
-   <div class="aring">${ring(T.gen/100,T.gen+'%','Avance general')}</div></div>
-  <div class="prog"><i style="width:${T.gen}%"></i></div>
-  <div class="meta lnk" style="margin-top:9px">${sig?'Sigue por el capítulo '+sig.n+': '+sig.t:'Has recorrido los doce capítulos'} · ver todo mi camino</div>
+  <div class="ahead">
+   <span class="aring">${ring(T.gen/100,T.gen+'%','Avance general '+T.gen+' por ciento')}</span>
+   <span class="atxt"><span class="tag">Mi avance general</span>
+    ${fil.map(f=>`<span class="afila"><b>${esc(f[0])}</b><i><s style="width:${Math.round(f[1]/f[2]*100)}%"></s></i><em>${f[1]}/${f[2]}</em></span>`).join('')}
+   </span>
+  </div>
+  <span class="asig">${sig?'Sigue por el capítulo '+sig.n+': '+esc(sig.t):'Has recorrido los doce capítulos'}<i>→</i></span>
  </button>`}
-function vistaAvance(){const T=stats();
- const pend=CAPS.filter(c=>readN(c.n)<c.f.length);
- const evPend=CAPS.filter(c=>!(S.best&&S.best['q'+c.n]!==undefined));
- const copPend=COPPASOS.filter(x=>!fichaLlena(x[10]));
- return hdr('Mi camino')+`<div class="pad fade" style="padding-top:14px">
- <div class="card avance" style="cursor:default">
-  <div class="arow"><div><span class="tag">Avance general</span><div class="abig">${T.gen}<small>%</small></div></div>
-   <div class="aring">${ring(T.gen/100,T.gen+'%','Avance general')}</div></div>
-  <div class="prog"><i style="width:${T.gen}%"></i></div>
-  <div class="meta" style="margin-top:8px">Se calcula con las fichas leídas, las evaluaciones hechas y los pasos del COPPAS trabajados.</div>
- </div>
- <div class="agrid3" style="margin-top:12px">
-  ${[[T.leidas,T.totF,'fichas leídas'],[T.capsOk,12,'capítulos completos'],[T.ev,12,'evaluaciones'],
-     [T.pasos,8,'pasos COPPAS'],[T.fichas,5,'fichas COPPAS'],[T.santos,53,'santos leídos']]
-   .map(x=>`<div class="card mini"><b>${x[0]}<small>/${x[1]}</small></b><span>${x[2]}</span></div>`).join('')}
- </div>
- <div class="sec"><h3>Doctrina Social · qué me falta</h3>
-  ${pend.length?`<div class="stack">${pend.map(c=>`<button class="card li" data-go="cap-${c.n}"><span class="pn">${c.n}</span><span><h4>${esc(c.t)}</h4><span class="meta">${readN(c.n)} de ${c.f.length} fichas leídas</span><span class="bar" style="margin-top:6px"><i style="width:${readN(c.n)/c.f.length*100}%"></i></span></span></button>`).join('')}</div>`
-   :'<div class="card sem ok"><div>Están leídos los doce capítulos. Puedes volver sobre los que quieras repasar.</div></div>'}
- </div>
- <div class="sec"><h3>Evaluaciones pendientes</h3>
-  ${evPend.length?`<div class="stack">${evPend.map(c=>`<button class="card li" data-go="quiz-${c.n}"><span class="pn">${c.n}</span><span><h4>${esc(c.t)}</h4><span class="meta">Sin evaluar todavía</span></span></button>`).join('')}</div>`
-   :'<div class="card sem ok"><div>Las doce evaluaciones están hechas.</div></div>'}
- </div>
- <div class="sec"><h3>COPPAS · pasos sin ficha</h3>
-  ${copPend.length?`<div class="stack">${copPend.map(x=>`<button class="card li" data-go="copf-${x[0]}"><span class="pn">${x[0]}</span><span><h4>${esc(x[2])}</h4><span class="meta">Ficha ${x[10]} sin empezar</span></span></button>`).join('')}</div>`
-   :'<div class="card sem ok"><div>Los ocho pasos tienen su ficha empezada. Toca revisar y celebrar.</div></div>'}
- </div>
- <div class="sec"><h3>Lo mío</h3><div class="stack">
-  <button class="card li" data-go="guardados"><span class="cemb">${emb('heart')}</span><span><h4>Mis guardados y notas</h4><span class="meta">${T.notas} notas escritas</span></span></button>
-  <button class="card li" data-go="repaso"><span class="cemb">${emb('cards')}</span><span><h4>Repasar con tarjetas</h4><span class="meta">${dueCards().length} tarjetas para hoy</span></span></button>
- </div></div>${sello()}</div>`}
 const sello=()=>`<footer class="sello"><span class="chip-l"><img src="${LOGO_D}" alt="Escudo de la Diócesis de Caldas"><img src="${LOGO_P}" alt="Pastoral Social, Diócesis de Caldas"></span><span>Pastoral Social · Cáritas Diocesana de Caldas</span><span class="ver">Versión ${VER}</span></footer>`;
 const capCard=c=>{const r=readN(c.n);return `<button class="card cap" data-go="cap-${c.n}"><div class="cemb">${emb(CEMB[c.n])}</div><div style="flex:1;min-width:0"><h4>${esc(c.t)}</h4><div class="meta">DOCAT ${c.r} · ${r}/${c.f.length}</div><div class="bar"><i style="width:${r/c.f.length*100}%"></i></div></div></button>`};
 R.temas=()=>hdr('Temas')+`<div class="pad fade"><p class="meta" style="margin:12px 0">Doce capítulos, en el orden del DOCAT.</p><div class="stack">${CAPS.map(capCard).join('')}</div></div>`;
@@ -2270,6 +2381,37 @@ function results(){const t=norm(term).trim();if(t.length<2)return `<div class="c
  return `<div class="stack">${a.map(f=>`<button class="card" data-go="${f.id}"><h4 style="margin:0;font:600 17px var(--ui)">${esc(f.t)}</h4><span class="meta">${esc(f.k)}</span></button>`).join('')}${b.map(d=>`<details><summary>${esc(d[0])}</summary><p>${esc(d[1])}</p><div class="meta">${esc(d[2])}</div></details>`).join('')}${g.map(d=>`<div class="card"><span class="tag">Glosario</span><h4 style="margin:0;font:600 17px var(--ui)">${esc(d[0])}</h4><div class="meta">${esc(d[1])}</div></div>`).join('')}${c.map(d=>`<div class="card"><span class="tag">${d[0]}</span><h4 style="margin:0;font:600 17px var(--ui)">${esc(d[1])}</h4><div class="meta">${esc(d[5])}</div></div>`).join('')}${he.map(h=>`<button class="card" data-go="era-${h[0]}"><span class="tag">Historia · ${esc(h[1][0])}</span><div class="meta" style="color:var(--ink)">${esc(h[1][1])}</div></button>`).join('')}${hf.map(qc).join('')}</div>`}
 
 /* ================= ORAR ================= */
+function vistaAvance(){const T=stats();
+ const pend=CAPS.filter(c=>readN(c.n)<c.f.length);
+ const evPend=CAPS.filter(c=>!(S.best&&S.best['q'+c.n]!==undefined));
+ const copPend=COPPASOS.filter(x=>!fichaLlena(x[10]));
+ return hdr('Mi camino')+`<div class="pad fade" style="padding-top:14px">
+ <div class="card avance" style="cursor:default">
+  <div class="ahead"><span class="aring">${ring(T.gen/100,T.gen+'%','Avance general')}</span>
+   <span class="atxt"><span class="tag">Avance general</span>
+    <span class="meta">Se calcula con las fichas leídas, las evaluaciones hechas y los pasos del COPPAS trabajados.</span></span></div>
+ </div>
+ <div class="agrid3" style="margin-top:12px">
+  ${[[T.leidas,T.totF,'fichas leídas'],[T.capsOk,12,'capítulos completos'],[T.ev,12,'evaluaciones'],
+     [T.pasos,8,'pasos COPPAS'],[T.fichas,5,'fichas COPPAS'],[T.santos,53,'santos leídos']]
+   .map(x=>`<div class="card mini"><b>${x[0]}<small>/${x[1]}</small></b><span>${x[2]}</span></div>`).join('')}
+ </div>
+ <div class="sec"><h3>Doctrina Social · qué me falta</h3>
+  ${pend.length?`<div class="stack">${pend.map(c=>`<button class="card li" data-go="cap-${c.n}"><span class="pn">${c.n}</span><span><h4>${esc(c.t)}</h4><span class="meta">${readN(c.n)} de ${c.f.length} fichas leídas</span><span class="bar" style="margin-top:6px"><i style="width:${readN(c.n)/c.f.length*100}%"></i></span></span></button>`).join('')}</div>`
+   :'<div class="card sem ok"><div>Están leídos los doce capítulos. Puedes volver sobre los que quieras repasar.</div></div>'}
+ </div>
+ <div class="sec"><h3>Evaluaciones pendientes</h3>
+  ${evPend.length?`<div class="stack">${evPend.map(c=>`<button class="card li" data-go="quiz-${c.n}"><span class="pn">${c.n}</span><span><h4>${esc(c.t)}</h4><span class="meta">Sin evaluar todavía</span></span></button>`).join('')}</div>`
+   :'<div class="card sem ok"><div>Las doce evaluaciones están hechas.</div></div>'}
+ </div>
+ <div class="sec"><h3>COPPAS · pasos sin ficha</h3>
+  ${copPend.length?`<div class="stack">${copPend.map(x=>`<button class="card li" data-go="copf-${x[0]}"><span class="pn">${x[0]}</span><span><h4>${esc(x[2])}</h4><span class="meta">Ficha ${x[10]} sin empezar</span></span></button>`).join('')}</div>`
+   :'<div class="card sem ok"><div>Los ocho pasos tienen su ficha empezada. Toca revisar y celebrar.</div></div>'}
+ </div>
+ <div class="sec"><h3>Lo mío</h3><div class="stack">
+  <button class="card li" data-go="guardados"><span class="cemb">${emb('heart')}</span><span><h4>Mis guardados y notas</h4><span class="meta">${T.notas} notas escritas</span></span></button>
+  <button class="card li" data-go="repaso"><span class="cemb">${emb('cards')}</span><span><h4>Repasar con tarjetas</h4><span class="meta">${dueCards().length} tarjetas para hoy</span></span></button>
+ </div></div>${sello()}</div>`}
 R.orar=()=>{const L=LIT.hoy(),p=palabraHoy(),r=reflexHoy(),[st,hoy]=santoHoy();
  return hdr('Orar')+`<div class="banner lit ${L.color}">${scene(770,160,'dove')}<div class="bt"><div class="eyebrow">${esc(L.dia)} ${L.diaNum} de ${esc(L.mes)}</div><h1>${esc(L.solemne||L.tiempo)}</h1></div></div><div class="pad fade" style="padding-top:14px">
  <div class="card litcard"><span class="cdot ${L.color}"></span><div><div class="meta">${esc(L.titulo)}</div><div class="meta" style="margin-top:2px">Ciclo ${L.ciclo} · Año ferial ${L.ferial} · Color ${esc(L.color)}</div></div></div>
@@ -2279,6 +2421,11 @@ R.orar=()=>{const L=LIT.hoy(),p=palabraHoy(),r=reflexHoy(),[st,hoy]=santoHoy();
   ['viacrucis','Vía Crucis','Catorce estaciones con mirada social','cross'],
   ['oraciones','Oraciones','Las de siempre, a la mano','dove'],
   ['santoral','Santoral','53 santos con su vida','people'],
+  ['orsit','Oraciones para cada situación','Visita, duelo, emergencia, reunión','house'],
+  ['novena','Novena del Buen Samaritano','Nueve días, uno por cada principio','star'],
+  ['vialucis','Vía Lucis','El camino de la luz, para la Pascua','light'],
+  ['esquemas','Oración para reuniones','Ocho esquemas breves que sí duran lo que dicen','people'],
+  ['adoracion','Media hora de adoración','Guía paso a paso ante el Santísimo','church'],
   ['examen','Examen de conciencia','Para revisar el día o antes de confesarse','compass'],
   ['coronilla','Coronilla de la Misericordia','Por los enfermos y los que agonizan','heart'],
   ['anolit','El año litúrgico','Qué se celebra y cuándo','time']
@@ -2287,8 +2434,7 @@ R.orar=()=>{const L=LIT.hoy(),p=palabraHoy(),r=reflexHoy(),[st,hoy]=santoHoy();
  <div class="sec"><h3>Palabra para hoy</h3><div class="card pal"><q>${esc(p[0])}</q><span class="meta">${esc(p[1])} · ${esc(p[2])}</span></div></div>
  <div class="sec"><h3>Para pensar hoy</h3><div class="card"><h4 style="margin:0 0 5px;font:600 17px var(--ui)">${esc(r[0])}</h4><div style="font:calc(17px*var(--fs))/1.5 var(--read)">${esc(r[1])}</div></div></div>${sello()}</div>`};
 
-/* ---- Lectio divina del día ---- */
-function refEs(t){if(!t)return '';let x=String(t).replace(/\u00a0/g,' ').replace(/\s+/g,' ').trim();
+function refEs(t){if(!t)return '';let x=String(t).replace(/ /g,' ').replace(/\s+/g,' ').trim();
  for(const k in LIBROS)x=x.replace(new RegExp('^'+k.replace(/ /g,'\\s')+'\\b'),LIBROS[k]);
  return x.replace(/(\d)\:(\d)/g,'$1,$2')}
 function lecturasCache(){try{return JSON.parse(localStorage.getItem('lecturas')||'{}')}catch(e){return {}}}
@@ -2299,7 +2445,7 @@ function pedirLecturas(f,cb){
  fetch(`https://cpbjr.github.io/catholic-readings-api/readings/${y}/${m}-${d}.json`,{cache:'no-store'})
   .then(r=>r.ok?r.json():null).then(j=>{
    if(!j||!j.readings){cb(null);return}
-   const o={p:refEs(j.readings.firstReading),s:refEs(j.readings.psalm),p2:refEs(j.readings.secondReading||''),ev:refEs(j.readings.gospel),link:j.usccbLink||''};
+   const o={p:refEs(j.readings.firstReading),s:refEs(j.readings.psalm),p2:refEs(j.readings.secondReading||''),ev:refEs(j.readings.gospel)};
    const c2=lecturasCache();c2[f]=o;
    const ks=Object.keys(c2);if(ks.length>40)ks.sort().slice(0,ks.length-40).forEach(k=>delete c2[k]);
    try{localStorage.setItem('lecturas',JSON.stringify(c2))}catch(e){}
@@ -2312,7 +2458,7 @@ R.lectio=()=>{const L=LIT.hoy(),c=lecturasCache()[L.fecha]||null;
  <h1 style="font-size:27px;margin:4px 0 8px">${esc(L.titulo)}</h1>
  <div id="lect" class="card litcard"><span class="cdot ${L.color}"></span><div>${c?`<div class="meta">Evangelio de hoy</div><div style="font:600 calc(19px*var(--fs))/1.4 var(--ui);color:var(--pine)">${esc(c.ev)}</div><div class="meta" style="margin-top:4px">1.ª lectura: ${esc(c.p)}${c.p2?' · 2.ª: '+esc(c.p2):''} · ${esc(c.s)}</div>`:'<div class="meta">Buscando las lecturas de hoy…</div>'}</div></div>
  <p class="meta" style="margin-top:8px">La referencia sigue el leccionario romano. En Colombia algunas solemnidades se trasladan al domingo, así que conviene confirmarlo con el calendario de la Diócesis.</p>
- <div class="btns" style="margin-top:10px"><button class="btn" id="abrirlect">Abrir el texto del Evangelio</button></div>
+ <div class="card" style="margin-top:10px"><span class="tag">Sobre el texto bíblico</span><div style="font:calc(16px*var(--fs))/1.5 var(--read);margin-top:4px">La aplicación te da el pasaje que corresponde a hoy, pero no incluye el texto de la Biblia: todas las traducciones al español que se usan hoy tienen derechos de autor y no se pueden copiar. Abre tu Biblia en esa cita, o la de la parroquia, y lee desde ahí.</div></div>
  <div class="sec"><h3>Antes de empezar</h3><div class="card"><div style="font:calc(16.5px*var(--fs))/1.55 var(--read)">Busca un lugar donde no te interrumpan y apaga lo que suene. Haz la señal de la cruz y pide al Espíritu Santo que te ayude a entender. No tengas prisa: veinte minutos bien hechos valen más que una hora distraída.</div></div></div>
  ${LECTIO5.map((l,i)=>`<div class="sec"><div class="mhead"><span class="pn">${i+1}</span><div><h3 style="margin:0">${esc(l[0])}</h3><div class="meta">${esc(l[1])}</div></div></div>
   <div class="card"><div style="font:calc(16.5px*var(--fs))/1.55 var(--read)">${esc(l[3])}</div>
@@ -2367,6 +2513,41 @@ R.anolit=()=>{const L=LIT.hoy();
  <div class="card litcard"><span class="cdot ${L.color}"></span><div><div class="meta">Hoy</div><div style="font:600 calc(18px*var(--fs))/1.35 var(--ui);color:var(--pine)">${esc(L.titulo)}</div><div class="meta" style="margin-top:3px">Año litúrgico ${L.anoLit} · ciclo dominical ${L.ciclo} · año ferial ${L.ferial}</div></div></div>
  <p class="reader" style="margin-top:12px">El año litúrgico no sigue el calendario civil: empieza con el primer domingo de Adviento. Las lecturas de los domingos van en un ciclo de tres años (A, B y C) y las de los días de semana en uno de dos (I y II). Todo esto la aplicación lo calcula sola a partir de la fecha del teléfono.</p>
  <div class="sec"><h3>Los tiempos, en orden</h3><div class="stack">${et.map((e,i)=>`<div class="card moment"><div class="n">${i+1}</div><div><h4 style="margin:0;font:600 17px var(--ui)">${esc(e[0])}</h4><div style="font:calc(16px*var(--fs))/1.45 var(--read)">${esc(e[1])}</div>${e[2]?`<div class="meta" style="margin-top:3px">${esc(e[2])}</div>`:''}</div></div>`).join('')}</div></div>${sello()}</div>`};
+
+R.orsit=()=>hdr('Oraciones para cada situación')+`<div class="pad fade" style="padding-top:14px">
+ <p class="reader">Dieciséis oraciones escritas para los momentos concretos del servicio: una visita, un duelo, una emergencia, una reunión. Toca para abrirla y el botón copia el texto.</p>
+ <div class="stack" style="margin-top:12px">${ORSIT.map((o,i)=>`<details class="det orc"><summary>${esc(o[0])}</summary><div class="ptxt" style="white-space:pre-line">${esc(o[2])}</div><button class="btn alt" data-orsit="${i}" style="margin-top:8px">Copiar</button></details>`).join('')}</div>${sello()}</div>`;
+
+R.novena=()=>hdr('Novena del Buen Samaritano')+`<div class="pad fade" style="padding-top:14px">
+ <div class="key">${esc(NOVENA.intro)}</div>
+ <div class="card pal" style="margin-top:12px"><span class="tag">Oración de todos los días</span><div style="font:italic calc(17px*var(--fs))/1.65 var(--read);margin-top:6px;white-space:pre-line">${esc(NOVENA.oracion)}</div></div>
+ <div class="sec"><h3>Los nueve días</h3><div class="stack">${NOVENA.dias.map(d=>`<button class="card li" data-go="nov-${d[0]}"><span class="pn">${d[0]}</span><span><h4>${esc(d[1])}</h4><span class="meta">${esc(d[2])}</span></span></button>`).join('')}</div></div>${sello()}</div>`;
+
+function novDia(n){const d=NOVENA.dias.find(x=>x[0]===+n);if(!d)return R.novena();
+ const i=NOVENA.dias.indexOf(d);
+ return hdr('Día '+d[0]+' de 9')+`<div class="pad fade" style="padding-top:14px">
+ <div class="eyebrow">Novena del Buen Samaritano</div><h1 style="font-size:28px;margin:4px 0 10px">${esc(d[1])}</h1>
+ <div class="card moment"><div class="n">1</div><div style="font:calc(16.5px*var(--fs))/1.5 var(--read)">Se enciende una luz y se hace la señal de la cruz.</div></div>
+ <div class="card pal" style="margin-top:10px"><span class="tag">La Palabra · ${esc(d[2])}</span><div class="meta" style="margin-top:5px">Abre tu Biblia en esta cita y léela despacio, dos veces.</div></div>
+ <div class="card" style="margin-top:10px"><span class="tag">Para meditar</span><div style="font:calc(17px*var(--fs))/1.6 var(--read);margin-top:5px">${esc(d[3])}</div></div>
+ <div class="card goal" style="margin-top:10px"><span class="tag">Petición</span><div style="font:calc(16.5px*var(--fs))/1.5 var(--read);margin-top:4px">${esc(d[4])}</div></div>
+ <div class="card sem ok" style="margin-top:10px"><span class="tag">Gesto de hoy</span><div style="font:calc(16.5px*var(--fs))/1.5 var(--read);margin-top:4px">${esc(d[5])}</div></div>
+ <div class="card pal" style="margin-top:10px"><span class="tag">Se termina con</span><div style="font:italic calc(16.5px*var(--fs))/1.6 var(--read);margin-top:5px;white-space:pre-line">${esc(NOVENA.oracion)}</div></div>
+ <div class="pager" style="margin-top:14px">${i>0?`<button class="card" data-go="nov-${d[0]-1}"><small>Día anterior</small>${esc(NOVENA.dias[i-1][1])}</button>`:'<span></span>'}${i<8?`<button class="card" data-go="nov-${d[0]+1}"><small>Día siguiente</small>${esc(NOVENA.dias[i+1][1])}</button>`:'<button class="card" data-go="novena"><small>Terminamos</small>Volver a la novena</button>'}</div></div>`}
+
+R.vialucis=()=>hdr('Vía Lucis')+`<div class="pad fade" style="padding-top:14px">
+ <div class="key">${esc(VIALUCIS.intro)}</div>
+ ${VIALUCIS.e.map((e,i)=>`<div class="sec"><div class="mhead"><span class="pn">${i+1}</span><div><h3 style="margin:0;font-size:19px">${esc(e[0])}</h3></div></div>
+  <div class="card"><div style="font:calc(16.5px*var(--fs))/1.55 var(--read)">${esc(e[1])}</div><div class="puente">${esc(e[2])}</div></div></div>`).join('')}
+ <div class="card pal" style="margin-top:14px"><span class="tag">Al terminar</span><div style="font:italic calc(17px*var(--fs))/1.6 var(--read);margin-top:5px">Se canta o se reza el Gloria, y se pide el Espíritu Santo sobre lo que viene.</div></div>${sello()}</div>`;
+
+R.adoracion=()=>hdr('Media hora de adoración')+`<div class="pad fade" style="padding-top:14px">
+ <div class="key">${esc(ADORACION.intro)}</div>
+ <div class="stack" style="margin-top:12px">${ADORACION.pasos.map((x,i)=>`<div class="card moment"><div class="n">${i+1}</div><div style="flex:1;min-width:0"><div class="row"><h4 style="margin:0;font:600 17px var(--ui)">${esc(x[1])}</h4><span class="min">${x[0]} min</span></div><div style="font:calc(16.5px*var(--fs))/1.5 var(--read);margin-top:3px">${esc(x[2])}</div></div></div>`).join('')}</div>${sello()}</div>`;
+
+R.esquemas=()=>hdr('Oración para reuniones')+`<div class="pad fade" style="padding-top:14px">
+ <p class="reader">Ocho esquemas breves para abrir o cerrar una reunión del comité o del grupo de jóvenes. Están pensados para durar lo que dicen y no más.</p>
+ <div class="stack" style="margin-top:12px">${ESQ.map((e,i)=>`<details class="det orc"><summary>${esc(e[0])}<small>${esc(e[2])}</small></summary><div class="qs" style="margin-top:9px">${e[3].map(x=>`<div>${esc(x)}</div>`).join('')}</div></details>`).join('')}</div>${sello()}</div>`;
 
 R.santoral=()=>{const d=new Date(),k=(d.getMonth()+1)*100+d.getDate();let M={};SANTOS.forEach(s=>{(M[s[0]]=M[s[0]]||[]).push(s)});
  return hdr('Santoral')+`<div class="pad fade" style="padding-top:12px"><p class="meta">Santos y fiestas cercanas al servicio de la caridad. Conviene contrastar las fechas con el calendario litúrgico de la Diócesis.</p>${Object.keys(M).map(m=>`<div class="sec" style="margin-top:16px"><h3 style="font-size:20px;text-transform:capitalize">${MES[m-1]}</h3><div class="stack">${M[m].map(s=>`<button class="card li ${s[0]*100+s[1]===k?'hoyx':''}" data-go="santo-${s[0]}-${s[1]}"><span class="sadot">${santoArt(s,'mini')}</span><span><h4>${s[1]} · ${esc(s[2])}</h4><span class="meta">${esc(s[3])}</span></span></button>`).join('')}</div></div>`).join('')}</div>`};
@@ -2467,12 +2648,12 @@ R.copplan=()=>R.copapoyos();
 const NAV=[['inicio','home','Inicio'],['dsi','book','DSI'],['coppas','people','COPPAS'],['orar','dove','Orar'],['mas','more','Más']];
 function tabOf(v){if(v==='inicio')return v;if(v==='buscar')return '';
  if(/^cop/.test(v))return 'coppas';
- if(/^(orar|santo|oracion|lectio|rosario|ros-|viacrucis|coronilla|examen|anolit)/.test(v))return 'orar';
+ if(/^(orar|santo|oracion|orsit|lectio|rosario|ros-|viacrucis|vialucis|coronilla|examen|anolit|novena|nov-|adoracion|esquemas)/.test(v))return 'orar';
  if(/^(dsi|avance|temas|cap-|f-|sesion-|quiz-|tarjetas|repaso|preguntar|historia|era-|documentos|novedades|metodo|glosario|frases|testigos|equipo|mapa)/.test(v))return 'dsi';
  return 'mas'}
 function render(){const v=view();trackHist(v);let h,m;
  if(R[v])h=R[v]();else if(m=v.match(/^cap-(\d+)$/))h=capView(+m[1]);else if(byId[v])h=fichaView(v);else if(m=v.match(/^sesion-(\d+)$/))h=sesion(+m[1]);else if(m=v.match(/^copf-(\d+)$/))h=copFase(m[1])
- else if(m=v.match(/^ros-(\d+)$/))h=rosGrupo(m[1]);else if(m=v.match(/^copfi-(\d+)$/))h=copFicha(m[1]);else if(m=v.match(/^santo-(\d+)-(\d+)$/))h=santoView(m[1],m[2]);else if(m=v.match(/^era-(\d+)$/))h=eraView(+m[1]);else if(m=v.match(/^quiz-(\d+)$/))h=quizView(+m[1]);else h=R.inicio();
+ else if(m=v.match(/^ros-(\d+)$/))h=rosGrupo(m[1]);else if(m=v.match(/^nov-(\d+)$/))h=novDia(m[1]);else if(m=v.match(/^copfi-(\d+)$/))h=copFicha(m[1]);else if(m=v.match(/^santo-(\d+)-(\d+)$/))h=santoView(m[1],m[2]);else if(m=v.match(/^era-(\d+)$/))h=eraView(+m[1]);else if(m=v.match(/^quiz-(\d+)$/))h=quizView(+m[1]);else h=R.inicio();
  app.innerHTML=h;const t=tabOf(v);$('#nav').innerHTML=`<div><span class="nbrand"><img src="${LOGO_C}" alt=""><b>Cáritas Caldas</b></span>`+NAV.map(n=>`<button class="${n[0]===t?'on':''}" data-go="${n[0]}" aria-label="${n[2]}">${ic(n[1])}${n[2]}</button>`).join('')+'</div>';
  const s=$('#s');if(s){s.addEventListener('input',()=>{term=s.value;$('#res').innerHTML=results()});if(!term)s.focus()}
  const nt=$('#note');if(nt)nt.addEventListener('input',()=>{S.notes[v]=nt.value;save()});
@@ -2483,8 +2664,6 @@ function render(){const v=view();trackHist(v);let h,m;
    if(!o){box.innerHTML=`<span class="cdot ${L.color}"></span><div><div class="meta">No se pudieron traer las lecturas de hoy. Conéctate un momento y vuelve a entrar: quedan guardadas para después.</div></div>`;return}
    box.innerHTML=`<span class="cdot ${L.color}"></span><div><div class="meta">Evangelio de hoy</div><div style="font:600 calc(19px*var(--fs))/1.4 var(--ui);color:var(--pine)">${esc(o.ev)}</div><div class="meta" style="margin-top:4px">1.ª lectura: ${esc(o.p)}${o.p2?' · 2.ª: '+esc(o.p2):''} · ${esc(o.s)}</div></div>`;
   });
-  const ab=$('#abrirlect');if(ab)ab.onclick=()=>{const c=lecturasCache()[L.fecha];
-   if(c&&c.link)open(c.link,'_blank');else open('https://www.vatican.va/content/vatican/es.html','_blank')};
  }
 }
 document.addEventListener('change',e=>{const c=e.target.closest('[data-mat]');if(c){S.mat=S.mat||{};c.checked?S.mat[c.dataset.mat]=1:delete S.mat[c.dataset.mat];save()}
@@ -2492,6 +2671,7 @@ document.addEventListener('change',e=>{const c=e.target.closest('[data-mat]');if
 document.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.classList&&e.target.classList.contains('node')){e.preventDefault();go(e.target.dataset.go)}});
 document.addEventListener('click',e=>{const b=e.target.closest('button,a,[data-go]');if(!b)return;const v=view();
  if(b.dataset.orac!==undefined){copiar(ORAC[+b.dataset.orac][0]+'\n\n'+ORAC[+b.dataset.orac][2]);return}
+ if(b.dataset.orsit!==undefined){copiar(ORSIT[+b.dataset.orsit][0]+'\n\n'+ORSIT[+b.dataset.orsit][2]);return}
  if(b.dataset.back){const d=b.dataset.dest;if(d)go(d);else irAtras();return}
  if(b.dataset.go){go(b.dataset.go);return}
  if(b.dataset.q){dq=b.dataset.q;dcat='';go('preguntar');return}
