@@ -255,6 +255,16 @@ mark{background:var(--goldbg);color:inherit}
 .det{margin-top:10px;border-top:1px solid var(--line);padding-top:8px}
 .det summary{cursor:pointer;font:600 15.5px var(--ui);color:var(--pine)}
 .det>div{margin-top:7px;font:calc(16px*var(--fs))/1.5 var(--read);color:var(--ink2)}
+.sello .ver{font-size:12.5px;opacity:.6;letter-spacing:.03em}
+/* Aviso de versión nueva */
+#upd{position:fixed;left:12px;right:12px;bottom:calc(var(--navh,64px) + 12px);z-index:60;display:flex;gap:10px;
+ align-items:center;padding:12px 14px;border-radius:14px;background:var(--pine);color:#f3ead8;
+ box-shadow:0 10px 30px rgba(6,26,21,.35);font:15.5px var(--ui);animation:upIn .35s ease both}
+#upd b{font-weight:600}
+#upd button{margin-left:auto;flex:0 0 auto;border:0;border-radius:10px;padding:8px 14px;background:var(--gold);
+ color:#2a2113;font:600 15px var(--ui);cursor:pointer}
+#upd .x{background:transparent;color:#f3ead8;opacity:.7;padding:8px 4px;margin-left:0}
+@keyframes upIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 </style></head><body><main id="app"></main><nav class="nav" id="nav" aria-label="Principal"></nav><script>const CAPS=[];
 function C(o){CAPS.push(o)}
 C({n:1,t:"El plan maestro de Dios: el amor",r:"1–21",s:"De dónde viene todo esto: un Dios que ama y un mundo que quiere ver transformado.",
@@ -1650,6 +1660,31 @@ const view=()=>location.hash.slice(1)||'inicio';
 const go=h=>{if(location.hash==='#'+h)render();else location.hash=h};
 window.addEventListener('hashchange',()=>{render();scrollTo(0,0)});
 // botón físico de Android: volver dentro de la app antes de salir
+
+// Quien usa la app instalada desde el archivo no recibe actualizaciones solas:
+// se le avisa si en la página hay una versión más nueva.
+(function(){
+ if('serviceWorker' in navigator && navigator.serviceWorker.controller) return; // la web ya se actualiza sola
+ const URLV='https://davidobandoh-sudo.github.io/Pastoral-Social-Caldas---Estudio-DSI/version.json';
+ const mayor=(a,b)=>{const A=a.split('.').map(Number),B=b.split('.').map(Number);
+  for(let i=0;i<Math.max(A.length,B.length);i++){const x=A[i]||0,y=B[i]||0;if(x!==y)return x>y}return false};
+ const ver=()=>{
+  if(!navigator.onLine)return;
+  fetch(URLV,{cache:'no-store'}).then(r=>r.json()).then(j=>{
+   if(!j||!j.version||!mayor(j.version,VER))return;
+   if(sessionStorage.getItem('avisoVer'))return;
+   sessionStorage.setItem('avisoVer','1');
+   const d=document.createElement('div');d.id='upd';
+   d.innerHTML='<span><b>Hay una versión nueva ('+j.version+').</b> '+(j.notas||'')+'</span>'+
+    '<button type="button" id="updgo">Abrir</button><button type="button" class="x" id="updno" aria-label="Ahora no">✕</button>';
+   document.body.appendChild(d);
+   d.querySelector('#updgo').onclick=()=>{open(j.apk||URLV,'_blank');d.remove()};
+   d.querySelector('#updno').onclick=()=>d.remove();
+  }).catch(()=>{});
+ };
+ setTimeout(ver,4000);
+ document.addEventListener('visibilitychange',()=>{if(!document.hidden)setTimeout(ver,1500)});
+})();
 document.addEventListener('deviceready',()=>{try{window.Capacitor&&window.Capacitor.Plugins&&window.Capacitor.Plugins.App&&window.Capacitor.Plugins.App.addListener('backButton',()=>{if(history.length>1&&location.hash&&location.hash!=='#inicio')history.back();else window.Capacitor.Plugins.App.exitApp()})}catch(e){}});
 const app=$('#app');
 const today=()=>Math.floor((Date.now()-18e6)/864e5);
@@ -1773,7 +1808,8 @@ R.inicio=()=>{
  <div class="sec">${qc(FR[today()%FR.length])}</div><div class="sec"><button class="card hb" data-go="coppas">${scene(31,104,'people')}<span class="hbt"><span class="eyebrow">Para el comité</span><h3>COPPAS · Servir juntos</h3><span class="s2">Ocho pasos, cinco fichas y casos para practicar</span></span></button></div><div class="sec"><h3>¿Tienes una duda?</h3><div class="chips">${QUICK.map(q=>`<button class="chip" data-q="${esc(q[1])}">${esc(q[0])}</button>`).join('')}</div></div>
  <div class="sec"><h3>Los cuatro principios</h3>${mapaP()}</div>
  <div class="sec"><div class="row"><h3>Doctrina Social</h3><button class="lnk" data-go="dsi">Ver todo</button></div><div class="stack">${CAPS.slice(0,3).map(capCard).join('')}</div></div>${sello()}</div>`};
-const sello=()=>`<footer class="sello"><span class="chip-l"><img src="${LOGO_D}" alt="Escudo de la Diócesis de Caldas"><img src="${LOGO_P}" alt="Pastoral Social, Diócesis de Caldas"></span><span>Pastoral Social · Cáritas Diocesana de Caldas</span></footer>`;
+const VER='2.2';
+const sello=()=>`<footer class="sello"><span class="chip-l"><img src="${LOGO_D}" alt="Escudo de la Diócesis de Caldas"><img src="${LOGO_P}" alt="Pastoral Social, Diócesis de Caldas"></span><span>Pastoral Social · Cáritas Diocesana de Caldas</span><span class="ver">Versión ${VER}</span></footer>`;
 const capCard=c=>{const r=readN(c.n);return `<button class="card cap" data-go="cap-${c.n}"><div class="cemb">${emb(CEMB[c.n])}</div><div style="flex:1;min-width:0"><h4>${esc(c.t)}</h4><div class="meta">DOCAT ${c.r} · ${r}/${c.f.length}</div><div class="bar"><i style="width:${r/c.f.length*100}%"></i></div></div></button>`};
 R.temas=()=>hdr('Temas')+`<div class="pad fade"><p class="meta" style="margin:12px 0">Doce capítulos, en el orden del DOCAT.</p><div class="stack">${CAPS.map(capCard).join('')}</div></div>`;
 function capView(n){const c=CAPS[n-1];return hdr('Capítulo '+n,'temas')+`<div class="banner">${scene(n*11+3,170,CEMB[n])}<div class="bt"><div class="eyebrow">Capítulo ${n} · DOCAT ${c.r}</div><h1>${esc(c.t)}</h1></div></div><div class="pad"><p class="ask" style="margin-top:14px">${esc(c.s)}</p><p class="reader" style="margin-top:6px">${esc(c.intro)}</p>${n===4?mapaP():''}${frCap(n)[0]?qc(frCap(n)[0]):''}<div class="btns" style="margin-bottom:16px"><button class="btn" data-go="sesion-${n}">Preparar sesión</button><button class="btn alt" data-go="quiz-${n}">Evaluarme</button></div><div class="stack">${c.f.map((f,i)=>`<button class="card li" data-go="f-${n}-${i}"><span class="dot ${S.read[`f-${n}-${i}`]?'y':''}">${S.read[`f-${n}-${i}`]?'✓':''}</span><span><h4>${esc(f[0])}</h4><span class="meta">${esc(f[1])}</span></span></button>`).join('')}</div></div>`}
@@ -2005,4 +2041,12 @@ render();
 ;(function(){try{const d=document.createElement('div');d.id='splash';d.innerHTML=`<div class="spc">${scene(7,250)}</div><div class="spm"><div class="splogo"><span class="sphalo"></span><img src="${LOGO_C}" alt=""></div><div class="spname">Cáritas</div><div class="spsub">Pastoral Social · Diócesis de Caldas</div><span class="sprule"></span><div class="splema">hacernos próximos forjando samaritanos</div><div class="spd"><i></i><i></i><i></i></div></div>`;
 document.body.appendChild(d);const rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
 setTimeout(()=>{d.classList.add('out');setTimeout(()=>d.remove(),500)},rm?400:2300)}catch(e){}})();
-</script><script>if("serviceWorker" in navigator&&location.protocol==="https:")addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}))</script></body></html>
+</script><script>
+if("serviceWorker" in navigator&&window.isSecureContext){
+ addEventListener("load",()=>navigator.serviceWorker.register("sw.js").then(reg=>{
+  const buscar=()=>reg.update().catch(()=>{});
+  setInterval(buscar,60*60*1000);
+  document.addEventListener("visibilitychange",()=>{if(!document.hidden)buscar()});
+ }).catch(()=>{}));
+}
+</script></body></html>

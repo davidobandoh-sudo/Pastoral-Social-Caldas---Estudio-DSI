@@ -1,0 +1,49 @@
+CÓMO INSTALAR «CÁRITAS CALDAS» EN EL CELULAR
+Pastoral Social · Cáritas Diocesana de Caldas, Antioquia
+
+Enlace único para todos:
+https://davidobandoh-sudo.github.io/Pastoral-Social-Caldas---Estudio-DSI/
+
+────────────────────────────────────
+ANDROID (Chrome)
+1. Abrir el enlace.
+2. Tocar los tres puntos de arriba a la derecha.
+3. Tocar «Agregar a la pantalla principal» o «Instalar aplicación».
+4. Confirmar. Queda el ícono junto a las demás apps.
+
+IPHONE (Safari)
+1. Abrir el enlace EN SAFARI (no en Chrome).
+2. Tocar el botón de compartir, el cuadrito con la flecha hacia arriba.
+3. Bajar y tocar «Agregar a inicio».
+4. Confirmar.
+
+COMPUTADOR (Chrome o Edge)
+1. Abrir el enlace.
+2. En la barra de direcciones aparece un ícono de instalar.
+3. Tocarlo y confirmar.
+
+────────────────────────────────────
+LO QUE HAY QUE SABER
+
+· Funciona sin internet una vez instalada.
+· Se actualiza sola: cada vez que se abre con datos o wifi busca la
+  última versión. No hay que descargar nada nunca más.
+· Lo que cada persona escribe en las fichas y en las notas se guarda
+  solo en su teléfono y no se pierde con las actualizaciones.
+· No pide cuenta, ni correo, ni contraseña.
+· La versión instalada aparece al pie de cada pantalla.
+
+────────────────────────────────────
+MENSAJE LISTO PARA WHATSAPP
+
+Les comparto la aplicación de la Pastoral Social de la Diócesis de
+Caldas. Tiene la Doctrina Social de la Iglesia, la ruta completa de
+los COPPAS y una parte de oración con el santo del día.
+
+Para instalarla: abran este enlace, toquen los tres puntos de arriba
+a la derecha y elijan «Agregar a la pantalla principal».
+
+https://davidobandoh-sudo.github.io/Pastoral-Social-Caldas---Estudio-DSI/
+
+Funciona sin internet y se actualiza sola. No pide cuenta ni datos
+personales.
