@@ -1,0 +1,14 @@
+{
+ "actualizado": "2026-11-13",
+ "mensajes": [
+  {
+   "id": "2026-11-13-bienvenida",
+   "fecha": "2026-11-13",
+   "tipo": "aviso",
+   "titulo": "Bienvenidos al buzón",
+   "texto": "Aquí van a llegar los avisos de la Línea de Jóvenes y de la Pastoral Social: fechas de encuentros, cambios de última hora, materiales para preparar una reunión y lo que haya que contarles.\n\nCuando llegue un mensaje nuevo verán un punto en la pestaña Más. Si activan los avisos abajo, el teléfono les avisa.",
+   "lugar": "",
+   "cuando": ""
+  }
+ ]
+}
