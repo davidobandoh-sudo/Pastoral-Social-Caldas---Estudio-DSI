@@ -1229,7 +1229,7 @@ que:"COPPAS quiere decir Comité Parroquial de Pastoral Social. Es el grupo de l
 por:"La diferencia entre un COPPAS y un grupo de ayudas es sencilla: el grupo de ayudas pregunta «¿qué damos?»; el COPPAS pregunta primero «¿qué está pasando aquí y por qué?». Por eso en esta ruta la acción llega en el paso cinco y no en el primero. No es demora: es respeto. El problema del otro deja de ser «su problema» cuando antes lo hemos mirado juntos.",
 es:["Un grupo estable de la parroquia, no una comisión que se arma para una actividad.","Un lugar donde se decide con la comunidad, no sobre la comunidad.","Una escuela: se aprende sirviendo y se sirve aprendiendo."],
 noes:["No es la bodega de la parroquia ni el grupo que empaca mercados.","No es un grupo que resuelve solo: articula con quien sí tiene la competencia.","No es un comité de emergencias. Atiende urgencias, pero no vive de ellas."],
-como:"Esta sección es la ruta completa, paso a paso. Cada paso está pensado para una reunión del comité: entre hora y media y dos horas. Se puede hacer uno por semana o uno cada quince días. Al final de cada paso queda algo escrito en una ficha, y esas cinco fichas son el plan del COPPAS. No hay que tener la cartilla en papel: todo está aquí y lo que escriban se guarda en el teléfono.",
+como:"Esta sección es la ruta completa, paso a paso. Cada paso está pensado para una reunión del comité: entre hora y media y dos horas. Se puede hacer uno por semana o uno cada quince días. Al final de cada paso queda algo escrito en una ficha, y esas cinco fichas son el plan del COPPAS. No hace falta tener la cartilla en papel: todo el material está aquí y lo que el comité escribe queda registrado.",
 nota:"Esta sección se apoya en la cartilla «Servir juntos» y en el Manual de Formación COPPAS de la Pastoral Social, Cáritas Diocesana de Caldas."
 };
 const COPMOM=[
@@ -1285,7 +1285,7 @@ const COPPASOS=[
 ["Leemos juntos las cinco modalidades y buscamos un ejemplo propio de cada una.","Preguntamos: para nuestra prioridad, ¿cuál es la respuesta principal y cuál la que la acompaña?","Revisamos la trampa más común: quedarse solo en la asistencia. La asistencia es necesaria y urgente, pero sola no cambia nada.","Escribimos la modalidad elegida y qué significa en concreto para nuestro caso."],
 "La modalidad principal y la secundaria, escritas, con una frase que explique qué haremos en cada una.",
 ["Hechos 6,1-7","La comunidad crecía y las viudas de lengua griega quedaban desatendidas en el reparto diario. Los apóstoles no improvisan ni prometen: reconocen el problema, convocan a la asamblea y organizan el servicio escogiendo a siete.","La primera comunidad descubrió que la caridad necesita organización. No bastaba con la buena intención: hubo que nombrar, repartir y rendir cuentas."],
-[[10,"Oración inicial y lectura de Hechos 6,1-7."],[25,"Leemos las cinco modalidades y buscamos ejemplos de nuestra parroquia."],[25,"Decidimos cuál es la principal para nuestra prioridad y por qué."],[20,"Conversamos un caso de los que trae la aplicación para practicar."],[20,"Escribimos la decisión en la ficha."],[10,"Oración final."]],
+[[10,"Oración inicial y lectura de Hechos 6,1-7."],[25,"Leemos las cinco modalidades y buscamos ejemplos de nuestra parroquia."],[25,"Decidimos cuál es la principal para nuestra prioridad y por qué."],[20,"Conversamos uno de los casos de práctica."],[20,"Escribimos la decisión en la ficha."],[10,"Oración final."]],
 "Para el acompañamiento en trámites, la modalidad principal fue promoción humana: enseñar a la gente a hacer la gestión. La secundaria fue organización: dejar un grupo de tres vecinas que siguieran acompañando cuando el comité no estuviera.",
 "Si la respuesta que eligen se agota el día que ustedes dejen de ir, todavía no es promoción ni organización: es asistencia con otro nombre.",
 3,"Entre 1 h 30 y 2 h"],
@@ -1874,8 +1874,7 @@ Object.assign(SVIDA,{
 "San Cristóbal Magallanes y compañeros":{"t": "sacerdote", "d": "1869 – 1927 · Jalisco", "v": ["Cristóbal Magallanes era párroco de Totatiche y fundó un seminario cuando el gobierno cerró el de Guadalajara. Nunca participó en el alzamiento armado; al contrario, predicó públicamente contra él.", "Lo detuvieron cuando iba a celebrar una misa y lo fusilaron sin juicio en 1927. Antes de morir perdonó a sus verdugos y dijo que daba la vida por la paz de México. Con él fueron canonizados en el año 2000 veinticuatro mártires más, casi todos párrocos de pueblo."], "f": ["Muero inocente y pido a Dios que mi sangre sirva para la paz", "Palabras recogidas por los testigos de su fusilamiento"], "s": "Fue mártir por no tomar las armas y por no abandonar a su gente. Las dos cosas a la vez.", "o": "San Cristóbal Magallanes: danos pastores que no huyan y que tampoco empuñen un arma."},
 "San Roque González":{"t": "sacerdote", "d": "1576 – 1628 · Asunción", "v": ["Nació en Asunción, criollo, y aprendió guaraní de niño. Jesuita, trabajó treinta años en las reducciones, pueblos donde los indígenas vivían con tierra propia, talleres y escuela, protegidos de los encomenderos que los esclavizaban.", "Esa protección le costó enemigos entre los colonos. Murió asesinado a golpes de hacha en 1628, junto con dos compañeros, en la reducción de Caaró. Fueron los primeros mártires canonizados del Río de la Plata."], "f": ["", ""], "s": "Las reducciones fueron un experimento de organización comunitaria que molestó a quienes vivían de la mano de obra esclava. Por eso lo mataron.", "o": "San Roque González: por los que defienden la tierra y el trabajo de los pueblos indígenas, y pagan por ello."}
 });
-/* Calendario litúrgico · se calcula en el teléfono, sin internet.
-   Devuelve tiempo, semana, día, ciclo dominical (A, B, C) y ciclo ferial (I, II). */
+/* Calendario litúrgico: tiempo, semana, día, ciclo dominical (A, B, C) y ciclo ferial (I, II). */
 const LIT=(function(){
  const DIA=86400000;
  const u=(y,m,d)=>Date.UTC(y,m-1,d);
@@ -2497,7 +2496,7 @@ R.inicio=()=>{const L=LIT.hoy(),pal=palabraHoy(),lec=lecturasCache()[L.fecha]||n
  </div></div>
  ${nueva?'':`<div class="sec"><div class="row"><h3>Pendiente</h3><button class="lnk" data-go="avance">Mi camino · ${T.gen} %</button></div>${P.length?`<div class="stack">${P.map(liCard).join('')}</div>`:'<div class="card sem ok"><div style="font:calc(16.5px*var(--fs))/1.5 var(--read)">No tienes nada a medias. Buen momento para leer algo nuevo o para orar con calma.</div></div>'}</div>`}
  ${sello()}</div>`};
-const VER='1.1';
+const VER='1.2';
 function fichaLlena(n){const f=COPFICHAS[+n-1];if(!f)return false;const v=(S.fich&&S.fich[f[0]])||{};return Object.keys(v).length>0}
 function stats(){
  const totF=FL.length, leidas=FL.filter(f=>S.read[`f-${f.c}-${f.i}`]).length;
@@ -2598,7 +2597,7 @@ R.glosario=()=>hdr('Glosario')+`<div class="pad fade" style="padding-top:12px"><
 R.testigos=()=>hdr('Testigos')+`<div class="pad fade" style="padding-top:12px"><div class="stack">${TESTIGOS.map((g,i)=>`<div class="card" id="tes-${i}"><h3 style="font-size:20px"><span class="med" style="vertical-align:3px;margin-right:8px">${esc(g[0].replace(/^(San|Santa|Beato|Fray)\s+/,'')[0])}</span>${esc(g[0])}</h3><div style="font:16px/1.45 var(--read);margin-top:3px">${esc(g[1])}</div></div>`).join('')}</div></div>`;
 R.guardados=()=>{const fs=Object.keys(S.fav).filter(k=>byId[k]),ns=Object.keys(S.notes).filter(k=>S.notes[k]&&byId[k]);return hdr('Mis guardados')+`<div class="pad fade" style="padding-top:12px">${!fs.length&&!ns.length?'<p class="empty">Toca la estrella en una ficha para guardarla, o escribe una nota al final de ella.</p>':''}<div class="stack">${fs.map(k=>`<button class="card" data-go="${k}"><h4 style="margin:0;font:600 17px var(--ui)">${esc(byId[k].t)}</h4><span class="meta">${esc(byId[k].k)}</span></button>`).join('')}</div>${ns.length?`<div class="sec"><h3>Notas</h3><div class="stack">${ns.map(k=>`<button class="card" data-go="${k}"><span class="tag">${esc(byId[k].t)}</span><div style="font:16px/1.4 var(--read);white-space:pre-wrap">${esc(S.notes[k])}</div></button>`).join('')}</div></div>`:''}</div>`};
 R.privacidad=()=>hdr('Privacidad')+`<div class="pad fade" style="padding-top:12px"><p class="reader">Esta herramienta se hizo para acompañar la formación, no para recoger información de nadie.</p><div class="stack">${PRIV.map(p=>`<div class="card"><h4 style="margin:0 0 4px;font:600 17px var(--ui)">${esc(p[0])}</h4><div style="font:calc(16.5px*var(--fs))/1.45 var(--read)">${esc(p[1])}</div></div>`).join('')}</div>${sello()}</div>`;
-R.siglas=()=>hdr('Siglas y fuentes')+`<div class="pad fade reader" style="padding-top:12px;font-size:16px"><p>Los números del DOCAT corresponden a la edición que subiste (portuguesa, Paulus 2016, 328 preguntas). En la bioética tu compilado en español numera distinto.</p><p>Los textos son una explicación propia, no una traducción literal del libro. Para el texto exacto, acude al DOCAT o a los documentos enlazados.</p><p><b>Se apoya en:</b> DOCAT; Guía de estudio DOCAT (SEPI/CRS); Compilado DOCAT y Resumen DSI (Universidad Católica de Salta); Formación continua para equipos de Cáritas (Cáritas Asturias); y los documentos del Magisterio citados.</p><p>${esc(SIGLAS)}</p>${sello()}</div>`;
+R.siglas=()=>hdr('Siglas y fuentes')+`<div class="pad fade reader" style="padding-top:12px;font-size:16px"><p>La numeración del DOCAT sigue la edición de Paulus (2016), de 328 preguntas. Algunas ediciones en español numeran de otra manera, sobre todo en los temas de bioética.</p><p>Los textos son una explicación propia, no una traducción literal del libro. Para el texto exacto, acude al DOCAT o a los documentos enlazados.</p><p><b>Se apoya en:</b> DOCAT; Guía de estudio DOCAT (SEPI/CRS); Compilado DOCAT y Resumen DSI (Universidad Católica de Salta); Formación continua para equipos de Cáritas (Cáritas Asturias); y los documentos del Magisterio citados.</p><p>${esc(SIGLAS)}</p>${sello()}</div>`;
 let term='',sver='',sT=null;
 /* ================= BUSCADOR GLOBAL =================
    Un solo índice sobre todo el contenido. Se arma la primera vez que alguien busca (no en el arranque)
@@ -2663,7 +2662,7 @@ function recorte(r){if(r.cab||!r.e.x.length)return r.e.sub;
  return r.e.sub}
 const resCard=r=>{const e=r.e;if(e.tp==='duda')return dudaCard(e.d);if(e.tp==='frase')return qc(e.d);
  return `<button class="card res" data-go="${e.go}"${e.foco?` data-foco="${e.foco}"`:''}><h4>${esc(e.t)}</h4><span class="meta">${esc(recorte(r))}</span></button>`};
-R.buscar=()=>hdr('Buscar')+`<div class="pad" style="padding-top:12px"><input type="search" id="s" aria-label="Buscar en toda la aplicación" placeholder="Un tema, un santo, una oración, DOCAT 95…" value="${esc(term)}"><div id="res" style="margin-top:12px" aria-live="polite">${results()}</div></div>`;
+R.buscar=()=>hdr('Buscar')+`<div class="pad" style="padding-top:12px"><input type="search" id="s" aria-label="Buscar en todo el contenido" placeholder="Un tema, un santo, una oración, DOCAT 95…" value="${esc(term)}"><div id="res" style="margin-top:12px" aria-live="polite">${results()}</div></div>`;
 function results(){const t=norm(term).trim();if(t.length<2)return `<p class="meta" style="margin:0 0 10px">Busca en todo: fichas, dudas, santos, oraciones, el COPPAS, documentos e historia.</p><div class="chips" style="flex-wrap:wrap;overflow:visible">${['bien común','subsidiariedad','samaritano','rosario','trabajo','trámites','familia','paz','Bakhita'].map(q=>`<button class="chip" data-t="${q}">${q}</button>`).join('')}</div>`;
  const vacio=`<p class="empty">Sin resultados para «${esc(term)}». Prueba con otra palabra o con menos palabras; también puedes mirar las categorías en Dudas.</p>`;
  const num=/^(docat\s*)?(\d{1,3})$/.exec(t);
@@ -2832,19 +2831,19 @@ R.lectio=()=>{const L=LIT.hoy(),c=lecturasCache()[L.fecha]||null;
  <div id="lect" class="card litcard"><span class="cdot ${L.color}"></span><div>${c?`<div class="meta">Evangelio de hoy</div><div style="font:600 calc(19px*var(--fs))/1.4 var(--ui);color:var(--pine)">${esc(c.ev)}</div><div class="meta" style="margin-top:4px">1.ª lectura: ${esc(c.p)}${c.p2?' · 2.ª: '+esc(c.p2):''} · ${esc(c.s)}</div>`:'<div class="meta">Buscando las lecturas de hoy…</div>'}</div></div>
  <p class="meta" style="margin-top:8px">La referencia sigue el leccionario romano. En Colombia algunas solemnidades se trasladan al domingo, así que conviene confirmarlo con el calendario de la Diócesis.</p>
  <div class="card biblia" style="margin-top:12px"><span class="tag">Leer el texto bíblico</span>
-  <div style="font:calc(16px*var(--fs))/1.5 var(--read);margin:5px 0 10px">Las traducciones católicas al español tienen derechos de autor y no se pueden copiar dentro de la aplicación, así que estos enlaces abren fuentes católicas donde sí está el texto. Si no tienes datos, abre tu Biblia en la cita de arriba.</div>
+  <div style="font:calc(16px*var(--fs))/1.5 var(--read);margin:5px 0 10px">Las traducciones católicas al español están protegidas por derechos de autor, de modo que el texto bíblico se consulta en las siguientes fuentes católicas. Sin conexión, puede leerse la cita indicada arriba en cualquier Biblia.</div>
   <div class="fuentes">
    <a class="btn" href="https://www.vaticannews.va/es/evangelio-de-hoy.html" target="_blank" rel="noopener">Evangelio de hoy<small>Vatican News · Santa Sede</small></a>
    <a class="btn alt" href="https://www.vatican.va/archive/ESL0506/_INDEX.HTM" target="_blank" rel="noopener">Biblia completa<small>«El libro del Pueblo de Dios» · Santa Sede</small></a>
    <a class="btn alt" href="https://evangeli.net/evangelio" target="_blank" rel="noopener">Evangelio con comentario<small>evangeli.net</small></a>
   </div>
-  <div class="meta" style="margin-top:9px">Ninguna de estas páginas es de la Diócesis: se abren en el navegador y pueden cambiar.</div></div>
+  <div class="meta" style="margin-top:9px">Estas páginas no pertenecen a la Diócesis y su contenido puede cambiar.</div></div>
  <div class="sec"><h3>Antes de empezar</h3><div class="card"><div style="font:calc(16.5px*var(--fs))/1.55 var(--read)">Busca un lugar donde no te interrumpan y apaga lo que suene. Haz la señal de la cruz y pide al Espíritu Santo que te ayude a entender. No tengas prisa: veinte minutos bien hechos valen más que una hora distraída.</div></div></div>
  ${LECTIO5.map((l,i)=>`<div class="sec"><div class="mhead"><span class="pn">${i+1}</span><div><h3 style="margin:0">${esc(l[0])}</h3><div class="meta">${esc(l[1])}</div></div></div>
   <div class="card"><div style="font:calc(16.5px*var(--fs))/1.55 var(--read)">${esc(l[3])}</div>
   <div class="qs" style="margin-top:9px">${l[4].map(q=>`<div>${esc(q)}</div>`).join('')}</div>
   <div class="puente">${esc(l[5])}</div></div></div>`).join('')}
- <div class="sec"><h3>Mi compromiso de hoy</h3><div class="card"><textarea data-nota="lectio-${L.fecha}" rows="3" placeholder="Escribe aquí el gesto concreto…">${esc((S.notes&&S.notes['lectio-'+L.fecha])||'')}</textarea><div class="meta" style="margin-top:4px">Se guarda en este teléfono.</div></div></div>
+ <div class="sec"><h3>Mi compromiso de hoy</h3><div class="card"><textarea data-nota="lectio-${L.fecha}" rows="3" placeholder="Escribe aquí el gesto concreto…">${esc((S.notes&&S.notes['lectio-'+L.fecha])||'')}</textarea><div class="meta" style="margin-top:4px">Queda guardado para volver sobre ello.</div></div></div>
  ${sello()}</div>`};
 
 R.rosario=()=>{const hoyM=ROSDIAS[new Date().getDay()];
@@ -2893,7 +2892,7 @@ R.anolit=()=>{const L=LIT.hoy();
  ['Tiempo Ordinario (segunda parte)','Hasta la semana 34, que cierra con Cristo Rey. Verde.','']];
  return hdr('El año litúrgico')+`<div class="pad fade" style="padding-top:14px">
  <div class="card litcard"><span class="cdot ${L.color}"></span><div><div class="meta">Hoy</div><div style="font:600 calc(18px*var(--fs))/1.35 var(--ui);color:var(--pine)">${esc(L.titulo)}</div><div class="meta" style="margin-top:3px">Año litúrgico ${L.anoLit} · ciclo dominical ${L.ciclo} · año ferial ${L.ferial}</div></div></div>
- <p class="reader" style="margin-top:12px">El año litúrgico no sigue el calendario civil: empieza con el primer domingo de Adviento. Las lecturas de los domingos van en un ciclo de tres años (A, B y C) y las de los días de semana en uno de dos (I y II). Todo esto la aplicación lo calcula sola a partir de la fecha del teléfono.</p>
+ <p class="reader" style="margin-top:12px">El año litúrgico no sigue el calendario civil: empieza con el primer domingo de Adviento. Las lecturas de los domingos van en un ciclo de tres años (A, B y C) y las de los días de semana en uno de dos (I y II). </p>
  <div class="sec"><h3>Los tiempos, en orden</h3><div class="stack">${et.map((e,i)=>`<div class="card moment"><div class="n">${i+1}</div><div><h4 style="margin:0;font:600 17px var(--ui)">${esc(e[0])}</h4><div style="font:calc(16px*var(--fs))/1.45 var(--read)">${esc(e[1])}</div>${e[2]?`<div class="meta" style="margin-top:3px">${esc(e[2])}</div>`:''}</div></div>`).join('')}</div></div>${sello()}</div>`};
 
 R.orsit=()=>hdr('Oraciones para cada situación')+`<div class="pad fade" style="padding-top:14px">
@@ -2912,7 +2911,7 @@ function novDia(n){const d=NOVENA.dias.find(x=>x[0]===+n);if(!d)return R.novena(
  ${oir('nov',()=>['Día '+d[0]+' de la novena. '+d[1]+'.','Para meditar.',d[3],'Petición.',d[4],'Gesto de hoy.',d[5],NOVENA.oracion])}
  ${indice('novena',9,'día',{p:'nov-',act:i})}
  <div class="card moment"><div class="n">1</div><div style="font:calc(16.5px*var(--fs))/1.5 var(--read)">Se enciende una luz y se hace la señal de la cruz.</div></div>
- <div class="card pal" style="margin-top:10px"><span class="tag">La Palabra · ${esc(d[2])}</span><div class="meta" style="margin-top:5px">Abre tu Biblia en esta cita y léela despacio, dos veces.</div></div>
+ <div class="card pal" style="margin-top:10px"><span class="tag">La Palabra · ${esc(d[2])}</span><div class="meta" style="margin-top:5px">Se lee la cita despacio, dos veces.</div></div>
  <div class="card" style="margin-top:10px"><span class="tag">Para meditar</span><div style="font:calc(17px*var(--fs))/1.6 var(--read);margin-top:5px">${esc(d[3])}</div></div>
  <div class="card goal" style="margin-top:10px"><span class="tag">Petición</span><div style="font:calc(16.5px*var(--fs))/1.5 var(--read);margin-top:4px">${esc(d[4])}</div></div>
  <div class="card sem ok" style="margin-top:10px"><span class="tag">Gesto de hoy</span><div style="font:calc(16.5px*var(--fs))/1.5 var(--read);margin-top:4px">${esc(d[5])}</div></div>
@@ -2981,7 +2980,7 @@ const TIPO={aviso:['Aviso','chat'],encuentro:['Encuentro','people'],formacion:['
 R.buzon=()=>{const L=msgs().slice().sort((a,b)=>(b.fecha||'').localeCompare(a.fecha||'')),r=S.msgRead||{};
  const permiso=(typeof Notification!=='undefined')?Notification.permission:'no';
  return hdr('Buzón')+`<div class="pad fade" style="padding-top:14px">
- <div class="card avisos"><label class="chk"><input type="checkbox" id="avtog" ${S.msgAviso?'checked':''}><span><b>Avisarme cuando llegue un mensaje</b><br><span class="meta">${permiso==='no'?'Este teléfono no permite avisos desde la aplicación.':permiso==='denied'?'Los avisos están bloqueados en los ajustes del navegador para esta página.':'El aviso aparece cuando abres la aplicación y hay algo nuevo.'}</span></span></label></div>
+ <div class="card avisos"><label class="chk"><input type="checkbox" id="avtog" ${S.msgAviso?'checked':''}><span><b>Avisarme cuando llegue un mensaje</b><br><span class="meta">${permiso==='no'?'Este dispositivo no admite avisos.':permiso==='denied'?'Los avisos están desactivados en los ajustes de este dispositivo.':'El aviso aparece al entrar, cuando hay algo nuevo.'}</span></span></label></div>
  <div id="buzlist">${L.length?`<div class="stack" style="margin-top:12px">${L.map(m=>{const t=TIPO[m.tipo]||TIPO.aviso;
   return `<button class="card msg ${r[m.id]?'':'nuevo'}" data-go="msg-${esc(m.id)}"><span class="cemb">${emb(t[1])}</span><span>
    <span class="meta">${esc(t[0])} · ${esc(fechaLarga(m.fecha))}</span>
@@ -2990,7 +2989,7 @@ R.buzon=()=>{const L=msgs().slice().sort((a,b)=>(b.fecha||'').localeCompare(a.fe
    ${r[m.id]?'':'<span class="punto"></span>'}</span></button>`}).join('')}</div>`
  :'<div class="card" style="margin-top:12px"><div class="meta">Todavía no hay mensajes. Cuando la Pastoral Social publique algo, aparecerá aquí.</div></div>'}</div>
  <div class="btns" style="margin-top:14px"><button class="btn alt" id="buzref">Buscar mensajes nuevos</button></div>
- <p class="meta" style="margin-top:10px">Los mensajes se guardan en el teléfono, así que se pueden leer sin internet. El buzón solo recibe: desde aquí no se escribe ni se responde.</p>${sello()}</div>`};
+ <p class="meta" style="margin-top:10px">Los mensajes quedan disponibles aunque no haya conexión. El buzón es solo para recibir los avisos de la Pastoral Social.</p>${sello()}</div>`};
 function fechaLarga(f){if(!f)return '';const[y,m,d]=f.split('-').map(Number);
  const M=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
  return d+' de '+(M[m-1]||'')+' de '+y}
@@ -3054,7 +3053,7 @@ function copFase(n){const p=COPPASOS.find(x=>x[0]===+n);if(!p)return R.copruta()
  <button class="btn" style="width:100%;margin-top:12px" data-go="copfi-${p[10]}">Escribir en la Ficha ${p[10]}</button>
  <div class="pager" style="margin-top:12px">${i>0?`<button class="card" data-go="copf-${COPPASOS[i-1][0]}"><small>Paso anterior</small>${esc(COPPASOS[i-1][2])}</button>`:'<span></span>'}${i<COPPASOS.length-1?`<button class="card" data-go="copf-${COPPASOS[i+1][0]}"><small>Paso siguiente</small>${esc(COPPASOS[i+1][2])}</button>`:'<button class="card" data-go="coppas"><small>Terminamos el ciclo</small>Volver a empezar en el paso 1</button>'}</div></div>`}
 
-R.copfichas=()=>hdr('Nuestras cinco fichas')+`<div class="pad fade" style="padding-top:14px"><p class="reader">Lo que antes se escribía en la cartilla de papel se guarda aquí, en este teléfono. Cada ficha se puede ${HAY_SHARE?'compartir':'copiar y enviar por WhatsApp'} con el resto del comité.</p><div class="stack" style="margin-top:10px">${COPFICHAS.map((f,i)=>`<button class="card li ${fichaLlena(i+1)?'done':''}" data-go="copfi-${i+1}"><span class="pn">${i+1}</span><span><h4>${esc(f[1])}</h4><span class="meta">${esc(f[2])} · ${f[3].length} campos</span>${fichaLlena(i+1)?'<span class="meta pill">Empezada</span>':''}</span></button>`).join('')}</div></div>`;
+R.copfichas=()=>hdr('Nuestras cinco fichas')+`<div class="pad fade" style="padding-top:14px"><p class="reader">Lo que antes se escribía en la cartilla de papel queda registrado aquí. Cada ficha se puede ${HAY_SHARE?'compartir':'copiar y enviar por WhatsApp'} con el resto del comité.</p><div class="stack" style="margin-top:10px">${COPFICHAS.map((f,i)=>`<button class="card li ${fichaLlena(i+1)?'done':''}" data-go="copfi-${i+1}"><span class="pn">${i+1}</span><span><h4>${esc(f[1])}</h4><span class="meta">${esc(f[2])} · ${f[3].length} campos</span>${fichaLlena(i+1)?'<span class="meta pill">Empezada</span>':''}</span></button>`).join('')}</div></div>`;
 
 function copFicha(n){const f=COPFICHAS[+n-1];if(!f)return R.copfichas();const v=(S.fich&&S.fich[f[0]])||{};
  return hdr('Ficha '+n+' de 5')+`<div class="pad fade" style="padding-top:14px"><div class="eyebrow">${esc(f[2])}</div><h1 style="font-size:28px;margin:4px 0 10px">${esc(f[1])}</h1><p class="meta">Se guarda sola. Puedes volver cuando quieras.</p>
