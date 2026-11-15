@@ -71,7 +71,7 @@ h1,h2,h3{font-family:var(--disp);font-weight:400;line-height:1.15;text-wrap:bala
 .key{border-left:4px solid var(--gold);background:var(--goldbg);padding:12px 14px;border-radius:0 10px 10px 0;font:600 calc(18px*var(--fs))/1.38 var(--read);margin-bottom:18px}
 .refs{border-top:1px solid var(--line);padding-top:12px;font-size:15px;display:grid;gap:5px}
 .refs b{font-weight:600}
-textarea,input[type=search],input[type=text]{width:100%;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:11px;padding:11px 12px;font:16px/1.4 var(--ui)}
+textarea,input[type=search],input[type=text]{width:100%;box-sizing:border-box;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:11px;padding:11px 12px;font:16px/1.4 var(--ui)}
 textarea{min-height:82px;resize:vertical}
 .pager{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .pager button{min-height:66px;text-align:left;font-size:15px;line-height:1.25}
@@ -346,6 +346,92 @@ button.card.avance{display:block;width:100%;text-align:left;padding:15px 15px 13
 #nav .bdg{position:absolute;top:4px;left:50%;margin-left:5px;min-width:16px;height:16px;padding:0 4px;border-radius:99px;
   background:var(--gold);color:#2a2113;font:600 11px/16px var(--ui);font-style:normal;text-align:center}
 @media (min-width:900px){#nav .bdg{position:static;margin-left:7px;display:inline-block}}
+
+input#s{box-sizing:border-box;width:100%;max-width:100%}
+.pad>input{box-sizing:border-box;width:100%}
+#res .chips{margin:0;padding:0}
+/* ===== 1.1 · Buscador global ===== */
+.res h4{margin:0 0 2px;font:600 17px/1.25 var(--ui)}
+.res .meta{display:block;line-height:1.4}
+.rgrp{margin-top:18px}
+.rhead{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin:0 2px 7px;padding-bottom:5px;border-bottom:1px solid var(--line)}
+.rmas{display:block;margin:8px 2px 0;padding:6px 0}
+@media (prefers-reduced-motion:no-preference){.foco{animation:foco 1.8s ease-out}@keyframes foco{0%,40%{box-shadow:0 0 0 3px var(--gold)}100%{box-shadow:0 0 0 3px transparent}}}
+/* ===== 1.1 · Escuchar (lectura en voz alta) ===== */
+.oir{display:none;gap:7px;flex-wrap:wrap;align-items:center;margin:2px 0 12px}
+body.voz .oir{display:flex}
+.oirc .oir{justify-content:center}
+.oirb{display:inline-flex;align-items:center;gap:6px;min-height:38px;padding:6px 13px 6px 10px;border:1px solid var(--line);border-radius:99px;background:var(--card);color:var(--pine2);font:600 14.5px var(--ui)}
+.oirb svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.oirb.on{background:var(--pine2);border-color:var(--pine2);color:#fff}
+:root[data-theme="dark"] .oirb.on{color:#0d1f1a}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .oirb.on{color:#0d1f1a}}
+.oirb.vel{padding-left:13px;color:var(--soft);font-weight:400}
+.bpie{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:10px}
+.bpie .oir{margin:0}
+details .oir{margin:10px 0 0}
+/* ===== 1.1 · Inicio ===== */
+.card.sigue{margin-top:-24px;position:relative;z-index:2;box-shadow:0 6px 20px #0002}
+.sigue .sgt{flex:1;min-width:0;display:block}
+.sigue h4{margin:2px 0 3px;font:600 18.5px/1.22 var(--ui)}
+.sigue .meta{display:block;line-height:1.35}
+.sigue>i{flex:none;font-style:normal;font-size:22px;color:var(--gold)}
+.card.bienv{margin-top:-24px;position:relative;z-index:2;box-shadow:0 6px 20px #0002}
+.bienv h3{font-size:24px;margin:3px 0 6px}
+.bienv p{margin:0 0 12px;font:calc(16.5px*var(--fs))/1.5 var(--read)}
+.bienv .card.li{background:var(--bg)}
+.hoyf{text-transform:lowercase}
+button.card.pal{cursor:pointer}
+/* ===== 1.1 · Pantallas largas: índice, progreso y «hasta aquí llegué» ===== */
+.rbar{position:absolute;left:0;right:0;bottom:-2px;height:3px;pointer-events:none}
+.rbar i{display:block;height:100%;background:var(--gold);transform:scaleX(0);transform-origin:0 50%}
+.idx{margin:14px 0 2px}
+.idxs{width:100%;margin-bottom:9px}
+.idxn{display:grid;grid-template-columns:repeat(auto-fill,minmax(40px,1fr));gap:6px}
+.idxn button{height:40px;border:1px solid var(--line);border-radius:10px;background:var(--card);font:600 15.5px var(--ui);font-variant-numeric:tabular-nums}
+.idxn .ya{background:var(--sage)}
+.idxn .aqui{background:var(--gold);border-color:var(--gold);color:#2a2113}
+.idxn .act{outline:2px solid var(--pine2);outline-offset:1px}
+.marca{min-height:38px;padding:6px 13px;border:1px dashed var(--line);border-radius:99px;font:600 14.5px var(--ui);color:var(--soft)}
+.marca.on{border:1px solid var(--gold);background:var(--goldbg);color:var(--ink)}
+.blq.aqui>.card{border-color:var(--gold)}
+.blq{scroll-margin-top:76px;border-radius:14px}
+.mhead .pn{flex:0 0 32px;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--pine);color:#f3ead8;font:600 15px var(--ui);margin-top:1px}
+/* ===== 1.1 · Modo reunión: un bloque a la vez, letra grande, reloj ===== */
+.card.go.reuin{margin-top:10px}
+.reu{position:fixed;inset:0;z-index:30;background:var(--bg);color:var(--ink);display:flex;flex-direction:column}
+.reutop{position:static;flex:none}
+.reun{flex:none;font:600 15px var(--ui);color:var(--soft);font-variant-numeric:tabular-nums;white-space:nowrap}
+.reub{flex:1;min-height:0;overflow-y:auto;display:flex;padding:18px 20px}
+.reuc{margin:auto;width:100%;max-width:1100px}
+.reuc .eyebrow{font-size:clamp(12.5px,1.5vw,18px)}
+.reuc h1{font-size:calc(clamp(30px,6vw,62px)*var(--fs));margin:8px 0 0}
+.reux{font-family:var(--read);line-height:1.34;margin:.5em 0 0;text-wrap:pretty}
+.reux.lg{font-size:calc(clamp(27px,5.4vw,58px)*var(--fs))}
+.reux.md{font-size:calc(clamp(24px,4.2vw,46px)*var(--fs))}
+.reux.sm{font-size:calc(clamp(21px,3.1vw,36px)*var(--fs));line-height:1.42}
+.reuex{margin:1em 0 0;padding:.7em 0 0 1.1em;border-top:1px solid var(--line);font:calc(clamp(18px,2.4vw,28px)*var(--fs))/1.4 var(--read);color:var(--soft);display:grid;gap:.45em}
+.reuf{flex:none;border-top:1px solid var(--line);background:var(--card);padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));display:grid;gap:9px}
+.reut{display:flex;align-items:center;gap:8px;max-width:1100px;width:100%;margin:0 auto}
+.reut .clk{font:400 clamp(34px,6vw,54px)/1 var(--disp);font-variant-numeric:tabular-nums;margin-right:auto;min-width:3.2ch}
+.reut.fin .clk{color:var(--bad)}
+.reut .btn{flex:0 1 auto}
+.reut.sin{min-height:38px}
+.reunav{display:flex;align-items:center;gap:10px;max-width:1100px;width:100%;margin:0 auto}
+.reunav .btn{flex:1 1 0;padding:13px 10px;font-size:17px}
+.reudots{display:flex;gap:4px;flex:none}
+.reudots i{width:7px;height:7px;border-radius:50%;background:var(--line)}
+.reudots .ya{background:var(--soft)}
+.reudots .on{background:var(--gold)}
+@media (max-width:420px){.reudots{display:none}}
+/* En modo oscuro el botón secundario heredaba el color oscuro del principal y quedaba ilegible. */
+:root[data-theme="dark"] .btn.alt{color:var(--ink)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn.alt{color:var(--ink)}}
+/* Modo oscuro: --pine pasa a ser casi negro (sirve de fondo), así que no puede usarse como color de texto; y --ink2 nunca se definió. */
+:root[data-theme="dark"]{--ink2:var(--soft)}
+:root[data-theme="dark"] :is(.lnk,.trad b,.det summary,.abig,.agrid b,.card.mini b){color:var(--pine2)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink2:var(--soft)}
+ :root:not([data-theme="light"]) :is(.lnk,.trad b,.det summary,.abig,.agrid b,.card.mini b){color:var(--pine2)}}
 </style></head><body><main id="app"></main><nav class="nav" id="nav" aria-label="Principal"></nav><script>const CAPS=[];
 function C(o){CAPS.push(o)}
 C({n:1,t:"El plan maestro de Dios: el amor",r:"1–21",s:"De dónde viene todo esto: un Dios que ama y un mundo que quiere ver transformado.",
@@ -2163,8 +2249,12 @@ function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}clearT
 }catch(e){}})();
 document.documentElement.style.setProperty('--fs',S.fs);
 const view=()=>location.hash.slice(1)||'inicio';
-const go=h=>{if(location.hash==='#'+h)render();else location.hash=h};
-window.addEventListener('hashchange',()=>{render();scrollTo(0,0)});
+const go=h=>{if(location.hash==='#'+h){render();foco()}else location.hash=h};
+// FOCO: id de un bloque al que hay que llegar dentro de la pantalla siguiente (lo usan el buscador y los índices).
+let FOCO='';
+function foco(){if(!FOCO)return;const el=document.getElementById(FOCO);FOCO='';if(!el)return;if(el.tagName==='DETAILS')el.open=true;
+ el.classList.remove('foco');void el.offsetWidth;el.classList.add('foco');const top=$('.top'),y=el.getBoundingClientRect().top+scrollY-((top?top.offsetHeight:54)+14);scrollTo(0,Math.max(0,y))}
+window.addEventListener('hashchange',()=>{render();scrollTo(0,0);foco()});
 setTimeout(()=>traerMensajes(n=>{if(n)render()}),2500);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)traerMensajes(n=>{if(n)render()})});
 // botón físico de Android: volver dentro de la app antes de salir
@@ -2213,6 +2303,8 @@ function parentOf(v){let m;
  if(/^nov-/.test(v))return 'novena';
  if(/^msg-/.test(v))return 'buzon';
  if(/^quiz-/.test(v))return 'repaso';
+ if(m=v.match(/^reu-c-(\d+)$/))return 'copf-'+m[1];
+ if(m=v.match(/^reu-s-(\d+)$/))return 'sesion-'+m[1];
  if(/^santo-/.test(v))return 'santoral';
  if(/^copf-/.test(v))return 'copruta';
  if(/^copfi-/.test(v))return 'copfichas';
@@ -2357,27 +2449,60 @@ function eraView(i){const e=ERAS[i],T={i:['Iglesia','i'],m:['Mundo','m'],l:['Am�
 let frf='';
 function copiar(txt){const done=()=>{const o=document.createElement('div');o.className='toast';o.textContent='Copiado: pégalo en WhatsApp';document.body.appendChild(o);setTimeout(()=>o.remove(),2600)};
  (navigator.clipboard&&navigator.clipboard.writeText?navigator.clipboard.writeText(txt).then(done):Promise.reject()).catch(()=>{const ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done()}catch(e){}ta.remove()})}
+// Compartir de verdad: la hoja de compartir del teléfono si existe; si no, se copia como antes.
+const HAY_SHARE=typeof navigator!=='undefined'&&typeof navigator.share==='function';
+const FIRMA='Cáritas Caldas · Pastoral Social, Diócesis de Caldas';
+const compLbl=sin=>HAY_SHARE?'Compartir':(sin||'Copiar');
+function compartir(titulo,texto){if(!HAY_SHARE)return copiar(texto);
+ try{navigator.share({title:titulo,text:texto}).catch(e=>{if(!e||e.name!=='AbortError')copiar(texto)})}catch(e){copiar(texto)}}
+const fichaComp=f=>`*${f.t}*\n${f.q}\n\n${f.k}\n\n${f.b.join('\n\n')}\n\n${src(f.d)}\n\n${FIRMA}`;
+function santoComp(s){const V=SVIDA[s[2]]||{};return `*${s[2]}* · ${s[1]} de ${MES[s[0]-1]}\n${s[3]}\n\n${s[4]}`+(V.f&&V.f[0]?`\n\n«${V.f[0]}»${V.f[1]?' ('+V.f[1]+')':''}`:'')+(V.o?`\n\n${V.o}`:'')+`\n\n${FIRMA}`}
 R.frases=()=>{const G=[['','Todas'],['s','Santos y Padres'],['p','Papas']];const isP=q=>/Francisco|Benedicto|Juan Pablo|Pablo VI|León|Juan XXIII/.test(q[1]);const L=FR.filter(q=>!frf||(frf==='p')===isP(q));return hdr('Frases')+`<div class="pad fade" style="padding-top:12px"><div class="chips">${G.map(g=>`<button class="chip ${frf===g[0]?'sel':''}" data-fr="${g[0]}">${g[1]}</button>`).join('')}</div><div class="stack" style="margin-top:6px">${L.map(qc).join('')}</div></div>`};
-R.mapa=()=>hdr('Mapa de principios')+`<div class="pad fade" style="padding-top:14px">${mapaP()}</div>`;
-const QUICK=[["¿Qué es la subsidiaridad?","subsidiaridad"],["¿Es comunismo la DSI?","comunismo"],["Salario justo","salario"],["Migrantes","migra"],["¿Político y cristiano?","político"],["Inteligencia artificial","inteligencia artificial"]];
-R.inicio=()=>{
- const n=Object.keys(S.read).length,due=dueCards().length,d=FL[today()%FL.length],l=S.last&&byId[S.last];
+/* ================= INICIO =================
+   Tres cosas, en este orden: por dónde iba la persona, lo de hoy y lo que tiene pendiente.
+   La primera vez (sin nada leído ni empezado) el primer bloque es una bienvenida con tres accesos. */
+const evHecha=n=>!!S.best&&(S.best[n]!=null||S.best['q'+n]!==undefined);
+const liCard=x=>`<button class="card li" data-go="${x[0]}"><span class="cemb">${emb(x[1])}</span><span><h4>${esc(x[2])}</h4><span class="meta">${esc(x[3])}</span></span></button>`;
+function sigueDonde(){const l=S.last;let m;
+ if(l&&byId[l]){const f=byId[l],c=CAPS[f.c-1];
+  if(S.read[l]){const n=FL.slice(FL.indexOf(f)+1).find(x=>!S.read[x.id]);if(n)return{go:n.id,e:CEMB[n.c],t:n.t,m:'Ya leíste «'+f.t+'». Esta es la que sigue, en el capítulo '+n.c+'.'}}
+  return{go:l,e:CEMB[f.c],t:f.t,m:'Capítulo '+f.c+' · ficha '+(f.i+1)+' de '+c.f.length+' · '+c.t}}
+ if(l&&(m=/^copf-(\d+)$/.exec(l))){const p=COPPASOS.find(x=>x[0]===+m[1]);
+  if(p)return{go:l,e:'people',t:p[2],m:'COPPAS · paso '+p[0]+' de 8 · '+(fichaLlena(p[10])?'la ficha '+p[10]+' ya está empezada':'falta escribir la ficha '+p[10])}}
+ return null}
+function pendientes(sig){const P=[],nl=msgNoLeidos();
+ if(nl)P.push(['buzon','chat',nl===1?'Un mensaje sin leer':nl+' mensajes sin leer','En el buzón de la Pastoral Social']);
+ const enCop=COPPASOS.some(x=>fichaLlena(x[10]))||Object.keys(S.evid||{}).some(k=>/^\d/.test(k))||/^copf-/.test(S.last||'');
+ if(enCop){const p=COPPASOS.find(x=>!fichaLlena(x[10]));if(p&&!(sig&&sig.go==='copf-'+p[0]))P.push(['copf-'+p[0],'people','COPPAS · paso '+p[0]+' sin terminar',p[2]+'. Falta escribir la ficha '+p[10]+'.'])}
+ const ev=CAPS.find(c=>readN(c.n)===c.f.length&&!evHecha(c.n));
+ if(ev)P.push(['quiz-'+ev.n,'cards','Evaluarme en el capítulo '+ev.n,'Ya leíste completo «'+ev.t+'».']);
+ const cm=CAPS.find(c=>readN(c.n)>0&&readN(c.n)<c.f.length&&!(sig&&sig.go.indexOf('f-'+c.n+'-')===0));
+ if(cm){const k=cm.f.length-readN(cm.n);P.push(['cap-'+cm.n,CEMB[cm.n],'Terminar el capítulo '+cm.n,(k===1?'Te falta una ficha':'Te faltan '+k+' fichas')+' de «'+cm.t+'».'])}
+ const rep=FL.filter(f=>S.box[f.id]&&S.box[f.id].d<=today()).length;
+ if(rep)P.push(['tarjetas','cards',rep===1?'Una tarjeta para repasar hoy':rep+' tarjetas para repasar hoy','De las que ya has visto alguna vez.']);
+ return P.slice(0,3)}
+R.inicio=()=>{const L=LIT.hoy(),pal=palabraHoy(),lec=lecturasCache()[L.fecha]||null,T=stats();
+ const nueva=!S.last&&!Object.keys(S.read).length&&!COPPASOS.some(x=>fichaLlena(x[10]));
+ const sig=sigueDonde(),P=nueva?[]:pendientes(sig);
  return `<div class="hero"><div class="herot"><div><div class="eyebrow brandline"><img src="${LOGO_C}" alt="">Pastoral Social · Cáritas Diocesana</div><h1>Cuidar, servir y transformar</h1><p>Doctrina Social, formación de los COPPAS y oración, para toda la comunidad de la Diócesis de Caldas.</p></div><button class="ic" data-go="buscar" aria-label="Buscar">${ic('find')}</button></div>
  ${scene(7,150)}</div>
- <div class="pad"><div class="prog"><div class="stat st-r">${ring(n/FL.length,Math.round(n/FL.length*100)+'%','Avance de lectura')}<span>leído</span></div><div class="stat"><b>${due}</b><span>por repasar</span></div><div class="stat"><b>${Object.keys(S.fav).length}</b><span>guardados</span></div></div>
- ${l?`<div class="sec"><button class="card" data-go="${l.id}"><span class="tag">Sigue donde ibas</span><h4 style="margin:3px 0 0;font:600 17px var(--ui)">${esc(l.t)}</h4></button></div>`:''}
- <div class="sec"><button class="card daily" data-go="${d.id}"><span class="tag">Idea de hoy</span><q>${esc(d.k)}</q><span class="meta">${esc(d.t)} · ${esc(src(d.d))}</span></button></div>
- <div class="sec"><button class="card pal" data-go="orar"><span class="tag">Palabra de hoy</span><q>${esc(palabraHoy()[0])}</q><span class="meta">${esc(palabraHoy()[1])}</span></button></div>
- <div class="sec"><button class="card0" data-go="orar">${santoCard(false)}</button></div>
- <div class="sec">${qc(FR[today()%FR.length])}</div><div class="sec"><button class="card hb" data-go="coppas">${scene(31,104,'people')}<span class="hbt"><span class="eyebrow">Para el comité</span><h3>COPPAS · Servir juntos</h3><span class="s2">Ocho pasos, cinco fichas y casos para practicar</span></span></button></div><div class="sec"><h3>¿Tienes una duda?</h3><div class="chips">${QUICK.map(q=>`<button class="chip" data-q="${esc(q[1])}">${esc(q[0])}</button>`).join('')}</div></div>
- <div class="sec"><h3>Los cuatro principios</h3>${mapaP()}</div>
- <div class="sec"><div class="row"><h3>Doctrina Social</h3><button class="lnk" data-go="dsi">Ver todo</button></div><div class="stack">${CAPS.slice(0,3).map(capCard).join('')}</div></div>${sello()}</div>`};
-const VER='1.0';
+ <div class="pad fade">
+ ${sig?`<button class="card go sigue" data-go="${sig.go}"><span class="cemb">${emb(sig.e)}</span><span class="sgt"><span class="tag">Sigue donde ibas</span><h4>${esc(sig.t)}</h4><span class="meta">${esc(sig.m)}</span></span><i aria-hidden="true">→</i></button>`
+ :`<div class="card bienv"><span class="tag">${nueva?'Bienvenida':'Por dónde seguir'}</span><h3>${nueva?'Qué bueno que estés aquí':'Elige por dónde seguir'}</h3>${nueva?'<p>Esta aplicación acompaña a quienes sirven en la Pastoral Social: para aprender, para organizar el comité y para orar. No hay un orden obligado: empieza por lo que más te sirva hoy.</p>':''}
+  <div class="stack">${[['f-1-0','book','Empezar a leer','La primera ficha: '+FL[0].t],['copquees','people','Armar o animar un comité','Qué es un COPPAS y su ruta en ocho pasos'],['orar','dove','Orar hoy','El santo del día, la Palabra y las oraciones']].map(liCard).join('')}</div></div>`}
+ <div class="sec"><div class="row"><h3>Hoy</h3><span class="meta hoyf">${esc(L.dia)} ${L.diaNum} de ${esc(L.mes)}</span></div><div class="stack">
+  ${santoCard(false)}
+  <button class="card pal" data-go="orar"><span class="tag">Palabra de hoy</span><q>${esc(pal[0])}</q><span class="meta">${esc(pal[1])}</span></button>
+  ${liCard(['lectio','book','Lectio divina de hoy',L.titulo+(lec&&lec.ev?' · '+lec.ev:'')])}
+ </div></div>
+ ${nueva?'':`<div class="sec"><div class="row"><h3>Pendiente</h3><button class="lnk" data-go="avance">Mi camino · ${T.gen} %</button></div>${P.length?`<div class="stack">${P.map(liCard).join('')}</div>`:'<div class="card sem ok"><div style="font:calc(16.5px*var(--fs))/1.5 var(--read)">No tienes nada a medias. Buen momento para leer algo nuevo o para orar con calma.</div></div>'}</div>`}
+ ${sello()}</div>`};
+const VER='1.1';
 function fichaLlena(n){const f=COPFICHAS[+n-1];if(!f)return false;const v=(S.fich&&S.fich[f[0]])||{};return Object.keys(v).length>0}
 function stats(){
  const totF=FL.length, leidas=FL.filter(f=>S.read[`f-${f.c}-${f.i}`]).length;
  const capsOk=CAPS.filter(c=>readN(c.n)===c.f.length).length;
- const ev=CAPS.filter(c=>S.best&&S.best['q'+c.n]!==undefined).length;
+ const ev=CAPS.filter(c=>evHecha(c.n)).length;
  const pasos=COPPASOS.filter(x=>fichaLlena(x[10])).length;
  const fichas=COPFICHAS.filter((f,i)=>fichaLlena(i+1)).length;
  const santos=Object.keys(S.read).filter(k=>/^santo-/.test(k)).length;
@@ -2401,37 +2526,40 @@ const sello=()=>`<footer class="sello"><span class="chip-l"><img src="${LOGO_D}"
 const capCard=c=>{const r=readN(c.n);return `<button class="card cap" data-go="cap-${c.n}"><div class="cemb">${emb(CEMB[c.n])}</div><div style="flex:1;min-width:0"><h4>${esc(c.t)}</h4><div class="meta">DOCAT ${c.r} · ${r}/${c.f.length}</div><div class="bar"><i style="width:${r/c.f.length*100}%"></i></div></div></button>`};
 R.temas=()=>hdr('Temas')+`<div class="pad fade"><p class="meta" style="margin:12px 0">Doce capítulos, en el orden del DOCAT.</p><div class="stack">${CAPS.map(capCard).join('')}</div></div>`;
 function capView(n){const c=CAPS[n-1];return hdr('Capítulo '+n)+`<div class="banner">${scene(n*11+3,170,CEMB[n])}<div class="bt"><div class="eyebrow">Capítulo ${n} · DOCAT ${c.r}</div><h1>${esc(c.t)}</h1></div></div><div class="pad"><p class="ask" style="margin-top:14px">${esc(c.s)}</p><p class="reader" style="margin-top:6px">${esc(c.intro)}</p>${n===4?mapaP():''}${frCap(n)[0]?qc(frCap(n)[0]):''}<div class="btns" style="margin-bottom:16px"><button class="btn" data-go="sesion-${n}">Preparar sesión</button><button class="btn alt" data-go="quiz-${n}">Evaluarme</button></div><div class="stack">${c.f.map((f,i)=>`<button class="card li" data-go="f-${n}-${i}"><span class="dot ${S.read[`f-${n}-${i}`]?'y':''}">${S.read[`f-${n}-${i}`]?'✓':''}</span><span><h4>${esc(f[0])}</h4><span class="meta">${esc(f[1])}</span></span></button>`).join('')}</div></div>`}
-function fichaView(id){const f=byId[id];S.last=id;save();const i=FL.indexOf(f),p=FL[i-1],n=FL[i+1],c=CAPS[f.c-1];
+function fichaView(id){const f=byId[id];if(S.last!==id){S.last=id;save()}const i=FL.indexOf(f),p=FL[i-1],n=FL[i+1],c=CAPS[f.c-1];
  const fav=S.fav[id];
- return hdr('Cap. '+f.c+' · '+c.t,undefined,`<button class="ic" id="fsz" aria-label="Cambiar tamaño de letra">${ic('text')}</button><button class="ic ${fav?'on':''}" id="fav" aria-label="${fav?'Quitar de guardados':'Guardar'}">${ic('star')}</button>`)+`<article class="pad art fade" style="padding-top:16px"><div class="eyebrow">${esc(src(f.d))}</div><h1>${esc(f.t)}</h1><p class="ask">${esc(f.q)}</p><div class="key">${esc(f.k)}</div><div class="reader">${f.b.map(x=>`<p>${esc(x)}</p>`).join('')}</div>
+ return hdr('Cap. '+f.c+' · '+c.t,undefined,`<button class="ic" id="fsz" aria-label="Cambiar tamaño de letra">${ic('text')}</button><button class="ic ${fav?'on':''}" id="fav" aria-label="${fav?'Quitar de guardados':'Guardar'}">${ic('star')}</button>`)+`<article class="pad art fade" style="padding-top:16px"><div class="eyebrow">${esc(src(f.d))}</div><h1>${esc(f.t)}</h1><p class="ask">${esc(f.q)}</p>${oir('ficha',()=>[f.t,f.q,f.k,...f.b])}<div class="key">${esc(f.k)}</div><div class="reader">${f.b.map(x=>`<p>${esc(x)}</p>`).join('')}</div>
  <div class="refs"><div><b>${/^\d/.test(f.d)?'En el DOCAT: preguntas':'Fuente:'}</b> ${esc(f.d)}</div><div><b>Para profundizar:</b> ${esc(f.o)}</div></div>
- <div class="btns" style="margin:16px 0"><button class="btn" id="rd">${S.read[id]?'Leído ✓':'Marcar como leído'}</button><button class="btn alt" data-q="${esc(f.t)}">Dudas sobre esto</button></div>
+ <div class="btns" style="margin:16px 0"><button class="btn" id="rd">${S.read[id]?'Leído ✓':'Marcar como leído'}</button><button class="btn alt" data-q="${esc(f.t)}">Dudas sobre esto</button><button class="btn alt" id="shf">${compLbl()}</button></div>
  ${frCap(f.c).length?qc(frCap(f.c)[f.i%frCap(f.c).length]):''}<label class="meta" for="note">Mi nota personal</label><textarea id="note" placeholder="Qué me interpela, cómo lo llevaría a mi grupo...">${esc(S.notes[id]||'')}</textarea>
  <div class="pager" style="margin-top:14px">${p?`<button class="card" data-go="${p.id}"><small>Anterior</small>${esc(p.t)}</button>`:'<span></span>'}${n?`<button class="card" data-go="${n.id}"><small>Siguiente</small>${esc(n.t)}</button>`:'<span></span>'}</div></article>`}
 function sesTxt(n){const c=CAPS[n-1],s=SES[n];return `*${c.t.toUpperCase()}*\nSesión del grupo · Capítulo ${n} del DOCAT (${c.r})\n\n*Objetivo:* ${s.obj}\n*Texto bíblico:* ${s.b} — ${s.bl}\n*Duración:* unas 2 horas y media\n\n*Materiales:*\n${s.mat.map(m=>'• '+m).join('\n')}\n\n*Momentos:*\n1. Acogida (10 min)\n2. Oración inicial (15 min): ${c.or}\n3. Tema central (40 min): ${c.intro}\n4. Dinámica (35 min): ${c.din}\n5. Plenaria (20 min): ${s.plen.join(' / ')}\n6. Compromiso (15 min): Cuidar: ${c.cp.c} · Servir: ${c.cp.s} · Transformar: ${c.cp.t}\n7. Revisar y celebrar (10 min)\n\nPastoral Social · Cáritas Diocesana de Caldas`}
+// Los siete momentos de una sesión: [título, minutos, texto]. Los usan la guía del animador y el modo reunión.
+function sesMom(n){const c=CAPS[n-1],s=SES[n];return [["Acogida y ambientación",10,"Recibe a cada persona por su nombre, con música suave de fondo. Ubica el espacio en círculo, con la Biblia y una vela en el centro. Mientras llegan, conversa informalmente: la sesión empieza desde el saludo."],
+ ["Oración inicial",15,c.or+" Después, alguien proclama "+s.b+": "+s.bl+" Se deja un minuto de silencio y cada uno repite en voz alta la palabra o frase que le tocó el corazón."],
+ ["Tema central",40,c.intro+" Desarrolla estas ideas, abriendo cada ficha en la app si ayuda:"],
+ ["Dinámica",35,c.din],
+ ["Plenaria",20,"En círculo, sin corregir las respuestas, se conversa: "+s.plen.join(" Luego: ")],
+ ["Compromiso de acción",15,"Cada participante elige y escribe un compromiso en su tarjeta. Propuestas del itinerario:"],
+ ["Revisar y celebrar",10,"Dos preguntas rápidas: ¿qué me llevo? y ¿qué mejoraría del encuentro? Se anota lo dicho para la próxima vez. Se termina con un canto o con la oración del líder social, dando gracias."]]}
 function sesion(n){const c=CAPS[n-1],s=SES[n];
- const M=[["Acogida y ambientación","10 min","Recibe a cada persona por su nombre, con música suave de fondo. Ubica el espacio en círculo, con la Biblia y una vela en el centro. Mientras llegan, conversa informalmente: la sesión empieza desde el saludo."],
- ["Oración inicial","15 min",c.or+" Después, alguien proclama "+s.b+": "+s.bl+" Se deja un minuto de silencio y cada uno repite en voz alta la palabra o frase que le tocó el corazón."],
- ["Tema central","40 min",c.intro+" Desarrolla estas ideas, abriendo cada ficha en la app si ayuda:"],
- ["Dinámica","35 min",c.din],
- ["Plenaria","20 min","En círculo, sin corregir las respuestas, se conversa: "+s.plen.join(" Luego: ")],
- ["Compromiso de acción","15 min","Cada participante elige y escribe un compromiso en su tarjeta. Propuestas del itinerario:"],
- ["Revisar y celebrar","10 min","Dos preguntas rápidas: ¿qué me llevo? y ¿qué mejoraría del encuentro? Se anota lo dicho para la próxima vez. Se termina con un canto o con la oración del líder social, dando gracias."]];
+ const M=sesMom(n);
  return hdr('Sesión · Cap. '+n)+`<div class="banner">${scene(n*31+7,150,CEMB[n])}<div class="bt"><div class="eyebrow">Guía del animador</div><h1>${esc(c.t)}</h1></div></div><div class="pad fade" style="padding-top:14px">
  <div class="meta2"><span>${emb('time')}≈ 2 h 30 min</span><span>${emb('people')}Grupo en círculo</span><span>${emb('book')}DOCAT ${c.r}</span></div>
  <div class="key" style="margin-top:12px"><span class="tag">Objetivo</span><br>${esc(s.obj)}</div>
  <div class="card"><span class="tag">Palabra de Dios · ${esc(s.b)}</span><div style="font:italic 500 calc(18px*var(--fs))/1.4 var(--read);margin-top:4px">${esc(s.bl)}</div></div>
  <div class="sec"><h3>Materiales</h3><div class="card stack" style="gap:6px">${s.mat.map((m,i)=>`<label class="chk"><input type="checkbox" data-mat="${n}-${i}" ${S.mat&&S.mat[n+'-'+i]?'checked':''}><span>${esc(m)}</span></label>`).join('')}</div></div>
- <div class="sec"><h3>Momentos del encuentro</h3><div class="stack">${M.map((m,i)=>`<div class="card moment"><div class="n">${i+1}</div><div style="flex:1;min-width:0"><div class="row"><h4>${m[0]}</h4><span class="tmin">${m[1]}</span></div><p>${esc(m[2])}</p>${i===2?`<div class="stack" style="margin-top:9px">${c.f.slice(0,4).map((f,j)=>`<button class="card mini" data-go="f-${n}-${j}"><b>${esc(f[0])}</b><span class="meta">${esc(f[2])}</span></button>`).join('')}</div>`:''}${i===5?`<div class="qs" style="margin-top:8px"><div><span class="tag">Cuidar</span> ${esc(c.cp.c)}</div><div><span class="tag">Servir</span> ${esc(c.cp.s)}</div><div><span class="tag">Transformar</span> ${esc(c.cp.t)}</div></div>`:''}</div></div>`).join('')}</div></div>
- <div class="btns" style="margin-top:14px"><button class="btn" id="shses" data-n="${n}">Copiar para WhatsApp</button><button class="btn alt" data-go="quiz-${n}">Evaluar al grupo</button></div>
+ <div class="sec"><h3>Momentos del encuentro</h3><div class="stack">${M.map((m,i)=>`<div class="card moment"><div class="n">${i+1}</div><div style="flex:1;min-width:0"><div class="row"><h4>${m[0]}</h4><span class="tmin">${m[1]} min</span></div><p>${esc(m[2])}</p>${i===2?`<div class="stack" style="margin-top:9px">${c.f.slice(0,4).map((f,j)=>`<button class="card mini" data-go="f-${n}-${j}"><b>${esc(f[0])}</b><span class="meta">${esc(f[2])}</span></button>`).join('')}</div>`:''}${i===5?`<div class="qs" style="margin-top:8px"><div><span class="tag">Cuidar</span> ${esc(c.cp.c)}</div><div><span class="tag">Servir</span> ${esc(c.cp.s)}</div><div><span class="tag">Transformar</span> ${esc(c.cp.t)}</div></div>`:''}</div></div>`).join('')}</div></div>
+ <button class="card go reuin" data-go="reu-s-${n}"><span class="cemb">${emb('people')}</span><span><h4>Abrir en modo reunión</h4><span class="meta">Un momento a la vez, con letra grande y reloj. Para proyectar o pasar el teléfono en el círculo.</span></span></button>
+ <div class="btns" style="margin-top:14px"><button class="btn" id="shses" data-n="${n}">${compLbl('Copiar para WhatsApp')}</button><button class="btn alt" data-go="quiz-${n}">Evaluar al grupo</button></div>
  <button class="btn alt" style="width:100%;margin-top:8px" data-go="metodo">Ver el método pastoral</button>${sello()}</div>`}
 const STOP=new Set('que qué cual cuál como cómo para por con sin una uno unos unas los las del las el la lo de en y o a al es son ser se si sí no mi mis me yo tu tus su sus le les muy mas más pero porque dice iglesia doctrina social dsi hay puedo debo debe puede hacer tiene tengo esto esta este eso esa sobre cuando donde quien quién'.split(' ').map(s=>s.normalize('NFD').replace(/[̀-ͯ]/g,'')));
-const SYN={plata:'dinero',sueldo:'salario',patron:'empresa',jefe:'empresa',guerrilla:'violencia',paramilitares:'violencia',ambiente:'ecologia',medioambiente:'ecologia',venezolano:'migrante',venezolanos:'migrantes',extranjero:'migrante',curas:'sacerdote',cura:'sacerdote',ia:'inteligencia',rico:'riqueza',ricos:'riqueza',votar:'voto',politico:'politica',comunista:'comunismo',socialista:'comunismo',pobre:'pobres'};
+const SYN={plata:'dinero',sueldo:'salario',patron:'empresa',jefe:'empresa',guerrilla:'violencia',paramilitares:'violencia',ambiente:'ecologia',medioambiente:'ecologia',venezolano:'migrante',venezolanos:'migrantes',extranjero:'migrante',curas:'sacerdote',cura:'sacerdote',ia:'inteligencia',rico:'riqueza',ricos:'riqueza',votar:'voto',politico:'politica',comunista:'comunismo',socialista:'comunismo',pobre:'pobres',subsidiariedad:'subsidiaridad',subsidiaridad:'subsidiariedad',papeleo:'tramites'};
 const toks=s=>norm(s).split(/[^a-zñ0-9]+/).filter(w=>w.length>1&&!STOP.has(w));
 const same=(a,b)=>{const n=Math.max(4,Math.min(a.length,b.length)-2);return a===b||(a.length>=4&&b.length>=4&&a.slice(0,n)===b.slice(0,n))};
-const IDX=DUDAS.map(d=>({d,h:toks(d[0]+' '+(d[4]||'')),b:toks(d[1])}));
-const FIDX=FL.map(f=>({f,h:toks(f.t+' '+f.q+' '+f.k),b:toks(f.b.join(' '))}));
-function matchDudas(q){let T=toks(q);T=[...new Set(T.flatMap(w=>SYN[w]?[w,SYN[w]]:[w]))];if(!T.length)return{d:[],f:[]};
+let IDX=null,FIDX=null;
+function idxDudas(){if(IDX)return;IDX=DUDAS.map(d=>({d,h:toks(d[0]+' '+(d[4]||'')),b:toks(d[1])}));FIDX=FL.map(f=>({f,h:toks(f.t+' '+f.q+' '+f.k),b:toks(f.b.join(' '))}))}
+function matchDudas(q){idxDudas();let T=toks(q);T=[...new Set(T.flatMap(w=>SYN[w]?[w,SYN[w]]:[w]))];if(!T.length)return{d:[],f:[]};
  const N=IDX.length,idf={};T.forEach(w=>{const df=IDX.filter(e=>e.h.some(x=>same(w,x))).length;idf[w]=Math.log(1+N/(1+df))/Math.log(1+N)});
  const sc=e=>{let s=0,hits=0;T.forEach(w=>{const a=e.h.some(x=>same(w,x)),b=e.b.some(x=>same(w,x));if(a){s+=2+4*idf[w];hits++}else if(b){s+=idf[w];hits++}});return s+(hits/T.length)*2};
  const rank=(A,min)=>A.map(e=>[sc(e),e]).filter(x=>x[0]>=min).sort((a,b)=>b[0]-a[0]).map(x=>x[1]);
@@ -2461,32 +2589,173 @@ function quizView(n){if(!Q||Q.n!==n)startQuiz(n);const back=n===13?'historia':n?
  if(Q.i>=Q.qs.length){const t=Q.qs.length;if(S.best[n]==null||Q.ok>S.best[n]){S.best[n]=Q.ok;save()}return hdr('Resultado',back)+`<div class="pad fade" style="padding-top:18px"><div class="card" style="text-align:center"><div class="num" style="width:auto;font-size:64px">${Q.ok}/${t}</div><p>${Q.ok/t>=.8?'Muy bien: ya puedes explicárselo a tu grupo.':Q.ok/t>=.5?'Vas en camino. Repasa las fichas que dudaste.':'Vale la pena releer este tema con calma.'}</p></div><div class="btns" style="margin-top:12px"><button class="btn" id="redo">Repetir</button><button class="btn alt" data-go="${back}">Volver</button></div></div>`}
  const q=Q.qs[Q.i],done=Q.pick!==null;
  return hdr(`Pregunta ${Q.i+1} de ${Q.qs.length}`,back)+`<div class="pad fade" style="padding-top:14px"><div class="bar" style="margin:0 0 14px"><i style="width:${Q.i/Q.qs.length*100}%"></i></div><h1 style="font-size:24px;margin-bottom:14px">${esc(q.p)}</h1><div class="stack">${q.o.map((o,i)=>`<button class="opt ${done?(o.ok?'ok':i===Q.pick?'no':''):''}" data-o="${i}" ${done?'disabled':''}>${esc(o.t)}</button>`).join('')}</div>${done?`<div class="key" style="margin-top:14px;font-weight:500">${esc(q.e)}</div><button class="btn" style="width:100%" id="nxt">${Q.i+1<Q.qs.length?'Siguiente':'Ver resultado'}</button>`:''}</div>`}
-R.dsi=()=>hdr('Doctrina Social')+`<div class="banner">${scene(404,160,'book')}<div class="bt"><div class="eyebrow">Para estudiar y preparar</div><h1>Doctrina Social de la Iglesia</h1></div></div><div class="pad fade" style="padding-top:14px">${avanceDSI()}<div class="stack">${[['temas','Temas','Los 12 capítulos, '+FL.length+' fichas','book'],['preguntar','Dudas','88 preguntas frecuentes por categorías','chat'],['repaso','Repasar','Tarjetas y evaluaciones','cards'],['historia','Historia','Diez etapas, del Éxodo a hoy','time'],['documentos','Documentos','De Rerum novarum a hoy','scale'],['metodo','Método pastoral','Ver, juzgar, actuar, revisar, celebrar','compass'],['mapa','Mapa de principios','Cómo se relacionan','compass'],['frases','Frases','Palabras de santos y papas','quote'],['testigos','Testigos','Quienes la vivieron','people'],['glosario','Glosario','Términos clave','libro'],['novedades','Lo nuevo','Actualizaciones desde 2016','star'],['equipo','Revisión del equipo','Los principios en nuestro servicio','heart']].map(x=>`<button class="card li" data-go="${x[0]}"><span class="cemb">${emb(x[3])}</span><span><h4>${esc(x[1])}</h4><span class="meta">${esc(x[2])}</span></span></button>`).join('')}</div>${sello()}</div>`;
+R.dsi=()=>hdr('Doctrina Social')+`<div class="banner">${scene(404,160,'book')}<div class="bt"><div class="eyebrow">Para estudiar y preparar</div><h1>Doctrina Social de la Iglesia</h1></div></div><div class="pad fade" style="padding-top:14px">${avanceDSI()}<div class="stack">${[['temas','Temas','Los 12 capítulos, '+FL.length+' fichas','book'],['preguntar','Dudas','88 preguntas frecuentes por categorías','chat'],['repaso','Repasar','Tarjetas y evaluaciones','cards'],['historia','Historia','Diez etapas, del Éxodo a hoy','time'],['documentos','Documentos','De Rerum novarum a hoy','scale'],['metodo','Método pastoral','Ver, juzgar, actuar, revisar, celebrar','compass'],['frases','Frases','Palabras de santos y papas','quote'],['testigos','Testigos','Quienes la vivieron','people'],['glosario','Glosario','Términos clave','libro'],['novedades','Lo nuevo','Actualizaciones desde 2016','star']].map(x=>`<button class="card li" data-go="${x[0]}"><span class="cemb">${emb(x[3])}</span><span><h4>${esc(x[1])}</h4><span class="meta">${esc(x[2])}</span></span></button>`).join('')}</div>${sello()}</div>`;
 R.mas=()=>hdr('Más')+`<div class="pad fade" style="padding-top:12px"><div class="stack">${[['buzon','Buzón',(msgNoLeidos()?msgNoLeidos()+' mensaje'+(msgNoLeidos()>1?'s':'')+' sin leer':'Avisos de la Pastoral Social'),'chat'],['diocesis','Nuestra Diócesis','Caldas: historia, obispos y territorio','church'],['guardados','Mis guardados y notas',Object.keys(S.fav).length+' guardados','star'],['siglas','Siglas y fuentes','Cómo leer las citas','libro'],['privacidad','Privacidad','Qué guarda y qué no guarda','heart']].map(x=>`<button class="card li" data-go="${x[0]}"><span class="cemb">${emb(x[3])}</span><span><h4>${esc(x[1])}</h4><span class="meta">${esc(x[2])}</span></span></button>`).join('')}</div>${sello()}</div>`;
-R.documentos=()=>hdr('Documentos')+`<div class="pad fade" style="padding-top:12px"><div class="stack">${PERIODOS.map(p=>`<div class="sec" style="margin-top:10px"><h3 style="font-size:21px">${p[2]}</h3><p class="meta" style="margin:2px 0 8px">${p[3]}</p><div class="stack">${DOCS.filter(d=>d[0]>=p[0]&&d[0]<p[1]).map(d=>`<div class="card tl"><span class="y">${d[0]}</span><h4>${esc(d[1])}</h4><div class="meta">${esc(d[3])} · ${esc(d[4])} · ${esc(d[2])}</div>${trad(d[1])}<div style="margin-top:4px;font:16px/1.4 var(--read)">${esc(d[5])}</div>${d[6]?`<a class="lnk" href="${d[6]}" target="_blank" rel="noopener">Leer el texto</a>`:''}</div>`).join('')}</div></div>`).join('')}</div></div>`;
+R.documentos=()=>hdr('Documentos')+`<div class="pad fade" style="padding-top:12px"><div class="stack">${PERIODOS.map(p=>`<div class="sec" style="margin-top:10px"><h3 style="font-size:21px">${p[2]}</h3><p class="meta" style="margin:2px 0 8px">${p[3]}</p><div class="stack">${DOCS.filter(d=>d[0]>=p[0]&&d[0]<p[1]).map(d=>`<div class="card tl" id="doc-${DOCS.indexOf(d)}"><span class="y">${d[0]}</span><h4>${esc(d[1])}</h4><div class="meta">${esc(d[3])} · ${esc(d[4])} · ${esc(d[2])}</div>${trad(d[1])}<div style="margin-top:4px;font:16px/1.4 var(--read)">${esc(d[5])}</div>${d[6]?`<a class="lnk" href="${d[6]}" target="_blank" rel="noopener">Leer el texto</a>`:''}</div>`).join('')}</div></div>`).join('')}</div></div>`;
 R.novedades=()=>hdr('Después del DOCAT')+`<div class="pad fade" style="padding-top:12px"><p class="meta">El DOCAT es de 2016. Esto es lo que debes tener presente hoy.</p><div class="stack">${NUEVO.map(n=>`<div class="card"><span class="tag">${esc(n[0])}</span><div style="font:17px/1.45 var(--read);margin-top:3px">${esc(n[1])}</div></div>`).join('')}</div></div>`;
 R.metodo=()=>hdr('Método pastoral')+`<div class="pad fade" style="padding-top:12px">${cicloM()}<div class="stack" style="margin-top:12px">${METODO.map((m,i)=>`<div class="card moment"><div class="n">${i+1}</div><div><h4>${m[0]}</h4><p>${esc(m[1])}</p><div class="meta" style="margin-top:5px">${esc(m[2])}</div></div></div>`).join('')}</div><div class="card" style="margin-top:12px"><span class="tag">Itinerario</span><div style="font:17px/1.45 var(--read);margin-top:3px">Cuidar forma el ser en lo espiritual, humano, doctrinal y comunitario. Servir es acción solidaria gratuita. Transformar es cambiar relaciones y estructuras desde el Evangelio.</div></div></div>`;
-R.equipo=()=>hdr('Revisión del equipo')+`<div class="pad fade" style="padding-top:12px"><p class="meta">Para mirar con honestidad cómo servimos. Adaptado de la formación de Cáritas.</p><div class="stack">${EQUIPO.map(e=>`<details><summary>${esc(e[0])}</summary><p>${esc(e[1])}</p><div class="qs">${e[2].map(q=>`<div>${esc(q)}</div>`).join('')}</div></details>`).join('')}</div></div>`;
-R.glosario=()=>hdr('Glosario')+`<div class="pad fade" style="padding-top:12px"><div class="stack">${GLOS.map(g=>`<div class="card"><h4 style="margin:0;font:600 17px var(--ui)">${esc(g[0])}</h4><div style="font:16px/1.4 var(--read)">${esc(g[1])}</div></div>`).join('')}</div></div>`;
-R.testigos=()=>hdr('Testigos')+`<div class="pad fade" style="padding-top:12px"><div class="stack">${TESTIGOS.map(g=>`<div class="card"><h3 style="font-size:20px"><span class="med" style="vertical-align:3px;margin-right:8px">${esc(g[0].replace(/^(San|Santa|Beato|Fray)\s+/,'')[0])}</span>${esc(g[0])}</h3><div style="font:16px/1.45 var(--read);margin-top:3px">${esc(g[1])}</div></div>`).join('')}</div></div>`;
+R.glosario=()=>hdr('Glosario')+`<div class="pad fade" style="padding-top:12px"><div class="stack">${GLOS.map((g,i)=>`<div class="card" id="glo-${i}"><h4 style="margin:0;font:600 17px var(--ui)">${esc(g[0])}</h4><div style="font:16px/1.4 var(--read)">${esc(g[1])}</div></div>`).join('')}</div></div>`;
+R.testigos=()=>hdr('Testigos')+`<div class="pad fade" style="padding-top:12px"><div class="stack">${TESTIGOS.map((g,i)=>`<div class="card" id="tes-${i}"><h3 style="font-size:20px"><span class="med" style="vertical-align:3px;margin-right:8px">${esc(g[0].replace(/^(San|Santa|Beato|Fray)\s+/,'')[0])}</span>${esc(g[0])}</h3><div style="font:16px/1.45 var(--read);margin-top:3px">${esc(g[1])}</div></div>`).join('')}</div></div>`;
 R.guardados=()=>{const fs=Object.keys(S.fav).filter(k=>byId[k]),ns=Object.keys(S.notes).filter(k=>S.notes[k]&&byId[k]);return hdr('Mis guardados')+`<div class="pad fade" style="padding-top:12px">${!fs.length&&!ns.length?'<p class="empty">Toca la estrella en una ficha para guardarla, o escribe una nota al final de ella.</p>':''}<div class="stack">${fs.map(k=>`<button class="card" data-go="${k}"><h4 style="margin:0;font:600 17px var(--ui)">${esc(byId[k].t)}</h4><span class="meta">${esc(byId[k].k)}</span></button>`).join('')}</div>${ns.length?`<div class="sec"><h3>Notas</h3><div class="stack">${ns.map(k=>`<button class="card" data-go="${k}"><span class="tag">${esc(byId[k].t)}</span><div style="font:16px/1.4 var(--read);white-space:pre-wrap">${esc(S.notes[k])}</div></button>`).join('')}</div></div>`:''}</div>`};
 R.privacidad=()=>hdr('Privacidad')+`<div class="pad fade" style="padding-top:12px"><p class="reader">Esta herramienta se hizo para acompañar la formación, no para recoger información de nadie.</p><div class="stack">${PRIV.map(p=>`<div class="card"><h4 style="margin:0 0 4px;font:600 17px var(--ui)">${esc(p[0])}</h4><div style="font:calc(16.5px*var(--fs))/1.45 var(--read)">${esc(p[1])}</div></div>`).join('')}</div>${sello()}</div>`;
 R.siglas=()=>hdr('Siglas y fuentes')+`<div class="pad fade reader" style="padding-top:12px;font-size:16px"><p>Los números del DOCAT corresponden a la edición que subiste (portuguesa, Paulus 2016, 328 preguntas). En la bioética tu compilado en español numera distinto.</p><p>Los textos son una explicación propia, no una traducción literal del libro. Para el texto exacto, acude al DOCAT o a los documentos enlazados.</p><p><b>Se apoya en:</b> DOCAT; Guía de estudio DOCAT (SEPI/CRS); Compilado DOCAT y Resumen DSI (Universidad Católica de Salta); Formación continua para equipos de Cáritas (Cáritas Asturias); y los documentos del Magisterio citados.</p><p>${esc(SIGLAS)}</p>${sello()}</div>`;
-let term='';
-R.buscar=()=>hdr('Buscar')+`<div class="pad" style="padding-top:12px"><input type="search" id="s" aria-label="Buscar" placeholder="Salario, paz, propiedad, DOCAT 95..." value="${esc(term)}"><div id="res" style="margin-top:12px">${results()}</div></div>`;
-function results(){const t=norm(term).trim();if(t.length<2)return `<div class="chips" style="flex-wrap:wrap;overflow:visible">${['bien común','pobres','trabajo','ecología','guerra','eutanasia','familia','democracia','redes'].map(q=>`<button class="chip" data-t="${q}">${q}</button>`).join('')}</div>`;
- const ws=t.split(/\s+/);const hit=s=>{const n=norm(s);return ws.every(w=>n.includes(w))};
+let term='',sver='',sT=null;
+/* ================= BUSCADOR GLOBAL =================
+   Un solo índice sobre todo el contenido. Se arma la primera vez que alguien busca (no en el arranque)
+   y reutiliza el emparejamiento de Dudas: STOP, SYN, same() y pesos IDF. */
+const STOPG=new Set([...STOP].filter(w=>!['iglesia','doctrina','social','dsi'].includes(w)));
+const toksG=s=>norm(s).split(/[^a-zñ0-9]+/).filter(w=>w.length>1&&!STOPG.has(w));
+const TIPOS={sec:'Sección de la app',cap:'Capítulo',ficha:'Ficha',duda:'Duda',santo:'Santo',paso:'Paso del COPPAS',cficha:'Ficha del COPPAS',caso:'Caso para practicar',oracion:'Oración',rosario:'Rosario',novena:'Día de la novena',crucis:'Estación del Vía Crucis',lucis:'Estación del Vía Lucis',sesion:'Sesión para el grupo',doc:'Documento',era:'Historia',glos:'Glosario',testigo:'Testigo',frase:'Frase'};
+const SECC=[['temas','Temas de la Doctrina Social','Los doce capítulos, en el orden del DOCAT',[]],['preguntar','Dudas','Preguntas frecuentes por categorías',DCATS],['repaso','Repasar','Tarjetas y evaluaciones',['quiz examen evaluarme evaluación']],['historia','Historia de la Doctrina Social','Diez etapas, del Éxodo a hoy',[]],['documentos','Documentos','De Rerum novarum a hoy',['encíclicas magisterio']],['metodo','Método pastoral','Ver, juzgar, actuar, revisar, celebrar',METODO.map(m=>m.join(' '))],['frases','Frases','Palabras de santos y papas',[]],['testigos','Testigos','Quienes la vivieron',[]],['glosario','Glosario','Términos clave',[]],['novedades','Lo nuevo','Actualizaciones desde 2016',NUEVO.map(n=>n.join(': '))],['avance','Mi camino','Lo que llevo leído, evaluado y trabajado',['avance progreso']],
+ ['coppas','COPPAS','Comité Parroquial de Pastoral Social',[COPID.que]],['copquees','¿Qué es un COPPAS?','Qué es, qué no es y cómo usar la ruta',[COPID.por,...COPID.es,...COPID.noes]],['copruta','La ruta del COPPAS, paso a paso','Ocho pasos, uno por reunión',[]],['copfichas','Nuestras cinco fichas','Lo que el comité va escribiendo',[]],['copcasos','Casos para practicar','Cuatro situaciones para conversar en grupo',[]],['copcuidado','Cuidado y límites','El semáforo y los acuerdos del equipo',[...COPCUID.sem.map(s=>s[0]+': '+s[1]),...COPCUID.ac,...COPCUID.ro]],
+ ['lectio','Lectio divina de hoy','Cinco pasos sobre el Evangelio del día',['evangelio lecturas biblia',...LECTIO5.map(l=>l[0]+'. '+l[3])]],['rosario','Santo Rosario','Los veinte misterios y cómo se reza',['rezar rosario',...ROSCOMO]],['viacrucis','Vía Crucis','Catorce estaciones con mirada social',['cuaresma viernes santo']],['vialucis','Vía Lucis','El camino de la luz, para la Pascua',[VIALUCIS.intro]],['oraciones','Oraciones','Las de siempre, a la mano',[]],['orsit','Oraciones para cada situación','Visita, duelo, emergencia, reunión',[]],['novena','Novena del Buen Samaritano','Nueve días, uno por cada principio',[NOVENA.intro,NOVENA.oracion]],['esquemas','Oración para reuniones','Ocho esquemas breves',[]],['adoracion','Media hora de adoración','Guía paso a paso ante el Santísimo',[ADORACION.intro,...ADORACION.pasos.map(x=>x[1]+'. '+x[2])]],['examen','Examen de conciencia','Para revisar el día o antes de confesarse',['confesión',EXAMEN.intro,...EXAMEN.bloques.flatMap(b=>[b[0],...b[1]])]],['coronilla','Coronilla de la Misericordia','Por los enfermos y los que agonizan',[CORONILLA.intro,...CORONILLA.pasos]],['anolit','El año litúrgico','Qué se celebra y cuándo',['adviento navidad cuaresma semana santa pascua pentecostés tiempo ordinario']],['santoral','Santoral','Santos y fiestas, con su vida',[]],
+ ['buzon','Buzón','Avisos de la Pastoral Social',['mensajes avisos']],['diocesis','Nuestra Diócesis','Caldas: historia, obispos y territorio',[DIO.res,DIO.mun.join(', '),DIO.munx,...DIO.ob.map(o=>o.join(' ')),...DIO.tl.map(x=>x[0]+': '+x[1])]],['guardados','Mis guardados y notas','Lo que marqué con la estrella y lo que escribí',[]],['siglas','Siglas y fuentes','Cómo leer las citas',[]],['privacidad','Privacidad','Qué guarda y qué no guarda',PRIV.map(p=>p.join(': '))]];
+let GI=null;
+function gidx(){if(GI)return GI;const E=[],V=new Set();
+ // tp tipo · t título · sub renglón de apoyo · go ruta · foco id del bloque dentro de la pantalla · h palabras de cabecera · x textos del cuerpo
+ const add=(tp,t,sub,go,h,x,foco,d)=>{x=x.filter(Boolean);const e={tp,t,sub,go,foco:foco||'',x,d,n:toksG(t).length||1,tt:new Set(toksG(t)),h:new Set(toksG(t+' '+h)),b:new Set(toksG(x.join(' ')))};e.h.forEach(w=>V.add(w));e.b.forEach(w=>V.add(w));E.push(e)};
+ SECC.forEach(s=>add('sec',s[1],s[2],s[0],s[2],s[3]));
+ CAPS.forEach(c=>add('cap',c.t,'Capítulo '+c.n+' · DOCAT '+c.r,'cap-'+c.n,c.s,[c.intro]));
+ FL.forEach(f=>add('ficha',f.t,f.k,f.id,f.q+' '+f.k,[...f.b,f.o]));
+ DUDAS.forEach(d=>add('duda',d[0],d[3],'preguntar',d[4]||'',[d[1],d[2]],'',d));
+ SANTOS.forEach((s,i)=>{const v=SVIDA[s[2]]||{};add('santo',s[2],s[3]+' · '+s[1]+' de '+MES[s[0]-1],'santo-'+i,s[3],[s[4],...(v.v||[]),(v.f||[])[0],v.s,v.o,v.d])});
+ COPPASOS.forEach(p=>add('paso',p[2],'Paso '+p[0]+' de 8 · '+p[3],'copf-'+p[0],p[3],[...p[4],p[5],p[6].join('. '),...p[7].map(x=>x[1]),p[8],p[9],...(p[0]===3?COPPRIN.map(x=>x.join('. ')):[]),...(p[0]===5?COPMOD.map(x=>x.join('. ')):[]),...(p[0]===2?[...COPESC.p,COPESC.n,...COPESC.o]:[]),...(p[0]===6?[...COPPLAN.d.map(x=>x.join(': ')),COPPLAN.ej]:[])]));
+ COPFICHAS.forEach((f,i)=>add('cficha',f[1],'Ficha '+(i+1)+' de 5 · '+f[2],'copfi-'+(i+1),'',f[3]));
+ COPCASOS.forEach((c,i)=>add('caso',c[1],'Caso '+c[0]+' · ficticio, para conversar','copcasos','',[c[2],...c[3],c[4]],'caso-'+i));
+ ORAC.forEach((o,i)=>add('oracion',o[0],o[1],'oraciones',o[1],[o[2]],'or-'+i));
+ ORSIT.forEach((o,i)=>add('oracion',o[0],'Para cada situación','orsit',o[1],[o[2]],'os-'+i));
+ ESQ.forEach((e,i)=>add('oracion',e[0],'Oración para reuniones · '+e[2],'esquemas','',e[3],'esq-'+i));
+ ROSARIO.forEach((g,i)=>add('rosario','Misterios '+g[0].toLowerCase(),g[1]+' · '+g[2],'ros-'+i,'rosario '+g[2],g[4].map(m=>m.join('. '))));
+ NOVENA.dias.forEach(d=>add('novena','Día '+d[0]+': '+d[1],'Novena del Buen Samaritano · '+d[2],'nov-'+d[0],'novena samaritano',[d[3],d[4],d[5]]));
+ VIACRUCIS.forEach((e,i)=>add('crucis',e[0],'Estación '+(i+1)+' de 14','viacrucis','via crucis',[e[1],e[2]],'b-'+i));
+ VIALUCIS.e.forEach((e,i)=>add('lucis',e[0],'Estación '+(i+1)+' de 14','vialucis','via lucis',[e[1],e[2]],'b-'+i));
+ CAPS.forEach(c=>{const s=SES[c.n];if(s)add('sesion','Sesión: '+c.t,'Guía del animador · capítulo '+c.n,'sesion-'+c.n,'reunion encuentro grupo',[s.obj,s.b+' '+s.bl,...s.mat,...s.plen,c.din,c.or])});
+ DOCS.forEach((d,i)=>add('doc',d[1],d[0]+' · '+d[3]+' · '+d[4],'documentos',d[2]+' '+d[3]+' '+((TRAD[d[1]]||[])[0]||''),[d[5]],'doc-'+i));
+ ERAS.forEach((e,i)=>add('era',e[0],'Historia · '+e[1],'era-'+i,e[1]+' '+e[3],[e[3],...e[4].map(x=>x[0]+': '+x[1]),e[5]]));
+ GLOS.forEach((g,i)=>add('glos',g[0],g[1],'glosario','',[g[1]],'glo-'+i));
+ TESTIGOS.forEach((g,i)=>add('testigo',g[0],'Testigo de la Doctrina Social','testigos','',[g[1]],'tes-'+i));
+ FR.forEach(q=>add('frase',q[1],q[2],'frases',q[2],[q[3]],'',q));
+ return GI={E,V:[...V]}}
+function buscarG(q){const G=gidx();let T=toksG(q);T=[...new Set(T.flatMap(w=>SYN[w]?[w,SYN[w]]:[w]))];if(!T.length)return [];
+ const base=toksG(q),need=base.length<=2?base.length:Math.ceil(base.length*.6),N=G.E.length,qn=norm(q).trim();
+ // por cada palabra buscada, qué palabras del vocabulario se le parecen (se calcula una vez, no por entrada)
+ const M=T.map(w=>G.V.filter(x=>same(w,x)&&Math.abs(w.length-x.length)<=5));
+ const inS=(S,m)=>{for(let i=0;i<m.length;i++)if(S.has(m[i]))return true;return false};
+ const idf=M.map(m=>{let df=0;for(const e of G.E)if(inS(e.h,m))df++;return Math.log(1+N/(1+df))/Math.log(1+N)});
+ // un sinónimo cuenta para la misma palabra que escribió la persona
+ const grp=T.map(w=>{const i=base.indexOf(w);return i>=0?i:base.findIndex(b=>SYN[b]===w)});
+ const out=[];
+ for(const e of G.E){let s=0,cab=0;const ok=new Set();
+  const pt={};   // la palabra y su sinónimo no suman dos veces: cuenta la que mejor empareja
+  T.forEach((w,i)=>{let v=0;if(inS(e.h,M[i])){v=2+4*idf[i]+(e.h.has(w)?2:0);cab++}else if(inS(e.b,M[i]))v=idf[i];
+   if(v){ok.add(grp[i]);pt[grp[i]]=Math.max(pt[grp[i]]||0,v)}});
+  if(ok.size<need)continue;for(const k in pt)s+=pt[k];
+  let enT=0;T.forEach((w,i)=>{if(inS(e.tt,M[i]))enT++});s+=3*Math.min(1,enT/e.n);   // premia el título que es justo lo buscado
+  s+=ok.size/base.length*2;if(qn.length>3&&norm(e.t).includes(qn))s+=4;
+  out.push({e,s,cab,m:M.flat()})}
+ return out.sort((a,b)=>b.s-a.s)}
+// Si la palabra solo aparece en el cuerpo, se muestra el trozo donde está en vez del renglón de apoyo.
+function recorte(r){if(r.cab||!r.e.x.length)return r.e.sub;
+ for(const x of r.e.x){const n=norm(x);for(const w of r.m){const i=n.indexOf(w);if(i>=0&&(i===0||/[^a-zñ0-9]/.test(n[i-1]))){
+  if(x.length<=150)return x;let a=Math.max(0,i-60);if(a>0){const sp=x.indexOf(' ',a);a=sp>=0&&sp<i?sp+1:a}
+  let b=Math.min(x.length,a+150);if(b<x.length){const sp=x.lastIndexOf(' ',b);if(sp>i)b=sp}
+  return (a>0?'…':'')+x.slice(a,b).trim()+(b<x.length?'…':'')}}}
+ return r.e.sub}
+const resCard=r=>{const e=r.e;if(e.tp==='duda')return dudaCard(e.d);if(e.tp==='frase')return qc(e.d);
+ return `<button class="card res" data-go="${e.go}"${e.foco?` data-foco="${e.foco}"`:''}><h4>${esc(e.t)}</h4><span class="meta">${esc(recorte(r))}</span></button>`};
+R.buscar=()=>hdr('Buscar')+`<div class="pad" style="padding-top:12px"><input type="search" id="s" aria-label="Buscar en toda la aplicación" placeholder="Un tema, un santo, una oración, DOCAT 95…" value="${esc(term)}"><div id="res" style="margin-top:12px" aria-live="polite">${results()}</div></div>`;
+function results(){const t=norm(term).trim();if(t.length<2)return `<p class="meta" style="margin:0 0 10px">Busca en todo: fichas, dudas, santos, oraciones, el COPPAS, documentos e historia.</p><div class="chips" style="flex-wrap:wrap;overflow:visible">${['bien común','subsidiariedad','samaritano','rosario','trabajo','trámites','familia','paz','Bakhita'].map(q=>`<button class="chip" data-t="${q}">${q}</button>`).join('')}</div>`;
+ const vacio=`<p class="empty">Sin resultados para «${esc(term)}». Prueba con otra palabra o con menos palabras; también puedes mirar las categorías en Dudas.</p>`;
  const num=/^(docat\s*)?(\d{1,3})$/.exec(t);
- const inRange=(d,n)=>d.split(',').some(p=>{const m=p.trim().match(/^(\d+)(?:[–-](\d+))?/);return m&&n>=+m[1]&&n<=+(m[2]||m[1])});
- const a=FL.filter(f=>num?inRange(f.d,+num[2]):hit(f.t+' '+f.q+' '+f.k+' '+f.b.join(' ')+' '+f.o));
- const b=num?[]:DUDAS.filter(d=>hit(d.join(' '))),g=num?[]:GLOS.filter(d=>hit(d.join(' '))),c=num?[]:DOCS.filter(d=>hit(d.slice(0,6).join(' ')));
- const hf=num?[]:FR.filter(q=>hit(q.join(' '))),he=num?[]:ERAS.flatMap((e,i)=>e[4].filter(x=>hit(x.join(' ')+' '+e[0])).map(x=>[i,x,e]));const tot=a.length+b.length+g.length+c.length+hf.length+he.length;if(!tot)return `<p class="empty">Sin resultados para «${esc(term)}». Prueba otra palabra o revisa las categorías en Dudas.</p>`;
- return `<div class="stack">${a.map(f=>`<button class="card" data-go="${f.id}"><h4 style="margin:0;font:600 17px var(--ui)">${esc(f.t)}</h4><span class="meta">${esc(f.k)}</span></button>`).join('')}${b.map(d=>`<details><summary>${esc(d[0])}</summary><p>${esc(d[1])}</p><div class="meta">${esc(d[2])}</div></details>`).join('')}${g.map(d=>`<div class="card"><span class="tag">Glosario</span><h4 style="margin:0;font:600 17px var(--ui)">${esc(d[0])}</h4><div class="meta">${esc(d[1])}</div></div>`).join('')}${c.map(d=>`<div class="card"><span class="tag">${d[0]}</span><h4 style="margin:0;font:600 17px var(--ui)">${esc(d[1])}</h4><div class="meta">${esc(d[5])}</div></div>`).join('')}${he.map(h=>`<button class="card" data-go="era-${h[0]}"><span class="tag">Historia · ${esc(h[1][0])}</span><div class="meta" style="color:var(--ink)">${esc(h[1][1])}</div></button>`).join('')}${hf.map(qc).join('')}</div>`}
+ if(num){const inRange=(d,n)=>d.split(',').some(p=>{const m=p.trim().match(/^(\d+)(?:[–-](\d+))?/);return m&&n>=+m[1]&&n<=+(m[2]||m[1])});
+  const a=FL.filter(f=>/^\d/.test(f.d)&&inRange(f.d,+num[2]));if(!a.length)return vacio;
+  return `<div class="rgrp"><div class="rhead"><span class="tag">Ficha · DOCAT ${+num[2]}</span><span class="meta">${a.length}</span></div><div class="stack">${a.map(f=>`<button class="card res" data-go="${f.id}"><h4>${esc(f.t)}</h4><span class="meta">${esc(f.k)}</span></button>`).join('')}</div></div>`}
+ const Rr=buscarG(term);if(!Rr.length)return vacio;
+ const G={},ord=[];Rr.forEach(r=>{if(!G[r.e.tp]){G[r.e.tp]=[];ord.push(r.e.tp)}G[r.e.tp].push(r)});
+ return `<p class="meta" style="margin:0 0 4px">${Rr.length===1?'Un resultado':Rr.length+' resultados'}, agrupados por tipo.</p>`+ord.map(tp=>{const L=G[tp],todo=sver===tp||L.length<=4,vis=todo?L.slice(0,40):L.slice(0,3);
+  return `<div class="rgrp"><div class="rhead"><span class="tag">${TIPOS[tp]}</span><span class="meta">${L.length}</span></div><div class="stack">${vis.map(resCard).join('')}</div>${todo?'':`<button class="lnk rmas" data-sver="${tp}">Ver los ${L.length}</button>`}</div>`}).join('')}
+
+/* ================= MODO REUNIÓN =================
+   Pantalla completa, un bloque a la vez, letra grande y un reloj por bloque con los minutos que ya traen los datos.
+   Rutas: reu-c-N (paso N del COPPAS) y reu-s-N (sesión del capítulo N). Se sale con la flecha de volver. */
+let RU=null,RUT=null,RUWL=null;
+function reuBloques(tp,n){
+ if(tp==='c'){const p=COPPASOS.find(x=>x[0]===n);if(!p)return null;const A=p[7];
+  return {nom:'Paso '+p[0]+' · '+p[2],B:[{tag:'COPPAS · paso '+p[0]+' de 8',t:p[2],x:p[3],ex:[p[11]],min:0},
+   ...A.map((x,j)=>({tag:'Bloque '+(j+1)+' de '+A.length,t:'',x:x[1],ex:j===0?[p[6][0]+'. '+p[6][1]]:[],min:x[0]})),
+   {tag:'Antes de irnos',t:'Al terminar debe quedar',x:p[5],ex:['Lo escribimos en la Ficha '+p[10]+'.'],min:0}]}}
+ const c=CAPS[n-1],s=SES[n];if(!c||!s)return null;const M=sesMom(n);
+ return {nom:'Sesión · '+c.t,B:[{tag:'Sesión del grupo · capítulo '+n,t:c.t,x:s.obj,ex:[s.b+'. '+s.bl],min:0},
+  ...M.map((m,i)=>({tag:'Momento '+(i+1)+' de '+M.length,t:m[0],x:m[2],min:m[1],ex:i===2?c.f.slice(0,4).map(f=>f[0]+': '+f[2]):i===5?['Cuidar: '+c.cp.c,'Servir: '+c.cp.s,'Transformar: '+c.cp.t]:[]}))]}}
+const reuClk=s=>{const a=Math.abs(s);return (s<0?'+':'')+Math.floor(a/60)+':'+String(a%60).padStart(2,'0')};
+function reuSeg(){return RU.run?Math.round((RU.fin-Date.now())/1000):RU.left}
+function reuTick(){const c=$('#reuclk');if(!RU||!c)return;const s=reuSeg();c.textContent=reuClk(s);c.parentNode.classList.toggle('fin',s<=0);
+ if(RU.run&&s<=0&&!RU.avis){RU.avis=1;try{navigator.vibrate&&navigator.vibrate([220,120,220])}catch(e){}}}
+function reuReloj(on){if(!RU)return;if(on&&!RU.run){RU.fin=Date.now()+RU.left*1000;RU.run=true}else if(!on&&RU.run){RU.left=reuSeg();RU.run=false}}
+function reuIr(d){if(!RU)return;const D=reuBloques(RU.tp,RU.n),i=RU.i+d;if(!D||i<0||i>=D.B.length)return;
+ const corria=RU.run;RU.run=false;RU.i=i;RU.left=D.B[i].min*60;RU.avis=0;if(corria&&D.B[i].min)reuReloj(true);render();const b=$('.reub');if(b)b.scrollTop=0}
+function reuSal(){if(RU&&RU.run)reuReloj(false);clearInterval(RUT);RUT=null;if(RUWL){try{RUWL.release()}catch(e){}RUWL=null}
+ if(document.fullscreenElement&&document.exitFullscreen)document.exitFullscreen().catch(()=>{})}
+function reuView(tp,n){const D=reuBloques(tp,n);if(!D)return tp==='c'?R.copruta():R.temas();const k=tp+'-'+n;
+ if(!RU||RU.k!==k)RU={k,tp,n,i:0,left:D.B[0].min*60,run:false,fin:0,avis:0};
+ if(RU.i>=D.B.length)RU.i=0;
+ const b=D.B[RU.i],N=D.B.length,s=reuSeg(),tam=b.x.length<110?'lg':b.x.length<260?'md':'sm',bk=backHref(view());
+ return `<div class="reu"><div class="top reutop"><button class="ic" data-back="1" data-dest="${bk}" aria-label="Salir del modo reunión" title="Salir">${ic('back')}</button><h2>${esc(D.nom)}</h2><span class="reun" aria-label="Bloque ${RU.i+1} de ${N}">${RU.i+1} / ${N}</span><button class="ic" id="fsz" aria-label="Cambiar tamaño de letra">${ic('text')}</button>${document.documentElement.requestFullscreen?`<button class="ic" id="reufs" aria-label="Pantalla completa" title="Pantalla completa"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>`:''}</div>
+ <div class="reub"><div class="reuc fade"><div class="eyebrow">${esc(b.tag)}${b.min?' · '+b.min+' min':''}</div>${b.t?`<h1>${esc(b.t)}</h1>`:''}<p class="reux ${tam}">${esc(b.x)}</p>${b.ex.length?`<ul class="reuex">${b.ex.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}</div></div>
+ <div class="reuf">${b.min?`<div class="reut${s<=0?' fin':''}"><span class="clk" id="reuclk" role="timer">${reuClk(s)}</span><button class="btn" id="reugo">${RU.run?'Pausar':s<b.min*60?'Seguir':'Iniciar'}</button><button class="btn alt" id="reurs" aria-label="Reiniciar el reloj de este bloque">Reiniciar</button></div>`:`<div class="reut sin"><span class="meta">${RU.i===0?'Cuando estén listos, pasen al primer bloque.':'Este bloque no lleva reloj.'}</span></div>`}
+ <div class="reunav"><button class="btn alt" id="reuprev" ${RU.i===0?'disabled':''}>← Anterior</button><div class="reudots" aria-hidden="true">${D.B.map((_,i)=>`<i class="${i===RU.i?'on':i<RU.i?'ya':''}"></i>`).join('')}</div>${RU.i<N-1?`<button class="btn" id="reunext">Siguiente →</button>`:`<button class="btn" data-back="1" data-dest="${bk}">Terminar</button>`}</div></div></div>`}
+
+/* ================= PANTALLAS LARGAS =================
+   Índice que salta a cada bloque, barra de progreso de lectura bajo la cabecera y «hasta aquí llegué», guardado en S.marca. */
+const marcaDe=k=>(S.marca&&S.marca[k]!==undefined)?+S.marca[k]:-1;
+function indice(k,n,nom,ruta){const m=marcaDe(k);   // con «ruta» los números navegan (novena); sin ella saltan dentro de la pantalla
+ return `<nav class="idx" data-largo="1" aria-label="Índice">${m>=0&&!ruta?`<button class="btn alt idxs" data-salta="b-${m}">Seguir donde quedé: ${nom} ${m+1}</button>`:''}<div class="idxn">${Array.from({length:n},(_,i)=>`<button class="${i===m?'aqui':m>=0&&i<m?'ya':''}${ruta&&ruta.act===i?' act':''}" ${ruta?`data-go="${ruta.p}${i+1}"`:`data-salta="b-${i}"`} aria-label="${ruta?'Abrir':'Ir a'} ${nom} ${i+1}${i===m?', hasta aquí llegaste':''}">${i+1}</button>`).join('')}</div></nav>`}
+const marcaBtn=(k,i)=>{const on=marcaDe(k)===i;return `<button class="marca${on?' on':''}" data-marca="${k}:${i}" aria-pressed="${on}">${on?'✓ Hasta aquí llegué':'Hasta aquí llegué'}</button>`};
+function rbarUpd(){const i=$('.rbar i');if(!i)return;const H=document.documentElement.scrollHeight-innerHeight;i.style.transform='scaleX('+(H>40?Math.min(1,Math.max(0,scrollY/H)):0)+')'}
+addEventListener('scroll',rbarUpd,{passive:true});addEventListener('resize',rbarUpd,{passive:true});
+
+/* ================= LEER EN VOZ ALTA =================
+   speechSynthesis del navegador: gratis y, en Android, sin internet. Si no existe o no hay voces, el botón no aparece
+   (la clase «voz» en <body> es la que lo deja ver). La pausa no usa speechSynthesis.pause(), que en Android no es fiable:
+   el texto va en trozos cortos y pausar es cortar y retomar desde el trozo en que iba. */
+const VZ={ok:typeof speechSynthesis!=='undefined'&&typeof SpeechSynthesisUtterance!=='undefined',hay:false,voz:null,k:'',v:'',q:[],i:0,p:false,gen:0,u:null};
+let LEE={};
+const VIC={play:'<path d="M4 9.5v5h3.5L12 18V6L7.5 9.5z"/><path d="M15.5 9a4.2 4.2 0 0 1 0 6M18 6.5a7.6 7.6 0 0 1 0 11"/>',pausa:'<path d="M8 5.5v13M16 5.5v13"/>',sigue:'<path d="M7 5l12 7-12 7z"/>',para:'<rect x="6" y="6" width="12" height="12" rx="1.5"/>'};
+const ORD=['Primera','Segunda','Tercera','Cuarta','Quinta','Sexta','Séptima','Octava','Novena','Décima','Undécima','Duodécima','Decimotercera','Decimocuarta'];
+const vic=n=>`<svg viewBox="0 0 24 24" aria-hidden="true">${VIC[n]}</svg>`;
+const VELS=[[.8,'despacio'],[.95,'normal'],[1.1,'ligera']];
+const vozVelI=()=>{const r=(S.voz&&S.voz.r)||.95;const i=VELS.findIndex(x=>x[0]===r);return i<0?1:i};
+function vozCarga(){if(!VZ.ok)return;let L=[];try{L=speechSynthesis.getVoices()||[]}catch(e){}
+ const pref=['es-co','es-419','es-us','es-mx'],rk=v=>{const l=String(v.lang||'').replace('_','-').toLowerCase();if(!/^es(-|$)/.test(l))return 99;const i=pref.indexOf(l);return (i<0?pref.length:i)+(v.localService?0:50)};   // primero las voces que funcionan sin internet
+ const es=L.filter(v=>rk(v)<99).sort((a,b)=>rk(a)-rk(b));
+ VZ.hay=L.length>0;VZ.voz=es[0]||null;document.body.classList.toggle('voz',VZ.hay)}
+function trozos(P){const out=[];(P||[]).filter(Boolean).forEach(p=>String(p).replace(/[«»*_]/g,'').replace(/\s*—\s*/g,', ').split(/\n\s*\n/).forEach(l=>{l=l.split('\n').map(x=>x.trim().replace(/^,\s*/,'')).filter(Boolean).map(x=>/[.,;:!?…]$/.test(x)?x:x+',').join(' ').replace(/,$/,'.');if(!l)return;
+  let cur='';(l.match(/[^.!?…;]+[.!?…;]*\s*/g)||[l]).forEach(f=>{
+   while(f.length>230){let c=f.lastIndexOf(', ',230);if(c<60)c=f.lastIndexOf(' ',230);if(c<60)c=230;if(cur){out.push(cur.trim());cur=''}out.push(f.slice(0,c+1).trim());f=f.slice(c+1)}
+   if((cur+f).length>230){out.push(cur.trim());cur=f}else cur+=f});
+  if(cur.trim())out.push(cur.trim())}));return out}
+function vozDi(espera){const g=++VZ.gen;if(VZ.i>=VZ.q.length){vozPara();return}
+ const u=new SpeechSynthesisUtterance(VZ.q[VZ.i]);if(VZ.voz){u.voice=VZ.voz;u.lang=VZ.voz.lang}else u.lang='es-CO';
+ u.rate=VELS[vozVelI()][0];u.onend=()=>{if(g!==VZ.gen)return;VZ.i++;vozDi()};u.onerror=()=>{if(g!==VZ.gen)return;vozPara()};
+ VZ.u=u;   // se guarda la referencia: algunos Chrome la pierden y nunca avisan del final
+ const di=()=>{if(g===VZ.gen)try{speechSynthesis.speak(u)}catch(e){vozPara()}};espera?setTimeout(di,90):di()}
+function vozLee(k){const f=LEE[k];if(!VZ.ok||!f)return;const hablaba=!!VZ.k;VZ.gen++;try{speechSynthesis.cancel()}catch(e){}
+ VZ.k=k;VZ.v=view();VZ.q=trozos(f());VZ.i=0;VZ.p=false;S.voz=S.voz||{};if(!S.voz.on){S.voz.on=1;save()}vozDi(hablaba);vozPinta()}
+function vozPausa(){if(!VZ.k)return;if(VZ.p){VZ.p=false;vozDi(true)}else{VZ.p=true;VZ.gen++;try{speechSynthesis.cancel()}catch(e){}}vozPinta()}
+function vozPara(){VZ.gen++;const habia=VZ.k;VZ.k='';VZ.q=[];VZ.i=0;VZ.p=false;if(VZ.ok)try{speechSynthesis.cancel()}catch(e){}if(habia)vozPinta()}
+function vozVel(){S.voz=S.voz||{on:1};S.voz.r=VELS[(vozVelI()+1)%VELS.length][0];save();if(VZ.k&&!VZ.p){VZ.gen++;try{speechSynthesis.cancel()}catch(e){}vozDi(true)}vozPinta()}
+const oirIn=k=>VZ.k!==k?`<button class="oirb" data-leer="${k}">${vic('play')}Escuchar</button>`
+ :`<button class="oirb on" data-vz="p" aria-label="${VZ.p?'Seguir leyendo':'Pausar la lectura'}">${vic(VZ.p?'sigue':'pausa')}${VZ.p?'Seguir':'Pausar'}</button><button class="oirb" data-vz="x" aria-label="Detener la lectura">${vic('para')}Detener</button><button class="oirb vel" data-vz="v" aria-label="Cambiar la velocidad de lectura">Voz ${VELS[vozVelI()][1]}</button>`;
+// oir(clave, función que devuelve los párrafos a leer): pinta el botón «Escuchar» de un bloque
+function oir(k,f){if(!VZ.ok)return '';LEE[k]=f;return `<div class="oir" data-oir="${k}">${oirIn(k)}</div>`}
+function vozPinta(){document.querySelectorAll('[data-oir]').forEach(d=>{d.innerHTML=oirIn(d.dataset.oir)})}
+if(VZ.ok){try{speechSynthesis.cancel()}catch(e){}vozCarga();try{speechSynthesis.addEventListener('voiceschanged',vozCarga)}catch(e){speechSynthesis.onvoiceschanged=vozCarga}
+ [400,1500,4000].forEach(t=>setTimeout(()=>{if(!VZ.hay)vozCarga()},t));window.addEventListener('pagehide',vozPara)}
 
 /* ================= ORAR ================= */
 function vistaAvance(){const T=stats();
  const pend=CAPS.filter(c=>readN(c.n)<c.f.length);
- const evPend=CAPS.filter(c=>!(S.best&&S.best['q'+c.n]!==undefined));
+ const evPend=CAPS.filter(c=>!evHecha(c.n));
  const copPend=COPPASOS.filter(x=>!fichaLlena(x[10]));
  return hdr('Mi camino')+`<div class="pad fade" style="padding-top:14px">
  <div class="card avance" style="cursor:default">
@@ -2559,6 +2828,7 @@ R.lectio=()=>{const L=LIT.hoy(),c=lecturasCache()[L.fecha]||null;
  return hdr('Lectio divina')+`<div class="pad fade" style="padding-top:14px">
  <div class="eyebrow">${esc(L.dia)} ${L.diaNum} de ${esc(L.mes)} · ciclo ${L.ciclo}${L.domingo?'':' · año '+L.ferial}</div>
  <h1 style="font-size:27px;margin:4px 0 8px">${esc(L.titulo)}</h1>
+ ${oir('lectio',()=>['Lectio divina. '+L.titulo,'Antes de empezar. Busca un lugar donde no te interrumpan y apaga lo que suene. Haz la señal de la cruz y pide al Espíritu Santo que te ayude a entender. No tengas prisa.',...LECTIO5.flatMap((l,i)=>['Paso '+(i+1)+'. '+l[0]+'. '+l[1],l[3],...l[4],l[5]])])}
  <div id="lect" class="card litcard"><span class="cdot ${L.color}"></span><div>${c?`<div class="meta">Evangelio de hoy</div><div style="font:600 calc(19px*var(--fs))/1.4 var(--ui);color:var(--pine)">${esc(c.ev)}</div><div class="meta" style="margin-top:4px">1.ª lectura: ${esc(c.p)}${c.p2?' · 2.ª: '+esc(c.p2):''} · ${esc(c.s)}</div>`:'<div class="meta">Buscando las lecturas de hoy…</div>'}</div></div>
  <p class="meta" style="margin-top:8px">La referencia sigue el leccionario romano. En Colombia algunas solemnidades se trasladan al domingo, así que conviene confirmarlo con el calendario de la Diócesis.</p>
  <div class="card biblia" style="margin-top:12px"><span class="tag">Leer el texto bíblico</span>
@@ -2581,26 +2851,28 @@ R.rosario=()=>{const hoyM=ROSDIAS[new Date().getDay()];
  return hdr('Santo Rosario')+`<div class="pad fade" style="padding-top:14px">
  <div class="key">Hoy corresponden los misterios <b>${esc(hoyM.toLowerCase())}</b>. Son veinte misterios en total: cada uno es una escena del Evangelio para mirar despacio mientras se reza.</div>
  <div class="sec"><h3>Cómo se reza</h3><div class="stack">${ROSCOMO.map((x,i)=>`<div class="card moment"><div class="n">${i+1}</div><div style="font:calc(16.5px*var(--fs))/1.5 var(--read)">${esc(x)}</div></div>`).join('')}</div></div>
- <div class="sec"><h3>Los cuatro grupos</h3><div class="stack">${ROSARIO.map((g,i)=>`<button class="card li ${g[0]===hoyM?'done':''}" data-go="ros-${i}"><span class="cemb">${emb(g[3]==='cruz'?'cross':g[3]==='sol'?'sun':g[3]==='luz'?'light':'dawn')}</span><span><h4>Misterios ${esc(g[0].toLowerCase())}</h4><span class="meta">${esc(g[1])} · ${esc(g[2])}</span>${g[0]===hoyM?'<span class="meta pill">Hoy</span>':''}</span></button>`).join('')}</div></div>
+ <div class="sec"><h3>Los cuatro grupos</h3><div class="stack">${ROSARIO.map((g,i)=>`<button class="card li ${g[0]===hoyM?'done':''}" data-go="ros-${i}"><span class="cemb">${emb(g[3]==='cruz'?'cross':g[3]==='sol'?'sun':g[3]==='luz'?'light':'dawn')}</span><span><h4>Misterios ${esc(g[0].toLowerCase())}</h4><span class="meta">${esc(g[1])} · ${esc(g[2])}</span>${g[0]===hoyM?'<span class="meta pill">Hoy</span>':''}${marcaDe('ros-'+i)>=0?` <span class="meta pill">Quedaste en el misterio ${marcaDe('ros-'+i)+1}</span>`:''}</span></button>`).join('')}</div></div>
  <div class="sec"><h3>Las oraciones del rosario</h3><div class="stack">${ORAC.filter(o=>['Padrenuestro','Avemaría','Gloria','Credo de los Apóstoles','Salve'].includes(o[0])).map(o=>`<details class="det"><summary>${esc(o[0])}</summary><div style="white-space:pre-line">${esc(o[2])}</div></details>`).join('')}</div></div>${sello()}</div>`};
 
 function rosGrupo(i){const g=ROSARIO[+i];if(!g)return R.rosario();
  return hdr('Misterios '+g[0].toLowerCase())+`<div class="pad fade" style="padding-top:14px">
  <div class="eyebrow">${esc(g[1])}</div><h1 style="font-size:27px;margin:4px 0 6px">Misterios ${esc(g[0].toLowerCase())}</h1>
  <p class="ask">${esc(g[2])}</p>
- ${g[4].map((m,j)=>`<div class="sec"><div class="mhead"><span class="pn">${j+1}</span><div><h3 style="margin:0">${esc(m[0])}</h3><div class="meta">${esc(m[1])}</div></div></div>
+ ${indice('ros-'+i,g[4].length,'misterio')}
+ ${g[4].map((m,j)=>`<div class="sec blq${marcaDe('ros-'+i)===j?' aqui':''}" id="b-${j}"><div class="mhead"><span class="pn">${j+1}</span><div><h3 style="margin:0">${esc(m[0])}</h3><div class="meta">${esc(m[1])}</div></div></div>
   <div class="card"><div style="font:calc(16.5px*var(--fs))/1.55 var(--read)">${esc(m[2])}</div><div class="puente">${esc(m[3])}</div>
-  <div class="meta" style="margin-top:8px">Padrenuestro · diez Avemarías · Gloria</div></div></div>`).join('')}
+  <div class="meta" style="margin-top:8px">Padrenuestro · diez Avemarías · Gloria</div><div class="bpie">${oir('b-'+j,()=>[ORD[j]+' misterio. '+m[0]+'.',m[2],m[3]])}${marcaBtn('ros-'+i,j)}</div></div></div>`).join('')}
  <div class="card pal" style="margin-top:14px"><span class="tag">Para terminar</span><div style="font:italic calc(17px*var(--fs))/1.6 var(--read);margin-top:5px">Se reza la Salve y se pide por las intenciones del Papa.</div></div>${sello()}</div>`}
 
 R.viacrucis=()=>hdr('Vía Crucis')+`<div class="pad fade" style="padding-top:14px">
  <div class="key">Catorce estaciones. Cada una trae la escena, una meditación y una pregunta que la trae a nuestra realidad. Se puede rezar entero o de a dos o tres estaciones.</div>
  <div class="card" style="margin-top:12px"><span class="tag">En cada estación se dice</span><div style="font:calc(16.5px*var(--fs))/1.55 var(--read);margin-top:4px">— Te adoramos, Cristo, y te bendecimos.<br>— Porque por tu santa cruz redimiste al mundo.</div></div>
- ${VIACRUCIS.map((e,i)=>`<div class="sec"><div class="mhead"><span class="pn">${i+1}</span><div><h3 style="margin:0;font-size:19px">${esc(e[0])}</h3></div></div>
-  <div class="card"><div style="font:calc(16.5px*var(--fs))/1.55 var(--read)">${esc(e[1])}</div><div class="puente">${esc(e[2])}</div></div></div>`).join('')}
+ ${indice('viacrucis',VIACRUCIS.length,'estación')}
+ ${VIACRUCIS.map((e,i)=>`<div class="sec blq${marcaDe('viacrucis')===i?' aqui':''}" id="b-${i}"><div class="mhead"><span class="pn">${i+1}</span><div><h3 style="margin:0;font-size:19px">${esc(e[0])}</h3></div></div>
+  <div class="card"><div style="font:calc(16.5px*var(--fs))/1.55 var(--read)">${esc(e[1])}</div><div class="puente">${esc(e[2])}</div><div class="bpie">${oir('b-'+i,()=>[ORD[i]+' estación. '+e[0]+'.','Te adoramos, Cristo, y te bendecimos. Porque por tu santa cruz redimiste al mundo.',e[1],e[2]])}${marcaBtn('viacrucis',i)}</div></div></div>`).join('')}
  <div class="card pal" style="margin-top:14px"><span class="tag">Al terminar</span><div style="font:italic calc(17px*var(--fs))/1.6 var(--read);margin-top:5px">Un Padrenuestro, un Avemaría y un Gloria por las intenciones del Papa.</div></div>${sello()}</div>`;
 
-R.oraciones=()=>hdr('Oraciones')+`<div class="pad fade" style="padding-top:14px"><p class="meta">Toca una para abrirla. Se puede copiar para compartirla.</p><div class="stack" style="margin-top:10px">${ORAC.map((o,i)=>`<details class="det orc"><summary>${esc(o[0])}<small>${esc(o[1])}</small></summary><div class="ptxt" style="white-space:pre-line">${esc(o[2])}</div><button class="btn alt" data-orac="${i}" style="margin-top:8px">Copiar</button></details>`).join('')}</div>${sello()}</div>`;
+R.oraciones=()=>hdr('Oraciones')+`<div class="pad fade" style="padding-top:14px"><p class="meta">Toca una para abrirla. Desde ahí se puede ${HAY_SHARE?'compartir':'copiar para compartirla'}.</p><div class="stack" style="margin-top:10px">${ORAC.map((o,i)=>`<details class="det orc" id="or-${i}"><summary>${esc(o[0])}<small>${esc(o[1])}</small></summary><div class="ptxt" style="white-space:pre-line">${esc(o[2])}</div>${oir('or-'+i,()=>[o[0],o[2]])}<button class="btn alt" data-orac="${i}" style="margin-top:8px">${compLbl()}</button></details>`).join('')}</div>${sello()}</div>`;
 
 R.coronilla=()=>hdr('Coronilla de la Misericordia')+`<div class="pad fade" style="padding-top:14px">
  <div class="key">${esc(CORONILLA.intro)}</div>
@@ -2625,30 +2897,34 @@ R.anolit=()=>{const L=LIT.hoy();
  <div class="sec"><h3>Los tiempos, en orden</h3><div class="stack">${et.map((e,i)=>`<div class="card moment"><div class="n">${i+1}</div><div><h4 style="margin:0;font:600 17px var(--ui)">${esc(e[0])}</h4><div style="font:calc(16px*var(--fs))/1.45 var(--read)">${esc(e[1])}</div>${e[2]?`<div class="meta" style="margin-top:3px">${esc(e[2])}</div>`:''}</div></div>`).join('')}</div></div>${sello()}</div>`};
 
 R.orsit=()=>hdr('Oraciones para cada situación')+`<div class="pad fade" style="padding-top:14px">
- <p class="reader">Dieciséis oraciones escritas para los momentos concretos del servicio: una visita, un duelo, una emergencia, una reunión. Toca para abrirla y el botón copia el texto.</p>
- <div class="stack" style="margin-top:12px">${ORSIT.map((o,i)=>`<details class="det orc"><summary>${esc(o[0])}</summary><div class="ptxt" style="white-space:pre-line">${esc(o[2])}</div><button class="btn alt" data-orsit="${i}" style="margin-top:8px">Copiar</button></details>`).join('')}</div>${sello()}</div>`;
+ <p class="reader">Dieciséis oraciones escritas para los momentos concretos del servicio: una visita, un duelo, una emergencia, una reunión. Toca para abrirla; el botón ${HAY_SHARE?'la comparte':'copia el texto'}.</p>
+ <div class="stack" style="margin-top:12px">${ORSIT.map((o,i)=>`<details class="det orc" id="os-${i}"><summary>${esc(o[0])}</summary><div class="ptxt" style="white-space:pre-line">${esc(o[2])}</div>${oir('os-'+i,()=>[o[0],o[2]])}<button class="btn alt" data-orsit="${i}" style="margin-top:8px">${compLbl()}</button></details>`).join('')}</div>${sello()}</div>`;
 
 R.novena=()=>hdr('Novena del Buen Samaritano')+`<div class="pad fade" style="padding-top:14px">
  <div class="key">${esc(NOVENA.intro)}</div>
  <div class="card pal" style="margin-top:12px"><span class="tag">Oración de todos los días</span><div style="font:italic calc(17px*var(--fs))/1.65 var(--read);margin-top:6px;white-space:pre-line">${esc(NOVENA.oracion)}</div></div>
- <div class="sec"><h3>Los nueve días</h3><div class="stack">${NOVENA.dias.map(d=>`<button class="card li" data-go="nov-${d[0]}"><span class="pn">${d[0]}</span><span><h4>${esc(d[1])}</h4><span class="meta">${esc(d[2])}</span></span></button>`).join('')}</div></div>${sello()}</div>`;
+ <div class="sec"><h3>Los nueve días</h3>${marcaDe('novena')>=0&&marcaDe('novena')<8?`<button class="btn" style="width:100%;margin-bottom:10px" data-go="nov-${marcaDe('novena')+2}">Seguir con el día ${marcaDe('novena')+2}</button>`:''}<div class="stack">${NOVENA.dias.map((d,j)=>`<button class="card li${j<=marcaDe('novena')?' done':''}" data-go="nov-${d[0]}"><span class="pn">${d[0]}</span><span><h4>${esc(d[1])}</h4><span class="meta">${esc(d[2])}</span>${j===marcaDe('novena')?'<span class="meta pill">Hasta aquí llegué</span>':''}</span></button>`).join('')}</div></div>${sello()}</div>`;
 
 function novDia(n){const d=NOVENA.dias.find(x=>x[0]===+n);if(!d)return R.novena();
  const i=NOVENA.dias.indexOf(d);
  return hdr('Día '+d[0]+' de 9')+`<div class="pad fade" style="padding-top:14px">
  <div class="eyebrow">Novena del Buen Samaritano</div><h1 style="font-size:28px;margin:4px 0 10px">${esc(d[1])}</h1>
+ ${oir('nov',()=>['Día '+d[0]+' de la novena. '+d[1]+'.','Para meditar.',d[3],'Petición.',d[4],'Gesto de hoy.',d[5],NOVENA.oracion])}
+ ${indice('novena',9,'día',{p:'nov-',act:i})}
  <div class="card moment"><div class="n">1</div><div style="font:calc(16.5px*var(--fs))/1.5 var(--read)">Se enciende una luz y se hace la señal de la cruz.</div></div>
  <div class="card pal" style="margin-top:10px"><span class="tag">La Palabra · ${esc(d[2])}</span><div class="meta" style="margin-top:5px">Abre tu Biblia en esta cita y léela despacio, dos veces.</div></div>
  <div class="card" style="margin-top:10px"><span class="tag">Para meditar</span><div style="font:calc(17px*var(--fs))/1.6 var(--read);margin-top:5px">${esc(d[3])}</div></div>
  <div class="card goal" style="margin-top:10px"><span class="tag">Petición</span><div style="font:calc(16.5px*var(--fs))/1.5 var(--read);margin-top:4px">${esc(d[4])}</div></div>
  <div class="card sem ok" style="margin-top:10px"><span class="tag">Gesto de hoy</span><div style="font:calc(16.5px*var(--fs))/1.5 var(--read);margin-top:4px">${esc(d[5])}</div></div>
  <div class="card pal" style="margin-top:10px"><span class="tag">Se termina con</span><div style="font:italic calc(16.5px*var(--fs))/1.6 var(--read);margin-top:5px;white-space:pre-line">${esc(NOVENA.oracion)}</div></div>
+ <div class="bpie">${marcaBtn('novena',i)}</div>
  <div class="pager" style="margin-top:14px">${i>0?`<button class="card" data-go="nov-${d[0]-1}"><small>Día anterior</small>${esc(NOVENA.dias[i-1][1])}</button>`:'<span></span>'}${i<8?`<button class="card" data-go="nov-${d[0]+1}"><small>Día siguiente</small>${esc(NOVENA.dias[i+1][1])}</button>`:'<button class="card" data-go="novena"><small>Terminamos</small>Volver a la novena</button>'}</div></div>`}
 
 R.vialucis=()=>hdr('Vía Lucis')+`<div class="pad fade" style="padding-top:14px">
  <div class="key">${esc(VIALUCIS.intro)}</div>
- ${VIALUCIS.e.map((e,i)=>`<div class="sec"><div class="mhead"><span class="pn">${i+1}</span><div><h3 style="margin:0;font-size:19px">${esc(e[0])}</h3></div></div>
-  <div class="card"><div style="font:calc(16.5px*var(--fs))/1.55 var(--read)">${esc(e[1])}</div><div class="puente">${esc(e[2])}</div></div></div>`).join('')}
+ ${indice('vialucis',VIALUCIS.e.length,'estación')}
+ ${VIALUCIS.e.map((e,i)=>`<div class="sec blq${marcaDe('vialucis')===i?' aqui':''}" id="b-${i}"><div class="mhead"><span class="pn">${i+1}</span><div><h3 style="margin:0;font-size:19px">${esc(e[0])}</h3></div></div>
+  <div class="card"><div style="font:calc(16.5px*var(--fs))/1.55 var(--read)">${esc(e[1])}</div><div class="puente">${esc(e[2])}</div><div class="bpie">${oir('b-'+i,()=>[ORD[i]+' estación. '+e[0]+'.',e[1],e[2]])}${marcaBtn('vialucis',i)}</div></div></div>`).join('')}
  <div class="card pal" style="margin-top:14px"><span class="tag">Al terminar</span><div style="font:italic calc(17px*var(--fs))/1.6 var(--read);margin-top:5px">Se canta o se reza el Gloria, y se pide el Espíritu Santo sobre lo que viene.</div></div>${sello()}</div>`;
 
 R.adoracion=()=>hdr('Media hora de adoración')+`<div class="pad fade" style="padding-top:14px">
@@ -2657,7 +2933,7 @@ R.adoracion=()=>hdr('Media hora de adoración')+`<div class="pad fade" style="pa
 
 R.esquemas=()=>hdr('Oración para reuniones')+`<div class="pad fade" style="padding-top:14px">
  <p class="reader">Ocho esquemas breves para abrir o cerrar una reunión del comité o del grupo de jóvenes. Están pensados para durar lo que dicen y no más.</p>
- <div class="stack" style="margin-top:12px">${ESQ.map((e,i)=>`<details class="det orc"><summary>${esc(e[0])}<small>${esc(e[2])}</small></summary><div class="qs" style="margin-top:9px">${e[3].map(x=>`<div>${esc(x)}</div>`).join('')}</div></details>`).join('')}</div>${sello()}</div>`;
+ <div class="stack" style="margin-top:12px">${ESQ.map((e,i)=>`<details class="det orc" id="esq-${i}"><summary>${esc(e[0])}<small>${esc(e[2])}</small></summary><div class="qs" style="margin-top:9px">${e[3].map(x=>`<div>${esc(x)}</div>`).join('')}</div></details>`).join('')}</div>${sello()}</div>`;
 
 R.santoral=()=>{const d=new Date(),k=(d.getMonth()+1)*100+d.getDate();let M={};SANTOS.forEach(s=>{(M[s[0]]=M[s[0]]||[]).push(s)});
  return hdr('Santoral')+`<div class="pad fade" style="padding-top:12px"><p class="meta">Santos y fiestas cercanas al servicio de la caridad. Conviene contrastar las fechas con el calendario litúrgico de la Diócesis.</p>${Object.keys(M).map(m=>`<div class="sec" style="margin-top:16px"><h3 style="font-size:20px;text-transform:capitalize">${MES[m-1]}</h3><div class="stack">${M[m].map(s=>`<button class="card li ${s[0]*100+s[1]===k?'hoyx':''}" data-go="santo-${SANTOS.indexOf(s)}"><span class="sadot">${santoArt(s,'mini')}</span><span><h4>${s[1]} · ${esc(s[2])}</h4><span class="meta">${esc(s[3])}</span></span></button>`).join('')}</div></div>`).join('')}</div>`};
@@ -2669,11 +2945,13 @@ function santoView(m,dd){const s=(dd===undefined)?SANTOS[+m]:SANTOS.find(x=>x[0]
  <div class="eyebrow" style="text-align:center;margin-top:10px">${s[1]} de ${MES[s[0]-1]}${V?' · '+esc(V.d):''}</div>
  <h1 style="font-size:30px;text-align:center;margin:4px 0 2px">${esc(s[2])}</h1>
  <p class="ask" style="text-align:center">${esc(s[3])}</p>
+ ${V?`<div class="oirc">${oir('santo',()=>[s[2]+'. '+s[3]+'.',s[4],...V.v,V.f&&V.f[0]?'Una frase suya: '+V.f[0]:'',V.s,V.o])}</div>`:''}
  <div class="key">${esc(s[4])}</div>
  ${V?`<div class="sec"><h3>Su vida</h3><div class="reader vida">${V.v.map(x=>`<p>${esc(x)}</p>`).join('')}</div></div>`:''}
  ${V&&V.f&&V.f[0]?`<figure class="quote"><span class="qm">${emb('quote')}</span><blockquote>${esc(V.f[0])}</blockquote><figcaption><span class="med">${esc(s[2].replace(/^(San|Santa|Santo|Beato|Nuestra|Todos|Asunción|Inmaculada)\s+/,'')[0])}</span><span><b>${esc(s[2])}</b><br>${esc(V.f[1])}</span></figcaption></figure>`:''}
  ${V?`<div class="card goal" style="margin-top:14px"><span class="tag">Qué nos dice en la Pastoral Social</span><div style="font:calc(16.5px*var(--fs))/1.55 var(--read);margin-top:5px">${esc(V.s)}</div></div>`:''}
  ${V?`<div class="card pal" style="margin-top:12px"><span class="tag">Oración</span><div style="font:italic calc(17px*var(--fs))/1.6 var(--read);margin-top:5px">${esc(V.o)}</div></div>`:''}
+ <div class="btns" style="margin-top:12px"><button class="btn alt" id="shs" data-i="${i}">${compLbl()}</button></div>
  <div class="card pal" style="margin-top:12px"><span class="tag">Palabra para hoy</span><q>${esc(PALABRA[(s[0]*31+s[1])%PALABRA.length][0])}</q><span class="meta">${esc(PALABRA[(s[0]*31+s[1])%PALABRA.length][1])}</span></div>
  <div class="pager" style="margin-top:14px"><button class="card" data-go="santo-${SANTOS.indexOf(pr)}"><small>${pr[1]} de ${MES[pr[0]-1]}</small>${esc(pr[2])}</button><button class="card" data-go="santo-${SANTOS.indexOf(sg)}"><small>${sg[1]} de ${MES[sg[0]-1]}</small>${esc(sg[2])}</button></div>
  </div>`}
@@ -2723,7 +3001,7 @@ function msgView(id){const m=msgs().find(x=>x.id===id);if(!m)return R.buzon();
  <h1 style="font-size:28px;margin:4px 0 10px">${esc(m.titulo)}</h1>
  ${(m.cuando||m.lugar)?`<div class="card goal"><span class="tag">Cuándo y dónde</span><div style="font:calc(16.5px*var(--fs))/1.5 var(--read);margin-top:4px">${esc([m.cuando,m.lugar].filter(Boolean).join(' · '))}</div></div>`:''}
  <div class="reader" style="margin-top:12px;white-space:pre-line">${esc(m.texto||'')}</div>
- <div class="btns" style="margin-top:16px"><button class="btn alt" id="msgcop" data-id="${esc(m.id)}">Copiar para compartir</button></div>${sello()}</div>`}
+ <div class="btns" style="margin-top:16px"><button class="btn alt" id="msgcop" data-id="${esc(m.id)}">${compLbl('Copiar para compartir')}</button></div>${sello()}</div>`}
 /* ================= COPPAS ================= */
 R.coppas=()=>{const hechos=COPPASOS.filter(x=>fichaLlena(x[10])).length;
  return hdr('COPPAS')+`<div class="banner">${scene(1010,170,'people')}<div class="bt"><div class="eyebrow">Comité Parroquial de Pastoral Social</div><h1>Servir juntos</h1></div></div>
@@ -2735,7 +3013,6 @@ R.coppas=()=>{const hechos=COPPASOS.filter(x=>fichaLlena(x[10])).length;
   ['copquees','¿Qué es un COPPAS?','Qué es, qué no es y cómo usar esta ruta','compass'],
   ['copfichas','Nuestras cinco fichas','Lo que vamos escribiendo, guardado aquí','book'],
   ['copcasos','Casos para practicar','Cuatro situaciones para conversar en grupo','people'],
-  ['copapoyos','Principios y modalidades','La DSI aplicada a decisiones concretas','scale'],
   ['copcuidado','Cuidado y límites','El semáforo y los acuerdos del equipo','heart']
  ].map(x=>`<button class="card li" data-go="${x[0]}"><span class="cemb">${emb(x[3])}</span><span><h4>${esc(x[1])}</h4><span class="meta">${esc(x[2])}</span></span></button>`).join('')}</div></div>
  <p class="meta" style="margin-top:16px">${esc(COPID.nota)}</p>${sello()}</div>`};
@@ -2757,17 +3034,19 @@ R.copruta=()=>{return hdr('La ruta, paso a paso')+`<div class="pad fade" style="
  ${sello()}</div>`};
 
 function copFase(n){const p=COPPASOS.find(x=>x[0]===+n);if(!p)return R.copruta();const i=COPPASOS.indexOf(p),m=COPMOM[p[1]];
- return hdr('Paso '+p[0]+' de 8','copruta')+`<div class="banner" style="--mc:${m[3]}">${scene(p[0]*77,150,m[2])}<div class="bt"><div class="eyebrow">${esc(m[0])} · Paso ${p[0]}</div><h1>${esc(p[2])}</h1></div></div>
+ if(S.last!=='copf-'+p[0]){S.last='copf-'+p[0];save()}
+ return hdr('Paso '+p[0]+' de 8')+`<div class="banner" style="--mc:${m[3]}">${scene(p[0]*77,150,m[2])}<div class="bt"><div class="eyebrow">${esc(m[0])} · Paso ${p[0]}</div><h1>${esc(p[2])}</h1></div></div>
  <div class="pad fade" style="padding-top:14px">
  <div class="key"><span class="tag">En una frase</span><br>${esc(p[3])}</div>
  <div class="sec"><h3>¿Qué hacemos en este paso?</h3><div class="card"><div class="qs" style="border:0;padding:0;margin:0">${p[4].map(x=>`<div>${esc(x)}</div>`).join('')}</div></div></div>
  <div class="card goal" style="margin-top:12px"><span class="tag">Al terminar debe quedar</span><div style="font:calc(16.5px*var(--fs))/1.5 var(--read);margin-top:4px">${esc(p[5])}</div></div>
  <div class="card pal" style="margin-top:12px"><span class="tag">La Palabra · ${esc(p[6][0])}</span><div style="font:calc(17px*var(--fs))/1.55 var(--read);margin-top:5px">${esc(p[6][1])}</div><div class="puente">${esc(p[6][2])}</div></div>
- <div class="sec"><h3>Cómo distribuir la reunión</h3><p class="meta" style="margin:-4px 0 8px">${esc(p[11])}</p><div class="stack">${p[7].map((x,j)=>`<div class="card moment"><div class="n">${j+1}</div><div style="flex:1;min-width:0"><div class="row"><h4 style="margin:0;font:600 16.5px var(--ui)">${esc(x[1])}</h4><span class="min">${x[0]} min</span></div></div></div>`).join('')}</div></div>
+ <div class="sec"><h3>Cómo distribuir la reunión</h3><p class="meta" style="margin:-4px 0 8px">${esc(p[11])}</p><div class="stack">${p[7].map((x,j)=>`<div class="card moment"><div class="n">${j+1}</div><div style="flex:1;min-width:0"><div class="row"><h4 style="margin:0;font:600 16.5px var(--ui)">${esc(x[1])}</h4><span class="min">${x[0]} min</span></div></div></div>`).join('')}</div>
+ <button class="card go reuin" data-go="reu-c-${p[0]}"><span class="cemb">${emb('people')}</span><span><h4>Abrir en modo reunión</h4><span class="meta">Un bloque a la vez, con letra grande y reloj. Para proyectar o pasar el teléfono en el círculo.</span></span></button></div>
  <div class="card ej" style="margin-top:12px"><span class="tag">Un ejemplo</span><div style="font:calc(16.5px*var(--fs))/1.5 var(--read);margin-top:4px">${esc(p[8])}</div></div>
  <div class="card sem warn" style="margin-top:10px"><span class="tag">Cuidado con esto</span><div style="font:calc(16.5px*var(--fs))/1.5 var(--read);margin-top:4px">${esc(p[9])}</div></div>
  ${p[0]===5?`<div class="sec"><h3>Las cinco modalidades</h3><div class="stack">${COPMOD.map(x=>`<div class="card"><span class="tag">${esc(x[0])}</span><div style="font:calc(16.5px*var(--fs))/1.45 var(--read);margin-top:3px">${esc(x[1])}</div><div class="meta" style="margin-top:4px"><b>Por ejemplo:</b> ${esc(x[2])}</div><div class="meta" style="margin-top:2px">${esc(x[3])}</div></div>`).join('')}</div></div>`:''}
- ${p[0]===2?`<div class="sec"><h3>Preguntas para conversar</h3><div class="card"><div class="qs" style="border:0;padding:0;margin:0">${COPESC.p.map(q=>`<div>${esc(q)}</div>`).join('')}</div><div class="meta" style="margin-top:8px">${esc(COPESC.n)}</div></div></div>`:''}
+ ${p[0]===2?`<div class="sec"><h3>Preguntas para conversar</h3><div class="card"><div class="qs" style="border:0;padding:0;margin:0">${COPESC.p.map(q=>`<div>${esc(q)}</div>`).join('')}</div><div class="meta" style="margin-top:8px">${esc(COPESC.n)}</div></div></div><div class="sec"><h3>Para revisar nuestra escucha</h3><div class="card stack" style="gap:7px">${COPESC.o.map((o,k)=>`<label class="chk"><input type="checkbox" data-evid="esc-${k}" ${S.evid&&S.evid['esc-'+k]?'checked':''}><span>${esc(o)}</span></label>`).join('')}</div></div>`:''}
  ${p[0]===3?`<div class="sec"><h3>Los principios, en una línea cada uno</h3><div class="stack">${COPPRIN.map(x=>`<div class="card"><h4 style="margin:0 0 2px;font:600 17px var(--ui)">${esc(x[0])}</h4><div class="meta">${esc(x[1])}</div><div style="font:calc(16px*var(--fs))/1.45 var(--read);margin-top:4px">${esc(x[2])}</div></div>`).join('')}</div></div>`:''}
  ${p[0]===6?`<div class="sec"><h3>Cuatro palabras que conviene no confundir</h3><div class="stack">${COPPLAN.d.map((d,j)=>`<div class="card moment"><div class="n">${j+1}</div><div><h4 style="margin:0;font:600 16.5px var(--ui)">${esc(d[0])}</h4><div style="font:calc(16px*var(--fs))/1.45 var(--read)">${esc(d[1])}</div></div></div>`).join('')}</div><div class="card ej" style="margin-top:10px"><span class="tag">Un plan completo</span><div style="font:calc(16px*var(--fs))/1.5 var(--read);margin-top:4px">${esc(COPPLAN.ej)}</div></div></div>`:''}
  ${p[0]===7?`<div class="sec"><h3>El semáforo</h3><div class="stack">${COPCUID.sem.map(x=>`<div class="card sem ${x[2]}"><span class="tag">${esc(x[0])}</span><div style="font:calc(16.5px*var(--fs))/1.45 var(--read);margin-top:3px">${esc(x[1])}</div></div>`).join('')}</div></div><div class="sec"><h3>Acuerdos de cuidado</h3><div class="card"><div class="qs" style="border:0;padding:0;margin:0">${COPCUID.ac.map(x=>`<div>${esc(x)}</div>`).join('')}</div></div></div>`:''}
@@ -2775,23 +3054,16 @@ function copFase(n){const p=COPPASOS.find(x=>x[0]===+n);if(!p)return R.copruta()
  <button class="btn" style="width:100%;margin-top:12px" data-go="copfi-${p[10]}">Escribir en la Ficha ${p[10]}</button>
  <div class="pager" style="margin-top:12px">${i>0?`<button class="card" data-go="copf-${COPPASOS[i-1][0]}"><small>Paso anterior</small>${esc(COPPASOS[i-1][2])}</button>`:'<span></span>'}${i<COPPASOS.length-1?`<button class="card" data-go="copf-${COPPASOS[i+1][0]}"><small>Paso siguiente</small>${esc(COPPASOS[i+1][2])}</button>`:'<button class="card" data-go="coppas"><small>Terminamos el ciclo</small>Volver a empezar en el paso 1</button>'}</div></div>`}
 
-R.copfichas=()=>hdr('Nuestras cinco fichas')+`<div class="pad fade" style="padding-top:14px"><p class="reader">Lo que antes se escribía en la cartilla de papel se guarda aquí, en este teléfono. Cada ficha se puede copiar y enviar por WhatsApp al resto del comité.</p><div class="stack" style="margin-top:10px">${COPFICHAS.map((f,i)=>`<button class="card li ${fichaLlena(i+1)?'done':''}" data-go="copfi-${i+1}"><span class="pn">${i+1}</span><span><h4>${esc(f[1])}</h4><span class="meta">${esc(f[2])} · ${f[3].length} campos</span>${fichaLlena(i+1)?'<span class="meta pill">Empezada</span>':''}</span></button>`).join('')}</div></div>`;
+R.copfichas=()=>hdr('Nuestras cinco fichas')+`<div class="pad fade" style="padding-top:14px"><p class="reader">Lo que antes se escribía en la cartilla de papel se guarda aquí, en este teléfono. Cada ficha se puede ${HAY_SHARE?'compartir':'copiar y enviar por WhatsApp'} con el resto del comité.</p><div class="stack" style="margin-top:10px">${COPFICHAS.map((f,i)=>`<button class="card li ${fichaLlena(i+1)?'done':''}" data-go="copfi-${i+1}"><span class="pn">${i+1}</span><span><h4>${esc(f[1])}</h4><span class="meta">${esc(f[2])} · ${f[3].length} campos</span>${fichaLlena(i+1)?'<span class="meta pill">Empezada</span>':''}</span></button>`).join('')}</div></div>`;
 
 function copFicha(n){const f=COPFICHAS[+n-1];if(!f)return R.copfichas();const v=(S.fich&&S.fich[f[0]])||{};
- return hdr('Ficha '+n+' de 5','copfichas')+`<div class="pad fade" style="padding-top:14px"><div class="eyebrow">${esc(f[2])}</div><h1 style="font-size:28px;margin:4px 0 10px">${esc(f[1])}</h1><p class="meta">Se guarda sola. Puedes volver cuando quieras.</p>
+ return hdr('Ficha '+n+' de 5')+`<div class="pad fade" style="padding-top:14px"><div class="eyebrow">${esc(f[2])}</div><h1 style="font-size:28px;margin:4px 0 10px">${esc(f[1])}</h1><p class="meta">Se guarda sola. Puedes volver cuando quieras.</p>
  <div class="stack" style="margin-top:12px">${f[3].map((c,j)=>`<div class="card"><label class="meta" for="fi-${j}">${esc(c)}</label><textarea id="fi-${j}" data-fich="${f[0]}-${j}" rows="3" placeholder="Escribe aquí…">${esc(v[j]||'')}</textarea></div>`).join('')}</div>
- <div class="btns" style="margin-top:14px"><button class="btn" id="copfi" data-n="${n}">Copiar para WhatsApp</button><button class="btn alt" data-go="copruta">Volver a la ruta</button></div></div>`}
+ <div class="btns" style="margin-top:14px"><button class="btn" id="copfi" data-n="${n}">${compLbl('Copiar para WhatsApp')}</button><button class="btn alt" data-go="copruta">Volver a la ruta</button></div></div>`}
 function fichaTxt(n){const f=COPFICHAS[+n-1],v=(S.fich&&S.fich[f[0]])||{};
  return `*FICHA ${n} · ${f[1].toUpperCase()}*\n${f[2]}\n\n`+f[3].map((c,j)=>`*${c}*\n${v[j]||'(pendiente)'}`).join('\n\n')+`\n\nCOPPAS · Pastoral Social, Cáritas Diocesana de Caldas, Antioquia`}
 
-R.copcasos=()=>hdr('Casos para practicar')+`<div class="pad fade" style="padding-top:14px"><p class="meta">Los cuatro casos son ficticios. Sirven para que el comité practique el método sin exponer a nadie. Conversen las preguntas antes de leer la clave.</p><div class="stack" style="margin-top:10px">${COPCASOS.map(c=>`<div class="card"><span class="tag">Caso ${esc(c[0])}</span><h4 style="margin:4px 0 6px;font:600 19px var(--ui)">${esc(c[1])}</h4><div style="font:calc(16.5px*var(--fs))/1.55 var(--read)">${esc(c[2])}</div><div class="qs" style="margin-top:10px">${c[3].map(q=>`<div>${esc(q)}</div>`).join('')}</div>${c[4]?`<details class="det"><summary>Ver una clave de lectura</summary><div>${esc(c[4])}</div></details>`:''}</div>`).join('')}</div></div>`;
-
-R.copapoyos=()=>hdr('Principios y modalidades')+`<div class="pad fade" style="padding-top:14px">
- <p class="reader">Los principios de la Doctrina Social no son teoría: son preguntas que se hacen en la reunión antes de decidir. Aquí están los ocho, con la pregunta que cada uno obliga a hacerse.</p>
- <div class="sec"><h3>Principios que se vuelven decisiones</h3><div class="stack">${COPPRIN.map(x=>`<div class="card"><h4 style="margin:0 0 2px;font:600 17px var(--ui)">${esc(x[0])}</h4><div class="meta">${esc(x[1])}</div><div style="font:calc(16px*var(--fs))/1.45 var(--read);margin-top:4px">${esc(x[2])}</div></div>`).join('')}</div></div>
- <div class="sec"><h3>Las cinco modalidades de servicio</h3><div class="stack">${COPMOD.map(x=>`<div class="card"><span class="tag">${esc(x[0])}</span><div style="font:calc(16.5px*var(--fs))/1.45 var(--read);margin-top:3px">${esc(x[1])}</div><div class="meta" style="margin-top:4px"><b>Por ejemplo:</b> ${esc(x[2])}</div><div class="meta" style="margin-top:2px">${esc(x[3])}</div></div>`).join('')}</div></div>
- <div class="sec"><h3>Preguntas que abren la conversación</h3><div class="card"><div class="qs" style="border:0;padding:0;margin:0">${COPESC.p.map(q=>`<div>${esc(q)}</div>`).join('')}</div><div class="meta" style="margin-top:8px">${esc(COPESC.n)}</div></div></div>
- <div class="sec"><h3>Para revisar nuestra escucha</h3><div class="card stack" style="gap:7px">${COPESC.o.map((o,i)=>`<label class="chk"><input type="checkbox" data-evid="esc-${i}" ${S.evid&&S.evid['esc-'+i]?'checked':''}><span>${esc(o)}</span></label>`).join('')}</div></div></div>`;
+R.copcasos=()=>hdr('Casos para practicar')+`<div class="pad fade" style="padding-top:14px"><p class="meta">Los cuatro casos son ficticios. Sirven para que el comité practique el método sin exponer a nadie. Conversen las preguntas antes de leer la clave.</p><div class="stack" style="margin-top:10px">${COPCASOS.map((c,i)=>`<div class="card" id="caso-${i}"><span class="tag">Caso ${esc(c[0])}</span><h4 style="margin:4px 0 6px;font:600 19px var(--ui)">${esc(c[1])}</h4><div style="font:calc(16.5px*var(--fs))/1.55 var(--read)">${esc(c[2])}</div><div class="qs" style="margin-top:10px">${c[3].map(q=>`<div>${esc(q)}</div>`).join('')}</div>${c[4]?`<details class="det"><summary>Ver una clave de lectura</summary><div>${esc(c[4])}</div></details>`:''}</div>`).join('')}</div></div>`;
 
 R.copcuidado=()=>hdr('Cuidado y límites')+`<div class="pad fade" style="padding-top:14px">
  <div class="key">Cuidar también es poner límites. Un contacto que todavía no hemos verificado no es una ruta confirmada, y una promesa que no podemos cumplir hace más daño que no prometer nada.</div>
@@ -2800,21 +3072,26 @@ R.copcuidado=()=>hdr('Cuidado y límites')+`<div class="pad fade" style="padding
  <div class="sec"><h3>Tareas que rotan en cada reunión</h3><div class="card"><div class="qs" style="border:0;padding:0;margin:0">${COPCUID.ro.map(a=>`<div>${esc(a)}</div>`).join('')}</div></div></div>
  <button class="btn" style="width:100%;margin-top:14px" data-go="copfi-4">Escribir nuestros acuerdos</button></div>`;
 
-R.copplan=()=>R.copapoyos();
 
 const NAV=[['inicio','home','Inicio'],['dsi','book','DSI'],['coppas','people','COPPAS'],['orar','dove','Orar'],['mas','more','Más']];
 function tabOf(v){if(v==='inicio')return v;if(v==='buscar')return '';
- if(/^cop/.test(v))return 'coppas';
+ if(/^(cop|reu-c)/.test(v))return 'coppas';
  if(/^(buzon|msg-)/.test(v))return 'mas';
  if(/^(orar|santo|oracion|orsit|lectio|rosario|ros-|viacrucis|vialucis|coronilla|examen|anolit|novena|nov-|adoracion|esquemas)/.test(v))return 'orar';
- if(/^(dsi|avance|temas|cap-|f-|sesion-|quiz-|tarjetas|repaso|preguntar|historia|era-|documentos|novedades|metodo|glosario|frases|testigos|equipo|mapa)/.test(v))return 'dsi';
+ if(/^(dsi|avance|temas|cap-|f-|sesion-|reu-s|quiz-|tarjetas|repaso|preguntar|historia|era-|documentos|novedades|metodo|glosario|frases|testigos)/.test(v))return 'dsi';
  return 'mas'}
-function render(){const v=view();trackHist(v);let h,m;
+// Pantallas retiradas en la 1.1: si alguien llega por un enlace viejo, va a la que la sustituye.
+const REDIR={copapoyos:'copf-3',copplan:'copf-3',equipo:'copf-3',mapa:'cap-4'};
+function render(){const v=view();if(REDIR[v]){location.replace('#'+REDIR[v]);return}trackHist(v);let h,m;
+ const enReu=/^reu-[cs]-\d+$/.test(v);if(!enReu&&(RUT||RUWL||(RU&&RU.run)))reuSal();if(VZ.k&&VZ.v!==v)vozPara();LEE={};
  if(R[v])h=R[v]();else if(m=v.match(/^cap-(\d+)$/))h=capView(+m[1]);else if(byId[v])h=fichaView(v);else if(m=v.match(/^sesion-(\d+)$/))h=sesion(+m[1]);else if(m=v.match(/^copf-(\d+)$/))h=copFase(m[1])
- else if(m=v.match(/^ros-(\d+)$/))h=rosGrupo(m[1]);else if(m=v.match(/^nov-(\d+)$/))h=novDia(m[1]);else if(m=v.match(/^msg-(.+)$/))h=msgView(m[1]);else if(m=v.match(/^copfi-(\d+)$/))h=copFicha(m[1]);else if(m=v.match(/^santo-(\d+)-(\d+)$/))h=santoView(m[1],m[2]);else if(m=v.match(/^santo-(\d+)$/))h=santoView(m[1]);else if(m=v.match(/^era-(\d+)$/))h=eraView(+m[1]);else if(m=v.match(/^quiz-(\d+)$/))h=quizView(+m[1]);else h=R.inicio();
+ else if(m=v.match(/^ros-(\d+)$/))h=rosGrupo(m[1]);else if(m=v.match(/^nov-(\d+)$/))h=novDia(m[1]);else if(m=v.match(/^msg-(.+)$/))h=msgView(m[1]);else if(m=v.match(/^copfi-(\d+)$/))h=copFicha(m[1]);else if(m=v.match(/^santo-(\d+)-(\d+)$/))h=santoView(m[1],m[2]);else if(m=v.match(/^santo-(\d+)$/))h=santoView(m[1]);else if(m=v.match(/^era-(\d+)$/))h=eraView(+m[1]);else if(m=v.match(/^quiz-(\d+)$/))h=quizView(+m[1]);else if(m=v.match(/^reu-([cs])-(\d+)$/))h=reuView(m[1],+m[2]);else h=R.inicio();
  app.innerHTML=h;const t=tabOf(v);$('#nav').innerHTML=`<div><span class="nbrand"><img src="${LOGO_C}" alt=""><b>Cáritas Caldas</b></span>`+NAV.map(n=>{const nn=n[0]==='mas'?msgNoLeidos():0;return `<button class="${n[0]===t?'on':''}" data-go="${n[0]}" aria-label="${n[2]}${nn?', '+nn+' mensajes nuevos':''}">${ic(n[1])}${nn?`<i class="bdg">${nn>9?'9+':nn}</i>`:''}${n[2]}</button>`}).join('')+'</div>';
- const s=$('#s');if(s){s.addEventListener('input',()=>{term=s.value;$('#res').innerHTML=results()});if(!term)s.focus()}
+ const s=$('#s');if(s){s.addEventListener('input',()=>{term=s.value;sver='';clearTimeout(sT);sT=setTimeout(()=>{const r=$('#res');if(r)r.innerHTML=results()},140)});if(!term)s.focus()}
+ if(enReu&&$('.reu')){if(!RUT)RUT=setInterval(reuTick,500);if(!RUWL&&navigator.wakeLock&&navigator.wakeLock.request)navigator.wakeLock.request('screen').then(l=>{if(/^reu-/.test(view()))RUWL=l;else l.release()}).catch(()=>{})}
+ if($('[data-largo]')){const tp=$('.top');if(tp){tp.insertAdjacentHTML('beforeend','<div class="rbar" aria-hidden="true"><i></i></div>');rbarUpd()}}
  const nt=$('#note');if(nt)nt.addEventListener('input',()=>{S.notes[v]=nt.value;save()});
+ document.querySelectorAll('[data-nota]').forEach(x=>x.addEventListener('input',()=>{S.notes=S.notes||{};x.value?S.notes[x.dataset.nota]=x.value:delete S.notes[x.dataset.nota];save()}));
  document.querySelectorAll('[data-fich]').forEach(x=>x.addEventListener('input',()=>{const[a,b]=x.dataset.fich.split('-');S.fich=S.fich||{};S.fich[a]=S.fich[a]||{};x.value?S.fich[a][b]=x.value:delete S.fich[a][b];save()}));
  const av=$('#avtog');if(av)av.addEventListener('change',()=>{
   if(av.checked&&typeof Notification!=='undefined'&&Notification.permission==='default'){
@@ -2830,19 +3107,25 @@ function render(){const v=view();trackHist(v);let h,m;
 }
 document.addEventListener('change',e=>{const c=e.target.closest('[data-mat]');if(c){S.mat=S.mat||{};c.checked?S.mat[c.dataset.mat]=1:delete S.mat[c.dataset.mat];save()}
  const q=e.target.closest('[data-evid]');if(q){S.evid=S.evid||{};q.checked?S.evid[q.dataset.evid]=1:delete S.evid[q.dataset.evid];save()}});
-document.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.classList&&e.target.classList.contains('node')){e.preventDefault();go(e.target.dataset.go)}});
+document.addEventListener('keydown',e=>{if(RU&&/^reu-/.test(view())&&!/^(INPUT|TEXTAREA|BUTTON)$/.test(e.target.tagName)){if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();reuIr(1);return}if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();reuIr(-1);return}if(e.key==='Escape'){irAtras();return}}
+ if((e.key==='Enter'||e.key===' ')&&e.target.classList&&e.target.classList.contains('node')){e.preventDefault();go(e.target.dataset.go)}});
 document.addEventListener('click',e=>{const b=e.target.closest('button,a,[data-go]');if(!b)return;const v=view();
  if(b.tagName==='A'&&b.target==='_blank')return;   // enlaces externos: que los maneje el navegador
- if(b.dataset.orac!==undefined){copiar(ORAC[+b.dataset.orac][0]+'\n\n'+ORAC[+b.dataset.orac][2]);return}
- if(b.dataset.orsit!==undefined){copiar(ORSIT[+b.dataset.orsit][0]+'\n\n'+ORSIT[+b.dataset.orsit][2]);return}
- if(b.id==='msgcop'){const m=msgs().find(x=>x.id===b.dataset.id);if(m)copiar(m.titulo+'\n\n'+(m.texto||'')+'\n\nCáritas Caldas · Pastoral Social, Diócesis de Caldas');return}
+ if(b.dataset.orac!==undefined){const o=ORAC[+b.dataset.orac];compartir(o[0],o[0]+'\n\n'+o[2]);return}
+ if(b.dataset.orsit!==undefined){const o=ORSIT[+b.dataset.orsit];compartir(o[0],o[0]+'\n\n'+o[2]);return}
+ if(b.id==='msgcop'){const m=msgs().find(x=>x.id===b.dataset.id);if(m)compartir(m.titulo,m.titulo+((m.cuando||m.lugar)?'\n'+[m.cuando,m.lugar].filter(Boolean).join(' · '):'')+'\n\n'+(m.texto||'')+'\n\n'+FIRMA);return}
  if(b.id==='buzref'){b.textContent='Buscando…';traerMensajes(n=>{b.textContent=n?('Llegaron '+n):'No hay nada nuevo';setTimeout(()=>{if(view()==='buzon')render()},900)});return}
+ if(b.dataset.leer!==undefined){vozLee(b.dataset.leer);return}
+ if(b.dataset.vz){({p:vozPausa,x:vozPara,v:vozVel})[b.dataset.vz]();return}
  if(b.dataset.back){const d=b.dataset.dest;if(d)go(d);else irAtras();return}
- if(b.dataset.go){go(b.dataset.go);return}
+ if(b.dataset.go){FOCO=b.dataset.foco||'';go(b.dataset.go);return}
+ if(b.dataset.salta){FOCO=b.dataset.salta;foco();return}
+ if(b.dataset.marca){const[k,i]=b.dataset.marca.split(':');S.marca=S.marca||{};if(marcaDe(k)===+i)delete S.marca[k];else S.marca[k]=+i;save();const y=scrollY;render();scrollTo(0,y);return}
+ if(b.dataset.sver){sver=b.dataset.sver;$('#res').innerHTML=results();return}
  if(b.dataset.q){dq=b.dataset.q;dcat='';go('preguntar');return}
  if(b.dataset.cat!==undefined){dcat=b.dataset.cat;$('#dlist').innerHTML=dudaList();document.querySelectorAll('[data-cat]').forEach(x=>x.classList.toggle('sel',x.dataset.cat===dcat));return}
  if(b.dataset.fr!==undefined){frf=b.dataset.fr;render();return}
- if(b.dataset.t){term=b.dataset.t;render();return}
+ if(b.dataset.t){term=b.dataset.t;sver='';render();return}
  if(b.dataset.o!==undefined&&Q&&Q.pick===null){Q.pick=+b.dataset.o;if(Q.qs[Q.i].o[Q.pick].ok)Q.ok++;render();return}
  switch(b.id){
  case'fav':S.fav[v]?delete S.fav[v]:S.fav[v]=1;save();render();break;
@@ -2850,8 +3133,15 @@ document.addEventListener('click',e=>{const b=e.target.closest('button,a,[data-g
  case'fsz':S.fs=S.fs>=1.2?.9:Math.round((S.fs+.1)*10)/10;document.documentElement.style.setProperty('--fs',S.fs);save();break;
  case'flip':side=side?0:1;render();break;
  case'know':case'again':{const f=deck.shift();const cur=S.box[f.id]||{b:0};const nb=b.id==='know'?Math.min(cur.b+1,IV.length-1):0;S.box[f.id]={b:nb,d:today()+(b.id==='know'?IV[nb]:1)};if(!deck.length)deck=null;side=0;save();render();break}
- case'copfi':{copiar(fichaTxt(b.dataset.n));break}
- case'shses':{const txt=sesTxt(+b.dataset.n);copiar(txt);break}
+ case'copfi':{const f=COPFICHAS[+b.dataset.n-1];compartir('Ficha '+b.dataset.n+' · '+f[1],fichaTxt(b.dataset.n));break}
+ case'shses':{compartir('Sesión · '+CAPS[+b.dataset.n-1].t,sesTxt(+b.dataset.n));break}
+ case'shf':{const f=byId[v];if(f)compartir(f.t,fichaComp(f));break}
+ case'shs':{const s=SANTOS[+b.dataset.i];if(s)compartir(s[2],santoComp(s));break}
+ case'reunext':reuIr(1);break;
+ case'reuprev':reuIr(-1);break;
+ case'reugo':reuReloj(!RU.run);render();break;
+ case'reurs':{const D=reuBloques(RU.tp,RU.n);RU.run=false;RU.left=D.B[RU.i].min*60;RU.avis=0;render();break}
+ case'reufs':{const d=document;if(d.fullscreenElement)d.exitFullscreen().catch(()=>{});else d.documentElement.requestFullscreen().catch(()=>{});break}
  case'nxt':Q.i++;Q.pick=null;render();scrollTo(0,0);break;
  case'redo':startQuiz(Q.n);render();break;
   }
