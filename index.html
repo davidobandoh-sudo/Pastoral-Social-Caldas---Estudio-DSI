@@ -2303,6 +2303,7 @@ const ESQ=[
 "Se da la paz sin hablar."]]
 ];
 VCHAY=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+VLHAY=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 /* Un dato distinto cada día. Solo vive en la portada. */
 DATOS=[
 ["La Doctrina Social nació de una carta","En 1891 León XIII tenía 81 años cuando publicó la Rerum novarum, la primera encíclica dedicada a la cuestión obrera. De esa carta arranca todo lo que hoy llamamos Doctrina Social de la Iglesia."],
@@ -3060,7 +3061,7 @@ R.inicio=()=>{const L=LIT.hoy(),pal=palabraHoy(),lec=lecturasCache()[L.fecha]||n
  </div></div>
  ${nueva?'':`<div class="sec"><div class="row"><h3>Pendiente</h3><button class="lnk" data-go="avance">Mi camino · ${T.gen} %</button></div>${P.length?`<div class="stack">${P.map(liCard).join('')}</div>`:'<div class="card sem ok"><div style="font:calc(16.5px*var(--fs))/1.5 var(--read)">No tienes nada a medias. Buen momento para leer algo nuevo o para orar con calma.</div></div>'}</div>`}
  ${sello()}</div>`};
-const VER='2.4';
+const VER='2.5';
 function fichaLlena(n){const f=COPFICHAS[+n-1];if(!f)return false;const v=(S.fich&&S.fich[f[0]])||{};return Object.keys(v).length>0}
 function stats(){
  const totF=FL.length, leidas=FL.filter(f=>S.read[`f-${f.c}-${f.i}`]).length;
@@ -3561,6 +3562,7 @@ R.vialucis=()=>hdr('Vía Lucis')+`<div class="pad fade" style="padding-top:14px"
  <div class="card" style="margin-top:12px"><span class="tag">En cada estación se dice</span><div style="font:calc(16.5px*var(--fs))/1.55 var(--read);margin-top:4px">— Te alabamos, Cristo resucitado.<br>— Porque con tu victoria nos diste la vida.</div></div>
  ${indice('vialucis',VIALUCIS.e.length,'estación')}
  ${VIALUCIS.e.map((e,i)=>`<div class="sec blq${marcaDe('vialucis')===i?' aqui':''}" id="b-${i}"><div class="mhead"><span class="pn">${i+1}</span><div><h3 style="margin:0;font-size:19px">${esc(e[0])}</h3><div class="meta">${esc(e[1])}</div></div></div>
+  ${VLHAY.includes(i)?`<img class="vcimg" src="img/vl-${String(i+1).padStart(2,'0')}.webp" alt="Estación ${i+1}: ${esc(e[0])}" loading="lazy" decoding="async" width="600" height="600">`:''}
   <div class="card"><div style="font:calc(16.5px*var(--fs))/1.55 var(--read)">${esc(e[2])}</div><div class="puente">${esc(e[3])}</div><div class="bpie">${oir('b-'+i,()=>[ORD[i]+' estación. '+e[0]+'.','Te alabamos, Cristo resucitado, porque con tu victoria nos diste la vida.',e[2],e[3]])}${marcaBtn('vialucis',i)}</div></div></div>`).join('')}
  <div class="card pal" style="margin-top:14px"><span class="tag">Al terminar</span><div style="font:italic calc(17px*var(--fs))/1.6 var(--read);margin-top:5px">Se canta o se reza el Gloria, y se pide el Espíritu Santo sobre lo que viene.</div></div>${sello()}</div>`;
 
