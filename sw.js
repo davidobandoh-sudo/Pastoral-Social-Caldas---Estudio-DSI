@@ -5,7 +5,7 @@ const C="caritas-caldas";
 const A=["./","index.html","manifest.webmanifest","icon-192.png","icon-512.png",
 "fonts/dm.woff2","fonts/sans400.woff2","fonts/sans600.woff2","fonts/sans700.woff2",
 "fonts/serif400-i.woff2","fonts/serif400.woff2","fonts/serif500-i.woff2","fonts/serif500.woff2","fonts/serif600.woff2",
-"img/vc-01.webp","img/vc-02.webp","img/vc-03.webp","img/vc-04.webp","img/vc-05.webp","img/vc-06.webp","img/vc-07.webp","img/vc-08.webp","img/vc-09.webp","img/vc-10.webp","img/vc-11.webp","img/vc-13.webp","img/vc-14.webp"];
+"img/vc-01.webp","img/vc-02.webp","img/vc-03.webp","img/vc-04.webp","img/vc-05.webp","img/vc-06.webp","img/vc-07.webp","img/vc-08.webp","img/vc-09.webp","img/vc-10.webp","img/vc-11.webp","img/vc-12.webp","img/vc-13.webp","img/vc-14.webp"];
 
 self.addEventListener("install",e=>{
   e.waitUntil(caches.open(C).then(c=>c.addAll(A)).then(()=>self.skipWaiting()));
