@@ -2303,7 +2303,7 @@ const ESQ=[
 "Se da la paz sin hablar."]]
 ];
 VCHAY=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
-VLHAY=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+VLHAY=[0,1,2,3,4,5,6,7,8,9,10,11,12,13];
 /* Un dato distinto cada día. Solo vive en la portada. */
 DATOS=[
 ["La Doctrina Social nació de una carta","En 1891 León XIII tenía 81 años cuando publicó la Rerum novarum, la primera encíclica dedicada a la cuestión obrera. De esa carta arranca todo lo que hoy llamamos Doctrina Social de la Iglesia."],
@@ -3061,7 +3061,7 @@ R.inicio=()=>{const L=LIT.hoy(),pal=palabraHoy(),lec=lecturasCache()[L.fecha]||n
  </div></div>
  ${nueva?'':`<div class="sec"><div class="row"><h3>Pendiente</h3><button class="lnk" data-go="avance">Mi camino · ${T.gen} %</button></div>${P.length?`<div class="stack">${P.map(liCard).join('')}</div>`:'<div class="card sem ok"><div style="font:calc(16.5px*var(--fs))/1.5 var(--read)">No tienes nada a medias. Buen momento para leer algo nuevo o para orar con calma.</div></div>'}</div>`}
  ${sello()}</div>`};
-const VER='2.5';
+const VER='2.6';
 function fichaLlena(n){const f=COPFICHAS[+n-1];if(!f)return false;const v=(S.fich&&S.fich[f[0]])||{};return Object.keys(v).length>0}
 function stats(){
  const totF=FL.length, leidas=FL.filter(f=>S.read[`f-${f.c}-${f.i}`]).length;
@@ -3498,25 +3498,38 @@ function novDia(n){const d=NOVENA.dias.find(x=>x[0]===+n);if(!d)return R.novena(
 /* ================= ADVIENTO =================
    Camino de oración del 29 de noviembre al 24 de diciembre (ciclo B). Datos en d18.js.
    La corona se dibuja con las velas que corresponden al domingo en curso. */
-function corona(n,W=320,mini=false){const H=mini?150:190,cx=160,cy=mini?112:146,rx=mini?104:112,ry=mini?27:30,r=rng(4242);
- const ANG=[205,295,25,115],COL=[['#4a2a76','#7f52c2','#ab86de'],['#4a2a76','#7f52c2','#ab86de'],['#a9507a','#e18fb4','#f7c6da'],['#4a2a76','#7f52c2','#ab86de']];
- let atras='',frente='',ramas='';
- for(let k=0;k<150;k++){const t=k/150*Math.PI*2+(r()-.5)*.05,off=(r()-.5)*30,x=cx+(rx+off)*Math.cos(t),y=cy+(ry+off*.3)*Math.sin(t),
-  ang=Math.atan2(ry*Math.cos(t),-rx*Math.sin(t))*180/Math.PI+(r()-.5)*80,c=['#1f4d33','#2e6b42','#3f8452','#265b3a','#4c9459'][Math.floor(r()*5)],
-  s=`<ellipse cx="${_f(x)}" cy="${_f(y)}" rx="${_f(11+r()*5)}" ry="${_f(3.6+r()*1.6)}" fill="${c}" transform="rotate(${_f(ang)} ${_f(x)} ${_f(y)})"/>`;
-  if(Math.sin(t)<0)atras+=s;else frente+=s;
-  if(r()<.13){const b=`<circle cx="${_f(x+(r()-.5)*6)}" cy="${_f(y+(r()-.5)*4)}" r="${_f(2.4+r()*1.2)}" fill="#c0262d"/><circle cx="${_f(x-.8)}" cy="${_f(y-.8)}" r=".9" fill="#f5a4a4"/>`;if(Math.sin(t)<0)atras+=b;else frente+=b}}
- for(let k=0;k<26;k++){const t=k/26*Math.PI*2+.1,x=cx+(rx+6)*Math.cos(t),y=cy+(ry+3)*Math.sin(t);if(Math.sin(t)>.2)ramas+=`<ellipse cx="${_f(x)}" cy="${_f(y+2)}" rx="${_f(10+r()*3)}" ry="3.4" fill="${['#2e6b42','#3f8452','#1f4d33'][k%3]}" transform="rotate(${_f(Math.atan2(ry*Math.cos(t),-rx*Math.sin(t))*180/Math.PI+(r()-.5)*50)} ${_f(x)} ${_f(y)})"/>`}
- const vela=k=>{const a=ANG[k]*Math.PI/180,x=cx+rx*Math.cos(a),y=cy+ry*Math.sin(a)-2,lit=k<n,h=(mini?50:64)-(lit?(n-k-1)*5:0),w=mini?16:19,C=COL[k],id='cv'+k+(mini?'m':'');
-  return `<g><linearGradient id="${id}" x1="0" x2="1"><stop offset="0" stop-color="${C[0]}"/><stop offset=".45" stop-color="${C[1]}"/><stop offset=".7" stop-color="${C[2]}"/><stop offset="1" stop-color="${C[0]}"/></linearGradient>
-  <rect x="${_f(x-w/2)}" y="${_f(y-h)}" width="${w}" height="${h}" rx="2" fill="url(#${id})"/><ellipse cx="${_f(x)}" cy="${_f(y-h)}" rx="${_f(w/2)}" ry="2.6" fill="${C[2]}"/>
-  <path d="M${_f(x+w*.18)} ${_f(y-h+1)}q2.2 6 .4 11q-1.2 2-2-1q-.6-5 1.6-10z" fill="${C[2]}" opacity=".85"/><path d="M${_f(x)} ${_f(y-h)}v-5" stroke="#2a1c12" stroke-width="1.4" stroke-linecap="round"/>
-  ${lit?`<circle class="halo2" style="animation-delay:-${k*.7}s" cx="${_f(x)}" cy="${_f(y-h-13)}" r="${mini?22:30}" fill="url(#llg)"/><g class="llama" style="animation-delay:-${k*.45}s"><path d="M${_f(x)} ${_f(y-h-3)}c6-4 5-11 0-22c-5 11-6 18 0 22z" fill="url(#llf)"/><path d="M${_f(x)} ${_f(y-h-4)}c2.6-2 2.4-6 0-11c-2.4 5-2.6 9 0 11z" fill="#fffbe6"/></g>`:''}</g>`};
+function corona(n,W=320,mini=false){const H=mini?160:200,cx=160,cy=mini?120:152,rx=mini?106:114,ry=mini?27:30,r=rng(4242),sf=mini?'m':'';
+ const ANG=[205,295,25,115],COL=[['#2e1850','#5b3596','#9a74d6','#c7aef0'],['#2e1850','#5b3596','#9a74d6','#c7aef0'],['#7a2c52','#c4628f','#eda0c3','#fbd6e6'],['#2e1850','#5b3596','#9a74d6','#c7aef0']];
+ const tang=t=>Math.atan2(ry*Math.cos(t),-rx*Math.sin(t))*180/Math.PI;
+ const hoja=(x,y,a,L,w,c1,c2)=>`<g transform="translate(${_f(x)} ${_f(y)}) rotate(${_f(a)})"><path d="M0 0C${_f(L*.3)} ${_f(-w)} ${_f(L*.7)} ${_f(-w)} ${_f(L)} 0C${_f(L*.7)} ${_f(w)} ${_f(L*.3)} ${_f(w)} 0 0Z" fill="${c1}"/><path d="M0 0C${_f(L*.3)} ${_f(-w)} ${_f(L*.7)} ${_f(-w)} ${_f(L)} 0Q${_f(L*.5)} ${_f(-w*.15)} 0 0Z" fill="${c2}"/></g>`;
+ let atras='',frente='';
+ const pon=(t,s)=>{if(Math.sin(t)<0)atras+=s;else frente+=s};
+ for(let k=0;k<190;k++){const t=k/190*Math.PI*2+(r()-.5)*.06,off=(r()-.5)*30,x=cx+(rx+off)*Math.cos(t),y=cy+(ry+off*.3)*Math.sin(t)-r()*4,
+  sh=Math.sin(t)<0?.68:1,L=15+r()*8,w=3.6+r()*2,i=Math.floor(r()*4),
+  base=[['#2f6b3f','#5aa564'],['#3b7d48','#73ba74'],['#285f39','#54a05d'],['#468c4d','#86c77f']][i];
+  pon(t,hoja(x,y,tang(t)+(r()-.5)*90+(r()<.5?180:0),L,w,mez(base[0],'#000000',1-sh),mez(base[1],'#000000',(1-sh)*.8)))}
+ for(let k=0;k<5;k++){const t=(k/5)*Math.PI*2+.6,x=cx+(rx+4)*Math.cos(t),y=cy+(ry+2)*Math.sin(t)-2,s=`<g transform="translate(${_f(x)} ${_f(y)}) rotate(${_f(tang(t)+90)})"><ellipse rx="5.4" ry="8" fill="#6b4126"/>${[-4,0,4].map(v=>`<path d="M-4.6 ${v}q4.6 3 9.2 0" fill="none" stroke="#3d2414" stroke-width="1.1"/>`).join('')}<ellipse cx="-1.6" cy="-3" rx="1.6" ry="2.6" fill="#9a6a44" opacity=".7"/></g>`;pon(t,s)}
+ for(let k=0;k<22;k++){const t=r()*Math.PI*2,x=cx+(rx+(r()-.5)*20)*Math.cos(t),y=cy+(ry+(r()-.5)*6)*Math.sin(t)-3,rr=2.4+r()*1.3,
+  s=`<circle cx="${_f(x)}" cy="${_f(y)}" r="${_f(rr)}" fill="${Math.sin(t)<0?'#8e1b22':'#c3252e'}"/><circle cx="${_f(x-rr*.35)}" cy="${_f(y-rr*.35)}" r="${_f(rr*.35)}" fill="#ffd1d1" opacity=".75"/>`;pon(t,s)}
+ const vela=k=>{const a=ANG[k]*Math.PI/180,x=cx+rx*Math.cos(a),y=cy+ry*Math.sin(a)-3,lit=k<n,wk=lit?n-k:0,
+  w=mini?17:21,h0=mini?66:82,h=h0-(wk>0?(wk-1)*(mini?11:14)+3:0),C=COL[k],id='cv'+k+sf,top=y-h,rw=w/2;
+  let drips='';if(wk>0){const nd=1+wk*2,rg=rng(91+k*7);for(let j=0;j<nd;j++){const dx=-rw*.8+rg()*rw*1.6,len=4+rg()*(5+wk*5);
+   drips+=`<path d="M${_f(x+dx-1.6)} ${_f(top+1)}v${_f(len)}a1.6 1.6 0 0 0 3.2 0v-${_f(len)}z" fill="${C[3]}" opacity="${(.55+rg()*.35).toFixed(2)}"/>`}}
+  const charco=wk>1?`<ellipse cx="${_f(x+2)}" cy="${_f(y+1)}" rx="${_f(rw+3+wk*2.2)}" ry="${_f(2.4+wk*.7)}" fill="${C[2]}" opacity=".85"/>`:'';
+  return `<g><defs><linearGradient id="${id}" x1="0" x2="1"><stop offset="0" stop-color="${C[0]}"/><stop offset=".3" stop-color="${C[2]}"/><stop offset=".42" stop-color="${C[3]}"/><stop offset=".62" stop-color="${C[1]}"/><stop offset="1" stop-color="${C[0]}"/></linearGradient>
+  <linearGradient id="${id}l" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffcf7a" stop-opacity=".55"/><stop offset="1" stop-color="#ffcf7a" stop-opacity="0"/></linearGradient></defs>
+  <ellipse cx="${_f(x+6)}" cy="${_f(y+2)}" rx="${_f(rw+6)}" ry="3.6" fill="#000" opacity=".35"/>${charco}
+  <rect x="${_f(x-rw)}" y="${_f(top)}" width="${w}" height="${_f(h)}" fill="url(#${id})"/><ellipse cx="${_f(x)}" cy="${_f(y)}" rx="${_f(rw)}" ry="2.6" fill="${C[0]}"/>
+  ${lit?`<rect x="${_f(x-rw)}" y="${_f(top)}" width="${w}" height="${_f(Math.min(h,26))}" fill="url(#${id}l)"/>`:''}
+  <ellipse cx="${_f(x)}" cy="${_f(top)}" rx="${_f(rw)}" ry="3" fill="${C[2]}"/>${wk>0?`<ellipse cx="${_f(x)}" cy="${_f(top+.4)}" rx="${_f(rw*.72)}" ry="1.9" fill="${C[3]}"/><ellipse cx="${_f(x)}" cy="${_f(top+.6)}" rx="${_f(rw*.5)}" ry="1.2" fill="#fff4e0" opacity=".55"/>`:''}${drips}
+  <path d="M${_f(x)} ${_f(top)}q-.6-3 .3-6" stroke="${lit?'#1a120c':'#3b2a1e'}" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  ${lit?`<circle class="halo2" style="animation-delay:-${k*.7}s" cx="${_f(x)}" cy="${_f(top-14)}" r="${mini?24:34}" fill="url(#llg)"/><g class="llama" style="animation-delay:-${k*.45}s"><path d="M${_f(x)} ${_f(top-3)}c7.5-5 6-13 0-25c-6 12-7.5 20 0 25z" fill="url(#llf)"/><path d="M${_f(x)} ${_f(top-4)}c3.2-2.4 3-7 0-13c-3 6-3.2 10.6 0 13z" fill="#fffbe8"/><ellipse cx="${_f(x)}" cy="${_f(top-4.5)}" rx="2.2" ry="2.6" fill="#7fb4ff" opacity=".6"/></g>`:''}</g>`};
  const orden=[0,1,2,3].sort((a,b)=>Math.sin(ANG[a]*Math.PI/180)-Math.sin(ANG[b]*Math.PI/180));
  const atr=orden.filter(k=>Math.sin(ANG[k]*Math.PI/180)<0),fre=orden.filter(k=>Math.sin(ANG[k]*Math.PI/180)>=0);
- return `<svg class="corona" viewBox="0 0 ${W} ${H}" role="img" aria-label="Corona de Adviento con ${n===0?'ninguna vela encendida':n===1?'una vela encendida':n+' velas encendidas'}"><defs><radialGradient id="llg"><stop offset="0" stop-color="#ffd27a" stop-opacity=".75"/><stop offset=".5" stop-color="#ff9d3d" stop-opacity=".22"/><stop offset="1" stop-color="#ff9d3d" stop-opacity="0"/></radialGradient><linearGradient id="llf" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#ff7a1a"/><stop offset=".55" stop-color="#ffb347"/><stop offset="1" stop-color="#fff1b8"/></linearGradient></defs>
- ${n>0?`<ellipse cx="${cx}" cy="${cy-30}" rx="${rx+40}" ry="${ry+60}" fill="url(#llg)" opacity="${(.25+n*.12).toFixed(2)}"/>`:''}
- <ellipse cx="${cx}" cy="${cy+8}" rx="${rx+22}" ry="${ry+10}" fill="#000" opacity=".28"/>${atras}${atr.map(vela).join('')}${frente}${fre.map(vela).join('')}${ramas}</svg>`}
+ return `<svg class="corona" viewBox="0 0 ${W} ${H}" role="img" aria-label="Corona de Adviento con ${n===0?'ninguna vela encendida':n===1?'una vela encendida':n+' velas encendidas'}"><defs><radialGradient id="llg"><stop offset="0" stop-color="#ffd27a" stop-opacity=".8"/><stop offset=".45" stop-color="#ff9d3d" stop-opacity=".22"/><stop offset="1" stop-color="#ff9d3d" stop-opacity="0"/></radialGradient><linearGradient id="llf" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#ff6a14"/><stop offset=".5" stop-color="#ffae3e"/><stop offset="1" stop-color="#fff0b0"/></linearGradient><radialGradient id="mesa${sf}" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#000" stop-opacity=".5"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient></defs>
+ ${n>0?`<ellipse cx="${cx}" cy="${cy-38}" rx="${rx+50}" ry="${ry+70}" fill="url(#llg)" opacity="${(.22+n*.13).toFixed(2)}"/>`:''}
+ <ellipse cx="${cx}" cy="${cy+10}" rx="${rx+34}" ry="${ry+16}" fill="url(#mesa${sf})"/><ellipse cx="${cx}" cy="${cy+2}" rx="${rx+6}" ry="${ry+8}" fill="#1c3a25"/><ellipse cx="${cx}" cy="${cy}" rx="${rx-14}" ry="${ry-7}" fill="#1a1028" opacity=".9"/>
+ ${atras}${atr.map(vela).join('')}${frente}${fre.map(vela).join('')}</svg>`}
 const ADV={d:ADVIENTO.dias,N:ADVIENTO.dias.length};
 function advEstado(){const h=ISO(new Date()),i=ADV.d.findIndex(x=>x.f===h);
  const ini=new Date(ADV.d[0].f+'T00:00:00'),fin=new Date(ADV.d[ADV.N-1].f+'T23:59:59'),ahora=new Date();
