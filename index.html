@@ -232,6 +232,7 @@ mark{background:var(--goldbg);color:inherit}
 .santo .sb p{font:calc(16.5px*var(--fs))/1.45 var(--read);margin:8px 0 0}
 .sadot{width:46px;flex:none;border-radius:10px;overflow:hidden;display:flex}
 .santohero{max-width:190px;margin:0 auto;filter:drop-shadow(0 6px 22px rgba(0,0,0,.18))}
+.stimg{display:block;width:100%;max-width:300px;height:auto;aspect-ratio:1/1;margin:0 auto;border-radius:16px;background:var(--pap);box-shadow:0 2px 10px rgba(0,0,0,.16);object-fit:cover}
 .card.li.hoyx{border-color:var(--gold);background:var(--goldbg)}
 .card.pal q{quotes:none;display:block;font:italic 500 calc(19px*var(--fs))/1.4 var(--read);margin:5px 0 7px}
 .card.pal{background:var(--goldbg);border-color:transparent}
@@ -2948,6 +2949,8 @@ function santoHoy(){const d=new Date(),m=d.getMonth()+1,dd=d.getDate(),k=m*100+d
 const MES=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
 /* Orden litúrgico por fecha. Se indexa aparte para no mover SANTOS: los
    identificadores santo-N ya están guardados en lo que la gente leyó. */
+/* Retratos ilustrados disponibles, por nombre del santo. */
+const SANTOIMG={'San Antonio Abad':'01','San Francisco de Sales':'02','Santo Tomás de Aquino':'03','San Juan Bosco':'04'};
 const SORD=SANTOS.map((s,i)=>i).sort((a,b)=>SANTOS[a][0]-SANTOS[b][0]||SANTOS[a][1]-SANTOS[b][1]||SANTOS[a][2].localeCompare(SANTOS[b][2],'es'));
 const SPOS={};SORD.forEach((idx,p)=>{SPOS[idx]=p});
 const palabraHoy=()=>PALABRA[diaDelAno()%PALABRA.length];
@@ -3061,7 +3064,7 @@ R.inicio=()=>{const L=LIT.hoy(),pal=palabraHoy(),lec=lecturasCache()[L.fecha]||n
  </div></div>
  ${nueva?'':`<div class="sec"><div class="row"><h3>Pendiente</h3><button class="lnk" data-go="avance">Mi camino · ${T.gen} %</button></div>${P.length?`<div class="stack">${P.map(liCard).join('')}</div>`:'<div class="card sem ok"><div style="font:calc(16.5px*var(--fs))/1.5 var(--read)">No tienes nada a medias. Buen momento para leer algo nuevo o para orar con calma.</div></div>'}</div>`}
  ${sello()}</div>`};
-const VER='2.6';
+const VER='2.7';
 function fichaLlena(n){const f=COPFICHAS[+n-1];if(!f)return false;const v=(S.fich&&S.fich[f[0]])||{};return Object.keys(v).length>0}
 function stats(){
  const totF=FL.length, leidas=FL.filter(f=>S.read[`f-${f.c}-${f.i}`]).length;
@@ -3593,7 +3596,7 @@ function santoView(m,dd){const s=(dd===undefined)?SANTOS[+m]:SANTOS.find(x=>x[0]
  S.read['santo-'+SANTOS.indexOf(s)]=1;save();
  const V=SVIDA[s[2]]||null,i=SANTOS.indexOf(s),p=SPOS[i],pr=SANTOS[SORD[(p-1+SORD.length)%SORD.length]],sg=SANTOS[SORD[(p+1)%SORD.length]];
  return hdr('Santo')+`<div class="pad fade" style="padding-top:14px">
- <div class="santohero">${santoArt(s,'big')}</div>
+ ${SANTOIMG[s[2]]?`<img class="stimg" src="img/st-${SANTOIMG[s[2]]}.webp" alt="${esc(s[2])}" loading="lazy" decoding="async" width="600" height="600">`:`<div class="santohero">${santoArt(s,'big')}</div>`}
  <div class="eyebrow" style="text-align:center;margin-top:10px">${s[1]} de ${MES[s[0]-1]}${V?' · '+esc(V.d):''}</div>
  <h1 style="font-size:30px;text-align:center;margin:4px 0 2px">${esc(s[2])}</h1>
  <p class="ask" style="text-align:center">${esc(s[3])}</p>
