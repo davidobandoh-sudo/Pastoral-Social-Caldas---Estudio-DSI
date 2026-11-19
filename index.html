@@ -2950,7 +2950,7 @@ const MES=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','se
 /* Orden litúrgico por fecha. Se indexa aparte para no mover SANTOS: los
    identificadores santo-N ya están guardados en lo que la gente leyó. */
 /* Retratos ilustrados disponibles, por nombre del santo. */
-const SANTOIMG={'San Antonio Abad':'01','San Francisco de Sales':'02','Santo Tomás de Aquino':'03','San Juan Bosco':'04','Santa Josefina Bakhita':'05','Nuestra Señora de Lourdes':'06','San Juan de Dios':'07','San José':'08','Santo Toribio de Mogrovejo':'09','San Óscar Romero':'10','Santa Catalina de Siena':'11','San José Obrero':'12','San Felipe Neri':'13','San Antonio de Padua':'14','San Luis Gonzaga':'15','San Pedro y San Pablo':'16','San Pier Giorgio Frassati':'17'};
+const SANTOIMG={'San Antonio Abad':'01','San Francisco de Sales':'02','Santo Tomás de Aquino':'03','San Juan Bosco':'04','Santa Josefina Bakhita':'05','Nuestra Señora de Lourdes':'06','San Juan de Dios':'07','San José':'08','Santo Toribio de Mogrovejo':'09','San Óscar Romero':'10','Santa Catalina de Siena':'11','San José Obrero':'12','San Felipe Neri':'13','San Antonio de Padua':'14','San Luis Gonzaga':'15','San Pedro y San Pablo':'16','San Pier Giorgio Frassati':'17','San Benito':'18','Nuestra Señora del Carmen':'19','Santa María Magdalena':'20','Santiago Apóstol':'21','San Juan María Vianney':'22','Santa Clara de Asís':'23'};
 const SORD=SANTOS.map((s,i)=>i).sort((a,b)=>SANTOS[a][0]-SANTOS[b][0]||SANTOS[a][1]-SANTOS[b][1]||SANTOS[a][2].localeCompare(SANTOS[b][2],'es'));
 const SPOS={};SORD.forEach((idx,p)=>{SPOS[idx]=p});
 const palabraHoy=()=>PALABRA[diaDelAno()%PALABRA.length];
@@ -3064,7 +3064,7 @@ R.inicio=()=>{const L=LIT.hoy(),pal=palabraHoy(),lec=lecturasCache()[L.fecha]||n
  </div></div>
  ${nueva?'':`<div class="sec"><div class="row"><h3>Pendiente</h3><button class="lnk" data-go="avance">Mi camino · ${T.gen} %</button></div>${P.length?`<div class="stack">${P.map(liCard).join('')}</div>`:'<div class="card sem ok"><div style="font:calc(16.5px*var(--fs))/1.5 var(--read)">No tienes nada a medias. Buen momento para leer algo nuevo o para orar con calma.</div></div>'}</div>`}
  ${sello()}</div>`};
-const VER='2.8';
+const VER='2.9';
 function fichaLlena(n){const f=COPFICHAS[+n-1];if(!f)return false;const v=(S.fich&&S.fich[f[0]])||{};return Object.keys(v).length>0}
 function stats(){
  const totF=FL.length, leidas=FL.filter(f=>S.read[`f-${f.c}-${f.i}`]).length;
